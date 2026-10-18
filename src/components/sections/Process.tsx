@@ -38,15 +38,15 @@ export const Process = () => {
         {/* Timeline with Center Progress Line */}
         <div className="relative">
           {/* Background vertical track line */}
-          <div className="absolute left-4 sm:left-1/2 top-4 bottom-4 w-[2px] bg-slate-200 dark:bg-white/10 -translate-x-1/2" />
+          <div className="absolute left-3.5 sm:left-1/2 top-4 bottom-4 w-[2px] bg-slate-200 dark:bg-white/10 -translate-x-1/2" />
 
           {/* Filling vertical progress line */}
           <motion.div
             style={{ height: lineHeight }}
-            className="absolute left-4 sm:left-1/2 top-4 w-[3px] bg-[#1D5BD8] -translate-x-1/2 origin-top"
+            className="absolute left-3.5 sm:left-1/2 top-4 w-[3px] bg-[#1D5BD8] -translate-x-1/2 origin-top"
           />
 
-          <div className="space-y-12 sm:space-y-16">
+          <div className="space-y-10 sm:space-y-16">
             {processSteps.map((step, idx) => {
               const isEven = idx % 2 === 1; // 0 is odd in 1-based (Step 1), 1 is even (Step 2)
               const entersFromLeft = !isEven;
@@ -59,7 +59,7 @@ export const Process = () => {
                   }`}
                 >
                   {/* Timeline Node Badge in the middle */}
-                  <div className="absolute left-4 sm:left-1/2 -translate-x-1/2 z-10 w-9 h-9 rounded-full bg-[#FFFFFF] dark:bg-[#0F1B3A] border-2 border-blue-500 shadow-md flex items-center justify-center text-xs font-bold font-heading text-slate-900 dark:text-white">
+                  <div className="absolute left-3.5 sm:left-1/2 -translate-x-1/2 z-10 w-7 h-7 sm:w-9 sm:h-9 rounded-full bg-[#FFFFFF] dark:bg-[#0F1B3A] border-2 border-blue-500 shadow-md flex items-center justify-center text-[11px] sm:text-xs font-bold font-heading text-slate-900 dark:text-white">
                     {step.step}
                   </div>
 
@@ -67,19 +67,19 @@ export const Process = () => {
                   <motion.div
                     initial={{
                       opacity: 0,
-                      x: entersFromLeft ? -50 : 50,
+                      x: entersFromLeft ? -20 : 20,
                     }}
                     whileInView={{
                       opacity: 1,
                       x: 0,
                     }}
                     viewport={{ once: true, margin: "-60px" }}
-                    transition={{ duration: 0.75, ease: smoothEase }}
-                    className={`ml-12 sm:ml-0 sm:w-1/2 ${
+                    transition={{ duration: 0.6, ease: smoothEase }}
+                    className={`pl-8 sm:pl-0 sm:w-1/2 ${
                       isEven ? "sm:pl-12" : "sm:pr-12"
-                    } w-full`}
+                    } w-full min-w-0`}
                   >
-                    <div className="p-7 rounded-xl bg-[#FFFFFF] dark:bg-[#0F1B3A] border border-slate-200 dark:border-white/10 shadow-sm hover:shadow-md transition-shadow">
+                    <div className="p-5 sm:p-7 rounded-xl bg-[#FFFFFF] dark:bg-[#0F1B3A] border border-slate-200 dark:border-white/10 shadow-sm hover:shadow-md transition-shadow">
                       <div className="flex items-center justify-between gap-3 mb-3">
                         <span className="text-xs font-bold text-emerald-600 dark:text-emerald-400 uppercase tracking-wider">
                           Langkah {step.step}
