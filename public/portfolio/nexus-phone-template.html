@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; }
+    body {
+      width: 1440px;
+      height: 900px;
+      background: radial-gradient(circle at 85% 15%, #1e1b4b 0%, #030712 55%, #02040a 100%);
+      color: #f8fafc;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+    /* Browser Bar */
+    .browser-bar {
+      height: 48px;
+      background: #090d16;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+      display: flex;
+      align-items: center;
+      padding: 0 20px;
+      gap: 16px;
+    }
+    .dots { display: flex; gap: 8px; }
+    .dot { width: 12px; height: 12px; border-radius: 50%; }
+    .dot-red { background: #ef4444; }
+    .dot-yellow { background: #f59e0b; }
+    .dot-green { background: #10b981; }
+    .url-bar {
+      flex: 1;
+      max-width: 560px;
+      margin: 0 auto;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 8px;
+      padding: 6px 16px;
+      font-size: 13px;
+      color: #94a3b8;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .url-bar span { color: #38bdf8; font-weight: 600; }
+
+    /* Web Header */
+    .nav {
+      height: 74px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 54px;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+      backdrop-filter: blur(12px);
+      background: rgba(3, 7, 18, 0.45);
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 24px;
+      font-weight: 900;
+      letter-spacing: -0.5px;
+    }
+    .brand-icon {
+      width: 40px;
+      height: 40px;
+      background: linear-gradient(135deg, #0284c7, #2563eb);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 0 20px rgba(37,99,235,0.6);
+      font-size: 20px;
+    }
+    .brand-title {
+      background: linear-gradient(to right, #ffffff, #cbd5e1);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .brand-title span {
+      background: linear-gradient(to right, #38bdf8, #60a5fa);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .menu {
+      display: flex;
+      gap: 32px;
+      font-size: 14px;
+      font-weight: 600;
+      color: #94a3b8;
+    }
+    .menu a { text-decoration: none; color: inherit; }
+    .menu a.active { color: #38bdf8; }
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+    .search-btn {
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.12);
+      padding: 8px 18px;
+      border-radius: 9999px;
+      font-size: 13px;
+      color: #cbd5e1;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .cta-wa {
+      background: linear-gradient(135deg, #2563eb, #1d4ed8);
+      color: white;
+      padding: 9px 20px;
+      border-radius: 9999px;
+      font-size: 13px;
+      font-weight: 700;
+      box-shadow: 0 4px 14px rgba(37,99,235,0.4);
+    }
+
+    /* Main Content */
+    .hero {
+      flex: 1;
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      padding: 40px 54px;
+      gap: 40px;
+      align-items: center;
+      position: relative;
+    }
+    .badge-rating {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(245, 158, 11, 0.12);
+      border: 1px solid rgba(245, 158, 11, 0.3);
+      padding: 6px 14px;
+      border-radius: 9999px;
+      font-size: 13px;
+      font-weight: 700;
+      color: #fbbf24;
+      margin-bottom: 20px;
+    }
+    .hero h1 {
+      font-size: 48px;
+      font-weight: 900;
+      line-height: 1.15;
+      letter-spacing: -1.2px;
+      margin-bottom: 20px;
+      color: #ffffff;
+    }
+    .hero h1 .gradient {
+      background: linear-gradient(135deg, #38bdf8 0%, #3b82f6 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .hero p {
+      font-size: 16px;
+      color: #94a3b8;
+      line-height: 1.6;
+      max-width: 580px;
+      margin-bottom: 30px;
+    }
+    .hero-buttons {
+      display: flex;
+      gap: 16px;
+      margin-bottom: 36px;
+    }
+    .btn-primary {
+      background: linear-gradient(135deg, #0284c7, #2563eb);
+      color: white;
+      font-weight: 700;
+      font-size: 15px;
+      padding: 13px 28px;
+      border-radius: 12px;
+      box-shadow: 0 10px 25px -5px rgba(2, 132, 199, 0.5);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .btn-secondary {
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.15);
+      color: #f1f5f9;
+      font-weight: 700;
+      font-size: 15px;
+      padding: 13px 24px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .guarantees {
+      display: flex;
+      gap: 24px;
+      font-size: 13px;
+      font-weight: 600;
+      color: #cbd5e1;
+    }
+    .guarantee-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .check-icon {
+      width: 18px;
+      height: 18px;
+      background: #10b981;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 11px;
+      font-weight: 900;
+      color: #030712;
+    }
+
+    /* Right Showcase Card */
+    .showcase-card {
+      background: linear-gradient(145deg, rgba(30, 41, 59, 0.7), rgba(15, 23, 42, 0.9));
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 24px;
+      padding: 26px;
+      box-shadow: 0 25px 50px -12px rgba(0,0,0,0.7), 0 0 40px rgba(56, 189, 248, 0.15);
+      position: relative;
+    }
+    .badge-top {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 16px;
+    }
+    .tag-hot {
+      background: rgba(239, 68, 68, 0.2);
+      border: 1px solid rgba(239, 68, 68, 0.4);
+      color: #fca5a5;
+      font-size: 11px;
+      font-weight: 800;
+      padding: 4px 10px;
+      border-radius: 6px;
+      text-transform: uppercase;
+    }
+    .tag-stock {
+      background: rgba(16, 185, 129, 0.2);
+      border: 1px solid rgba(16, 185, 129, 0.4);
+      color: #6ee7b7;
+      font-size: 11px;
+      font-weight: 800;
+      padding: 4px 10px;
+      border-radius: 6px;
+    }
+    .phone-visual {
+      height: 250px;
+      background: radial-gradient(circle at center, rgba(56, 189, 248, 0.18) 0%, transparent 70%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+    /* Realistic CSS Smartphone Mockup */
+    .phone-mockup {
+      width: 145px;
+      height: 236px;
+      background: #18181b;
+      border-radius: 28px;
+      border: 4px solid #3f3f46;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.8), 0 0 30px rgba(56, 189, 248, 0.35);
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .island {
+      width: 46px;
+      height: 12px;
+      background: #000;
+      border-radius: 20px;
+      margin-top: 6px;
+      z-index: 5;
+    }
+    .screen-content {
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(145deg, #1e3a8a 0%, #0c1222 60%, #030712 100%);
+      margin-top: -6px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      color: white;
+    }
+    .screen-icon {
+      font-size: 34px;
+      margin-bottom: 6px;
+      filter: drop-shadow(0 0 10px rgba(56, 189, 248, 0.8));
+    }
+    .screen-logo {
+      font-size: 17px;
+      font-weight: 900;
+      color: #38bdf8;
+      letter-spacing: -0.5px;
+    }
+    .screen-sub {
+      font-size: 9px;
+      color: #94a3b8;
+      margin-top: 3px;
+    }
+
+    .phone-detail {
+      margin-top: 16px;
+      border-top: 1px solid rgba(255,255,255,0.08);
+      padding-top: 16px;
+    }
+    .product-name {
+      font-size: 18px;
+      font-weight: 800;
+      color: #ffffff;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .product-price {
+      font-size: 22px;
+      font-weight: 900;
+      color: #38bdf8;
+      margin-top: 6px;
+    }
+    .product-sub {
+      font-size: 12px;
+      color: #64748b;
+      text-decoration: line-through;
+      margin-left: 8px;
+    }
+    .specs-row {
+      display: flex;
+      gap: 8px;
+      margin-top: 14px;
+    }
+    .spec-chip {
+      background: rgba(255,255,255,0.06);
+      padding: 6px 12px;
+      border-radius: 8px;
+      font-size: 11px;
+      font-weight: 600;
+      color: #cbd5e1;
+    }
+  </style>
+</head>
+<body>
+  <!-- Browser top chrome -->
+  <div class="browser-bar">
+    <div class="dots">
+      <div class="dot dot-red"></div>
+      <div class="dot dot-yellow"></div>
+      <div class="dot dot-green"></div>
+    </div>
+    <div class="url-bar">
+      <span>https://</span>nexusphone.store/katalog-resmi
+    </div>
+  </div>
+
+  <!-- Web Navigation -->
+  <header class="nav">
+    <div class="brand">
+      <div class="brand-icon">📱</div>
+      <div class="brand-title">NEXUS<span>PHONE</span></div>
+    </div>
+    <div class="menu">
+      <a href="#" class="active">Katalog Flagship</a>
+      <a href="#">iPhone Series</a>
+      <a href="#">Android Premium</a>
+      <a href="#">Tukar Tambah</a>
+      <a href="#">Cek Servis & Garansi</a>
+    </div>
+    <div class="nav-actions">
+      <div class="search-btn">🔍 Cari Model Smartphone...</div>
+      <div class="cta-wa">Direct WhatsApp</div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <main class="hero">
+    <div>
+      <div class="badge-rating">
+        <span>⭐ 4.9/5 dari 2.400+ Pelanggan Terverifikasi</span>
+      </div>
+      <h1>
+        Pusat Smartphone Flagship & Gadget <span class="gradient">Bergaransi Resmi</span>
+      </h1>
+      <p>
+        Platform katalog retail modern untuk iPhone, Samsung Galaxy Ultra, dan Xiaomi flagship. Seluruh unit telah lolos <strong>35+ titik uji teknis laboratorium</strong> dengan jaminan garansi toko, opsi tukar tambah instan, dan COD aman.
+      </p>
+
+      <div class="hero-buttons">
+        <div class="btn-primary">
+          <span>Lihat Semua Unit HP</span>
+          <span>→</span>
+        </div>
+        <div class="btn-secondary">
+          <span>🔍 Cek Status Servis & IMEI</span>
+        </div>
+      </div>
+
+      <div class="guarantees">
+        <div class="guarantee-item">
+          <div class="check-icon">✓</div>
+          <span>Garansi Resmi & Toko Terjamin</span>
+        </div>
+        <div class="guarantee-item">
+          <div class="check-icon">✓</div>
+          <span>Terima Tukar Tambah HP</span>
+        </div>
+        <div class="guarantee-item">
+          <div class="check-icon">✓</div>
+          <span>Bisa COD & Antar Cepat</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Showcase Card -->
+    <div class="showcase-card">
+      <div class="badge-top">
+        <span class="tag-hot">Unit Pilihan Terlaris</span>
+        <span class="tag-stock">● Stok Siap Kirim</span>
+      </div>
+
+      <div class="phone-visual">
+        <div class="phone-mockup">
+          <div class="island"></div>
+          <div class="screen-content">
+            <div class="screen-icon">⚡</div>
+            <div class="screen-logo">NEXUS 15 PRO</div>
+            <div class="screen-sub">Titanium Blue • 256GB</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="phone-detail">
+        <div class="product-name">
+          <span>iPhone 15 Pro Max 256GB</span>
+          <span style="color:#10b981;font-size:12px;font-weight:700;">Grade A+ Mulus</span>
+        </div>
+        <div class="product-price">
+          Rp 17.850.000 <span class="product-sub">Rp 19.999.000</span>
+        </div>
+        <div class="specs-row">
+          <div class="spec-chip">🔋 BH 98% Murni</div>
+          <div class="spec-chip">🛡️ Garansi 1 Tahun</div>
+          <div class="spec-chip">📦 Fullset Original</div>
+        </div>
+      </div>
+    </div>
+  </main>
+</body>
+</html>
