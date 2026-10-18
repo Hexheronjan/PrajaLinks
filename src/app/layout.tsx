@@ -27,6 +27,10 @@ export const metadata: Metadata = {
   keywords: [
     "jasa pembuatan website ponorogo",
     "jasa pembuatan aplikasi ponorogo",
+    "jasa tugas coding ponorogo",
+    "joki tugas coding",
+    "jasa pembuatan skripsi informatika",
+    "jasa bimbingan coding mahasiswa",
     "pembuatan website desa ponorogo",
     "sistem informasi desa ponorogo",
     "web developer ponorogo",

@@ -13,6 +13,7 @@ import {
   Server,
   ArrowRight,
   Sparkles,
+  GraduationCap,
 } from "lucide-react";
 import { siteData, getWhatsAppLink } from "@/data/site";
 import { smoothEase, staggerContainer, slideUp } from "@/utils/animations";
@@ -28,6 +29,7 @@ const iconMap: Record<string, any> = {
   ShieldCheck,
   Compass,
   Server,
+  GraduationCap,
 };
 
 // Bento Card with subtle 3D tilt and cursor-following glow

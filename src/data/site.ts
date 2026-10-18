@@ -163,9 +163,11 @@ export const siteData: SiteConfig = {
   marqueeServices: [
     "Website Desa Modern",
     "Sistem Informasi Desa (SID)",
+    "Jasa Tugas Coding & Skripsi IT",
     "Company Profile Premium",
     "Toko Online & UMKM",
     "Aplikasi Web Khusus",
+    "Bimbingan & Joki Coding Mahasiswa",
     "Layanan Surat Digital",
     "Transparansi APBDes",
     "Optimasi SEO & Google Maps",
@@ -286,6 +288,18 @@ export const siteData: SiteConfig = {
       tech: ["React Native", "Expo", "REST API"],
       colSpan: "lg:col-span-1",
       icon: "Smartphone",
+    },
+    {
+      id: "joki-coding",
+      title: "Jasa Tugas Coding & Bimbingan IT",
+      category: "Akademik & Mahasiswa",
+      shortDesc: "Penyelesaian tugas pemrograman, skripsi IT, dan bimbingan koding kilat.",
+      description:
+        "Bantuan pengerjaan tugas kuliah, skripsi informatika/sistem informasi, perbaikan bug kode, hingga bimbingan logika koding sampai paham (Python, Web, PHP, Java, C++, JS).",
+      tech: ["Web / Full-Stack", "Laravel / Next.js", "Python / C++", "Bimbingan 1-on-1"],
+      featured: true,
+      colSpan: "lg:col-span-1",
+      icon: "GraduationCap",
     },
     {
       id: "maintenance",
