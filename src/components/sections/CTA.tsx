@@ -1,16 +1,14 @@
 "use client";
 
-import { useRef } from "react";
+import { useRef, useState } from "react";
+import { AnimatePresence, motion } from "framer-motion";
 import {
   MessageCircle,
   ArrowUpRight,
   CheckCircle2,
-  Landmark,
-  Laptop,
-  GraduationCap,
   Clock,
   ShieldCheck,
-  ChevronRight,
+  Check,
 } from "lucide-react";
 import { siteData, getWhatsAppLink } from "@/data/site";
 import { RobotFigure, RobotStyles } from "@/components/ui/CtaRobots";
@@ -20,26 +18,20 @@ const quickChannels = [
     id: "desa",
     title: "Website Desa & Sistem Informasi (SID)",
     subtitle: "Transparansi APBDes, layanan surat mandiri & dokumen SPJ resmi",
-    icon: Landmark,
-    badge: "Pemerintahan",
     waText:
       "Halo PrajaLinks, saya ingin konsultasi mengenai pembuatan Website Desa / Sistem Informasi Desa (SID).",
   },
   {
     id: "bisnis",
     title: "Website Bisnis, Toko Online & Aplikasi",
-    subtitle: "Company profile korporat, katalog UMKM & aplikasi mobile Android/iOS",
-    icon: Laptop,
-    badge: "Bisnis & App",
+    subtitle: "Company profile, katalog UMKM & aplikasi mobile Android/iOS",
     waText:
       "Halo PrajaLinks, saya ingin konsultasi pembuatan Website Bisnis / Aplikasi Custom.",
   },
   {
     id: "coding",
     title: "Jasa Tugas Coding & Bimbingan Skripsi IT",
-    subtitle: "Bantuan tugas pemrograman, perbaikan bug & bimbingan logika 1-on-1",
-    icon: GraduationCap,
-    badge: "Mahasiswa & IT",
+    subtitle: "Tugas pemrograman, perbaikan bug & bimbingan logika 1-on-1",
     waText:
       "Halo PrajaLinks, saya ingin konsultasi mengenai pengerjaan Tugas Coding / Proyek IT.",
   },
@@ -47,6 +39,8 @@ const quickChannels = [
 
 export const CTA = () => {
   const containerRef = useRef<HTMLDivElement>(null);
+  const [selected, setSelected] = useState(quickChannels[0].id);
+  const active = quickChannels.find((c) => c.id === selected) ?? quickChannels[0];
 
   return (
     <section
@@ -150,51 +144,116 @@ export const CTA = () => {
               </div>
             </div>
 
-            {/* Kolom Kanan: Interactive Direct Dispatch Cards */}
+            {/* Kolom Kanan: Slip Konsultasi (pilih kebutuhan → pratinjau pesan WA) */}
             <div className="lg:col-span-5">
-              <div className="p-5 sm:p-6 rounded-2xl bg-[#070E20]/80 backdrop-blur-md border border-white/15 space-y-3.5 shadow-xl">
-                <div className="flex items-center justify-between pb-2 border-b border-white/10">
-                  <span className="text-xs font-extrabold uppercase tracking-wider text-sky-300">
-                    Pilih Jalur Konsultasi Cepat
-                  </span>
-                  <span className="text-[11px] font-bold text-emerald-400 flex items-center gap-1.5">
-                    <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
-                    Tim Online
-                  </span>
-                </div>
+              <div className="relative lg:rotate-[1.2deg] transition-transform duration-500 hover:rotate-0">
+                {/* Selotip */}
+                <div
+                  className="absolute -top-3 left-1/2 -translate-x-1/2 -rotate-3 w-28 h-7 bg-amber-100/80 border border-amber-200/60 shadow-sm z-10"
+                  aria-hidden="true"
+                />
 
-                {quickChannels.map((item) => {
-                  const Icon = item.icon;
-                  return (
+                <div className="relative rounded-md bg-[#FBFAF6] text-slate-900 shadow-[0_30px_60px_-15px_rgba(0,0,0,0.65)] overflow-hidden">
+                  {/* Kepala slip */}
+                  <div className="px-6 pt-7 pb-4">
+                    <div className="flex items-center justify-between font-mono text-[10px] tracking-[0.18em] text-slate-500 uppercase">
+                      <span>Slip Konsultasi</span>
+                      <span>No. PL/KNS/001</span>
+                    </div>
+                    <h3 className="mt-2 font-heading text-xl sm:text-[1.4rem] font-extrabold leading-tight text-slate-950">
+                      Apa yang mau Anda bangun?
+                    </h3>
+                  </div>
+
+                  {/* Pilihan bernomor */}
+                  <div className="border-y border-slate-200 divide-y divide-slate-200">
+                    {quickChannels.map((item, i) => {
+                      const isActive = item.id === selected;
+                      return (
+                        <button
+                          key={item.id}
+                          type="button"
+                          onClick={() => setSelected(item.id)}
+                          aria-pressed={isActive}
+                          className={`relative w-full grid grid-cols-[auto_1fr_auto] items-start gap-4 px-6 py-4 text-left transition-colors ${
+                            isActive ? "bg-[#1D5BD8]/[0.07]" : "hover:bg-slate-100/70"
+                          }`}
+                        >
+                          <span
+                            className={`absolute left-0 top-0 bottom-0 w-[3px] transition-colors ${
+                              isActive ? "bg-[#1D5BD8]" : "bg-transparent"
+                            }`}
+                          />
+                          <span
+                            className={`font-heading text-2xl font-black leading-none tabular-nums transition-colors ${
+                              isActive ? "text-[#1D5BD8]" : "text-slate-300"
+                            }`}
+                          >
+                            {String(i + 1).padStart(2, "0")}
+                          </span>
+                          <span>
+                            <span className="block text-sm font-bold text-slate-950 leading-snug">
+                              {item.title}
+                            </span>
+                            <span className="block text-xs text-slate-500 mt-0.5 leading-relaxed">
+                              {item.subtitle}
+                            </span>
+                          </span>
+                          <span
+                            className={`mt-0.5 w-5 h-5 rounded-full border-2 flex items-center justify-center transition-all ${
+                              isActive ? "bg-[#1D5BD8] border-[#1D5BD8]" : "border-slate-300"
+                            }`}
+                          >
+                            {isActive && <Check className="w-3 h-3 text-white" strokeWidth={3.5} />}
+                          </span>
+                        </button>
+                      );
+                    })}
+                  </div>
+
+                  {/* Garis sobek */}
+                  <div className="relative h-0" aria-hidden="true">
+                    <span className="absolute -left-3 -top-3 w-6 h-6 rounded-full bg-[#11214A]" />
+                    <span className="absolute -right-3 -top-3 w-6 h-6 rounded-full bg-[#11214A]" />
+                  </div>
+
+                  {/* Pratinjau pesan WhatsApp */}
+                  <div className="px-6 pt-5 pb-6 bg-[#EFEAE2]">
+                    <span className="font-mono text-[10px] tracking-[0.18em] text-slate-500 uppercase">
+                      Pesan yang akan terkirim
+                    </span>
+                    <div className="mt-2.5 flex justify-end min-h-[76px]">
+                      <AnimatePresence mode="wait">
+                        <motion.div
+                          key={active.id}
+                          initial={{ opacity: 0, y: 8, scale: 0.97 }}
+                          animate={{ opacity: 1, y: 0, scale: 1 }}
+                          exit={{ opacity: 0, y: -6 }}
+                          transition={{ duration: 0.25 }}
+                          className="max-w-[92%] rounded-lg rounded-tr-none bg-[#D9FDD3] px-3 py-2 text-[13px] leading-snug text-slate-800 shadow-sm"
+                        >
+                          {active.waText}
+                          <span className="block text-right text-[10px] text-slate-500 mt-1">
+                            sekarang <span className="text-sky-500">✓✓</span>
+                          </span>
+                        </motion.div>
+                      </AnimatePresence>
+                    </div>
+
                     <a
-                      key={item.id}
-                      href={getWhatsAppLink(item.waText)}
+                      href={getWhatsAppLink(active.waText)}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="group block p-4 rounded-xl bg-[#112042] hover:bg-[#1D5BD8] border border-white/10 hover:border-blue-300 transition-all duration-300 shadow-sm"
+                      className="group mt-4 flex items-center justify-between rounded-md bg-slate-950 hover:bg-[#1D5BD8] px-5 py-3.5 text-sm font-bold text-white transition-colors"
                     >
-                      <div className="flex items-start justify-between gap-3">
-                        <div className="flex items-start gap-3">
-                          <div className="w-10 h-10 rounded-lg bg-blue-500/20 group-hover:bg-white/20 border border-blue-400/30 flex items-center justify-center shrink-0 mt-0.5 transition-colors">
-                            <Icon className="w-5 h-5 text-sky-300 group-hover:text-white" />
-                          </div>
-                          <div>
-                            <span className="inline-block text-[10px] font-extrabold uppercase tracking-wider text-sky-300 group-hover:text-blue-100 mb-0.5">
-                              {item.badge}
-                            </span>
-                            <h3 className="text-sm font-extrabold text-white leading-snug">
-                              {item.title}
-                            </h3>
-                            <p className="text-xs text-slate-300 group-hover:text-blue-100 mt-1 leading-relaxed">
-                              {item.subtitle}
-                            </p>
-                          </div>
-                        </div>
-                        <ChevronRight className="w-4 h-4 text-slate-300 group-hover:text-white group-hover:translate-x-1 transition-all shrink-0 mt-1" />
-                      </div>
+                      <span>Kirim lewat WhatsApp</span>
+                      <ArrowUpRight className="w-4 h-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
                     </a>
-                  );
-                })}
+                    <p className="mt-3 text-center text-[11px] text-slate-500">
+                      Dibalas langsung oleh developer, bukan chatbot.
+                    </p>
+                  </div>
+                </div>
               </div>
             </div>
           </div>

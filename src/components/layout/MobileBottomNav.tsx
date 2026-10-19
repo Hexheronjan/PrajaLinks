@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { Home, Users, Briefcase, Package, Info } from "lucide-react";
+import { LOADER_DONE_EVENT } from "@/components/common/InitialLoader";
 
 interface NavItem {
   id: string;
@@ -47,6 +48,18 @@ const navItems: NavItem[] = [
 
 export const MobileBottomNav = () => {
   const [activeSection, setActiveSection] = useState("beranda");
+  const [ready, setReady] = useState(false);
+
+  // Tunggu loader awal selesai sebelum navigasi muncul
+  useEffect(() => {
+    if ((window as unknown as { __plLoaded?: boolean }).__plLoaded) {
+      setReady(true);
+      return;
+    }
+    const onDone = () => setReady(true);
+    window.addEventListener(LOADER_DONE_EVENT, onDone);
+    return () => window.removeEventListener(LOADER_DONE_EVENT, onDone);
+  }, []);
 
   useEffect(() => {
     const sectionIds = ["beranda", "layanan", "portofolio", "harga", "faq"];
@@ -76,7 +89,10 @@ export const MobileBottomNav = () => {
   return (
     <nav
       aria-label="Navigasi Bawah Mobile"
-      className="fixed bottom-0 left-0 right-0 z-50 sm:hidden bg-[#0A0D1A]/95 dark:bg-[#070B16]/95 backdrop-blur-xl border-t border-white/10 px-3 py-2 shadow-[0_-10px_30px_rgba(0,0,0,0.5)]"
+      aria-hidden={!ready}
+      className={`fixed bottom-0 left-0 right-0 z-50 sm:hidden bg-[#0A0D1A]/95 dark:bg-[#070B16]/95 backdrop-blur-xl border-t border-white/10 px-3 py-2 shadow-[0_-10px_30px_rgba(0,0,0,0.5)] transition-all duration-500 ease-out ${
+        ready ? "translate-y-0 opacity-100" : "translate-y-full opacity-0 pointer-events-none"
+      }`}
     >
       <div className="flex items-center justify-around max-w-md mx-auto relative">
         {navItems.map((item) => {

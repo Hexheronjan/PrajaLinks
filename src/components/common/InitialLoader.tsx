@@ -5,6 +5,14 @@ import { motion, AnimatePresence } from "framer-motion";
 import { smoothEase } from "@/utils/animations";
 import { Logo } from "@/components/common/Logo";
 
+/** Event yang dikirim setelah loader awal selesai (dipakai MobileBottomNav). */
+export const LOADER_DONE_EVENT = "prajalinks:loaded";
+
+const markLoaderDone = () => {
+  (window as unknown as { __plLoaded?: boolean }).__plLoaded = true;
+  window.dispatchEvent(new Event(LOADER_DONE_EVENT));
+};
+
 /**
  * Loader awal: logo, dua node terhubung garis yang tergambar (1 detik),
  * lalu layar terbuka ke atas.
@@ -16,6 +24,7 @@ export const InitialLoader = () => {
     // Hanya tampil sekali per sesi
     if (sessionStorage.getItem("prajalinks_loader_shown")) {
       setLoading(false);
+      markLoaderDone();
       return;
     }
     const timer = setTimeout(() => {
@@ -26,13 +35,13 @@ export const InitialLoader = () => {
   }, []);
 
   return (
-    <AnimatePresence>
+    <AnimatePresence onExitComplete={markLoaderDone}>
       {loading && (
         <motion.div
           key="prajalinks-initial-loader"
           initial={{ y: 0 }}
           exit={{ y: "-100%", transition: { duration: 0.85, ease: smoothEase } }}
-          className="fixed inset-0 z-50 flex flex-col items-center justify-center bg-white border-b-4 border-blue-600 overflow-hidden"
+          className="fixed inset-0 z-[100] flex flex-col items-center justify-center bg-white border-b-4 border-blue-600 overflow-hidden"
           role="status"
           aria-label="Memuat PrajaLinks"
         >
