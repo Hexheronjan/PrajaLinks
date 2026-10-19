@@ -19,6 +19,7 @@ import {
   Layers,
   Smartphone,
   Sparkles,
+  GraduationCap,
 } from "lucide-react";
 import { getWhatsAppLink } from "@/data/site";
 import { smoothEase } from "@/utils/animations";
@@ -27,10 +28,11 @@ import { smoothEase } from "@/utils/animations";
 const headline = [
   { w: "Jasa", tone: "" },
   { w: "Pembuatan", tone: "" },
-  { w: "Website", tone: "blue" },
-  { w: "&", tone: "" },
+  { w: "Website,", tone: "blue" },
   { w: "Aplikasi", tone: "blue" },
-  { w: "Profesional.", tone: "" },
+  { w: "&", tone: "" },
+  { w: "Tugas", tone: "blue" },
+  { w: "Coding.", tone: "blue" },
 ];
 
 const trust = [
@@ -140,9 +142,7 @@ export const Hero = () => {
               transition={{ duration: 0.7, delay: 0.85, ease: smoothEase }}
               className="mt-7 max-w-xl text-base sm:text-lg leading-relaxed text-slate-800 dark:text-[#D3DCF0] font-medium"
             >
-              Mitra spesialis pembuatan website desa, company profile bisnis,
-              toko online, sistem informasi, dan aplikasi mobile kustom di Ponorogo.
-              Dikerjakan rapi, mobile-first, dan didampingi hingga operator Anda mandiri.
+              Mitra rekayasa digital di Ponorogo untuk pembuatan <strong>Website Profesional</strong>, <strong>Aplikasi Mobile &amp; Web Custom</strong>, serta <strong>Bimbingan &amp; Jasa Tugas Coding IT Mahasiswa</strong>. Dikerjakan cepat, kode bersih, dan bergaransi.
             </motion.p>
 
             {/* CTA naik dari bawah */}
@@ -202,7 +202,7 @@ export const Hero = () => {
               className="inline-flex items-center gap-2 px-4 py-2 rounded-2xl bg-white dark:bg-[#0E1A33] border border-blue-200 dark:border-blue-500/20 shadow-md text-slate-900 dark:text-white text-xs font-bold mb-4 z-20"
             >
               <Sparkles className="w-3.5 h-3.5 text-amber-500" />
-              <span>Halo! Mau buat website atau aplikasi apa hari ini?</span>
+              <span>Halo! Mau buat website, aplikasi, atau tugas coding hari ini?</span>
             </motion.div>
 
             <motion.div
@@ -219,7 +219,7 @@ export const Hero = () => {
                 <div className="relative aspect-square w-full rounded-xl overflow-hidden bg-slate-50 dark:bg-[#0A1228]">
                   <Image
                     src="/robot-mascot.jpg"
-                    alt="Maskot Robot Pembuatan Website & Aplikasi PrajaLinks"
+                    alt="Maskot Robot Pembuatan Website, Aplikasi & Tugas Coding PrajaLinks"
                     fill
                     sizes="(max-width: 768px) 100vw, 460px"
                     className="object-cover transition-transform duration-700 group-hover:scale-105"
@@ -247,7 +247,17 @@ export const Hero = () => {
                 </div>
               </motion.div>
 
-              {/* Floating Chip 2: Bottom-Left (Website Custom) */}
+              {/* Floating Chip 2: Top-Right (Tugas Coding IT) */}
+              <div className="absolute -top-3 -right-2 z-30">
+                <div className="px-3 py-1.5 rounded-xl bg-gradient-to-r from-amber-500 to-orange-500 text-white shadow-lg flex items-center gap-1.5 border border-white/20">
+                  <GraduationCap className="w-3.5 h-3.5" />
+                  <span className="text-[10px] font-extrabold uppercase tracking-wider">
+                    Tugas Coding IT
+                  </span>
+                </div>
+              </div>
+
+              {/* Floating Chip 3: Bottom-Left (Website Custom) */}
               <div className="absolute -bottom-1 -left-2 z-30">
                 <div className="px-3.5 py-2 rounded-xl bg-[#1D5BD8] text-white shadow-xl flex items-center gap-2 border border-white/20">
                   <Globe className="w-3.5 h-3.5" />
@@ -257,7 +267,7 @@ export const Hero = () => {
                 </div>
               </div>
 
-              {/* Floating Chip 3: Bottom-Right (Aplikasi Mobile) */}
+              {/* Floating Chip 4: Bottom-Right (Aplikasi Mobile) */}
               <div className="absolute -bottom-1 -right-2 z-30">
                 <div className="px-3.5 py-2 rounded-xl bg-slate-900 text-white dark:bg-white dark:text-slate-900 shadow-xl flex items-center gap-2 border border-white/10">
                   <Smartphone className="w-3.5 h-3.5 text-blue-500" />
