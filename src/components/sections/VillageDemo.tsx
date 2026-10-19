@@ -195,7 +195,7 @@ export const VillageDemo = () => {
               <div className="hidden lg:flex items-center gap-4 text-xs">
                 <div className="flex items-center gap-1.5 text-blue-100">
                   <Phone className="w-3.5 h-3.5 text-emerald-300" />
-                  <span>Pelayanan Desa: 0823-3868-9711 (24 Jam)</span>
+                  <span>Pelayanan Desa: {siteData.brand.waDisplay} (24 Jam)</span>
                 </div>
               </div>
             </div>

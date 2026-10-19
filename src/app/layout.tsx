@@ -6,6 +6,7 @@ import { SmoothScrollProvider } from "@/components/common/SmoothScrollProvider";
 import { InitialLoader } from "@/components/common/InitialLoader";
 import { GlobalElements } from "@/components/common/GlobalElements";
 import { Navbar } from "@/components/layout/Navbar";
+import { MobileBottomNav } from "@/components/layout/MobileBottomNav";
 import { Footer } from "@/components/layout/Footer";
 import { siteData } from "@/data/site";
 
@@ -133,6 +134,7 @@ export default function RootLayout({
             <Navbar />
             <main className="flex-grow">{children}</main>
             <Footer />
+            <MobileBottomNav />
           </SmoothScrollProvider>
         </ThemeProvider>
       </body>
