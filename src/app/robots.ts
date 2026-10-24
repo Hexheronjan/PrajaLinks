@@ -6,6 +6,6 @@ export default function robots(): MetadataRoute.Robots {
       userAgent: "*",
       allow: "/",
     },
-    sitemap: "https://prajalinks.com/sitemap.xml",
+    sitemap: "https://www.prajalinks.my.id/sitemap.xml",
   };
 }

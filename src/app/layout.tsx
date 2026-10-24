@@ -44,7 +44,7 @@ export const metadata: Metadata = {
   authors: [{ name: "PrajaLinks Studio" }],
   creator: "PrajaLinks",
   publisher: "PrajaLinks",
-  metadataBase: new URL("https://prajalinks.com"),
+  metadataBase: new URL("https://www.prajalinks.my.id"),
   alternates: {
     canonical: "/",
   },
@@ -52,7 +52,7 @@ export const metadata: Metadata = {
     title: `${siteData.brand.name} - Jasa Pembuatan Website, Aplikasi & Tugas Coding`,
     description:
       "Jasa pembuatan website desa, company profile, aplikasi web & mobile, serta jasa pembuatan tugas coding online melayani seluruh Indonesia. Responsif 24 jam.",
-    url: "https://prajalinks.com",
+    url: "https://www.prajalinks.my.id",
     siteName: siteData.brand.name,
     locale: "id_ID",
     type: "website",
@@ -86,9 +86,9 @@ export default function RootLayout({
     "@context": "https://schema.org",
     "@type": "ProfessionalService",
     name: siteData.brand.name,
-    image: "https://prajalinks.com/logo-full.png",
-    "@id": "https://prajalinks.com",
-    url: "https://prajalinks.com",
+    image: "https://www.prajalinks.my.id/logo-full.png",
+    "@id": "https://www.prajalinks.com",
+    url: "https://www.prajalinks.my.id",
     telephone: `+${siteData.brand.waNumber}`,
     priceRange: "Rp 750.000 - Rp 5.000.000+",
     address: {
