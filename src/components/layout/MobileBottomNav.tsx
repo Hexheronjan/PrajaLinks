@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { usePathname } from "next/navigation";
 import { Home, Users, Briefcase, Package, Info } from "lucide-react";
 import { LOADER_DONE_EVENT } from "@/components/common/InitialLoader";
 
@@ -47,6 +48,7 @@ const navItems: NavItem[] = [
 ];
 
 export const MobileBottomNav = () => {
+  const pathname = usePathname();
   const [activeSection, setActiveSection] = useState("beranda");
   const [ready, setReady] = useState(false);
 
@@ -61,6 +63,8 @@ export const MobileBottomNav = () => {
   }, []);
 
   useEffect(() => {
+    if (pathname?.startsWith("/layanan")) return;
+
     const sectionIds = ["beranda", "layanan", "portofolio", "harga", "tentang"];
 
     const handleScroll = () => {
@@ -83,7 +87,11 @@ export const MobileBottomNav = () => {
     handleScroll();
 
     return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  }, [pathname]);
+
+  if (pathname?.startsWith("/layanan")) {
+    return null;
+  }
 
   return (
     <nav
