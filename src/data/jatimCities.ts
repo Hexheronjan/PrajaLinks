@@ -511,4 +511,70 @@ export const jatimCities: JatimCity[] = [
   { slug: "kepulauan-sula", name: "Kepulauan Sula", capital: "Sanana", province: "Maluku Utara" },
   { slug: "pulau-morotai", name: "Pulau Morotai", capital: "Daruba", province: "Maluku Utara" },
   { slug: "pulau-taliabu", name: "Pulau Taliabu", capital: "Bobong", province: "Maluku Utara" },
+
+  // ==========================================
+  // PAPUA (9 Wilayah)
+  // ==========================================
+  { slug: "biak-numfor", name: "Biak Numfor", capital: "Biak", province: "Papua" },
+  { slug: "jayapura", name: "Jayapura", capital: "Sentani", province: "Papua" },
+  { slug: "keerom", name: "Keerom", capital: "Waris", province: "Papua" },
+  { slug: "kepulauan-yapen", name: "Kepulauan Yapen", capital: "Serui", province: "Papua" },
+  { slug: "mamberamo-raya", name: "Mamberamo Raya", capital: "Burmeso", province: "Papua" },
+  { slug: "sarmi", name: "Sarmi", capital: "Sarmi", province: "Papua" },
+  { slug: "supiori", name: "Supiori", capital: "Sorendiweri", province: "Papua" },
+  { slug: "waropen", name: "Waropen", capital: "Botawa", province: "Papua" },
+  { slug: "kota-jayapura", name: "Kota Jayapura", capital: "Jayapura", province: "Papua" },
+
+  // ==========================================
+  // PAPUA BARAT (7 Wilayah)
+  // ==========================================
+  { slug: "manokwari", name: "Manokwari", capital: "Manokwari", province: "Papua Barat" },
+  { slug: "fakfak", name: "Fakfak", capital: "Fakfak", province: "Papua Barat" },
+  { slug: "kaimana", name: "Kaimana", capital: "Kaimana", province: "Papua Barat" },
+  { slug: "manokwari-selatan", name: "Manokwari Selatan", capital: "Ransiki", province: "Papua Barat" },
+  { slug: "pegunungan-arfak", name: "Pegunungan Arfak", capital: "Anggi", province: "Papua Barat" },
+  { slug: "teluk-bintuni", name: "Teluk Bintuni", capital: "Bintuni", province: "Papua Barat" },
+  { slug: "teluk-wondama", name: "Teluk Wondama", capital: "Rasiei", province: "Papua Barat" },
+
+  // ==========================================
+  // PAPUA SELATAN (4 Wilayah)
+  // ==========================================
+  { slug: "merauke", name: "Merauke", capital: "Merauke", province: "Papua Selatan" },
+  { slug: "asmat", name: "Asmat", capital: "Agats", province: "Papua Selatan" },
+  { slug: "boven-digoel", name: "Boven Digoel", capital: "Tanah Merah", province: "Papua Selatan" },
+  { slug: "mappi", name: "Mappi", capital: "Kepi", province: "Papua Selatan" },
+
+  // ==========================================
+  // PAPUA TENGAH (8 Wilayah)
+  // ==========================================
+  { slug: "nabire", name: "Nabire", capital: "Nabire", province: "Papua Tengah" },
+  { slug: "dogiyai", name: "Dogiyai", capital: "Kigamani", province: "Papua Tengah" },
+  { slug: "deiyai", name: "Deiyai", capital: "Tigi", province: "Papua Tengah" },
+  { slug: "intan-jaya", name: "Intan Jaya", capital: "Sugapa", province: "Papua Tengah" },
+  { slug: "mimika", name: "Mimika", capital: "Timika", province: "Papua Tengah" },
+  { slug: "paniai", name: "Paniai", capital: "Enarotali", province: "Papua Tengah" },
+  { slug: "puncak", name: "Puncak", capital: "Ilaga", province: "Papua Tengah" },
+  { slug: "puncak-jaya", name: "Puncak Jaya", capital: "Kotamulia", province: "Papua Tengah" },
+
+  // ==========================================
+  // PAPUA PEGUNUNGAN (8 Wilayah)
+  // ==========================================
+  { slug: "jayawijaya", name: "Jayawijaya", capital: "Wamena", province: "Papua Pegunungan" },
+  { slug: "lanny-jaya", name: "Lanny Jaya", capital: "Tiom", province: "Papua Pegunungan" },
+  { slug: "mamberamo-tengah", name: "Mamberamo Tengah", capital: "Kobakma", province: "Papua Pegunungan" },
+  { slug: "nduga", name: "Nduga", capital: "Kenyam", province: "Papua Pegunungan" },
+  { slug: "pegunungan-bintang", name: "Pegunungan Bintang", capital: "Oksibil", province: "Papua Pegunungan" },
+  { slug: "tolikara", name: "Tolikara", capital: "Karubaga", province: "Papua Pegunungan" },
+  { slug: "yalimo", name: "Yalimo", capital: "Elelim", province: "Papua Pegunungan" },
+  { slug: "yahukimo", name: "Yahukimo", capital: "Sumohai", province: "Papua Pegunungan" },
+
+  // ==========================================
+  // PAPUA BARAT DAYA (6 Wilayah)
+  // ==========================================
+  { slug: "sorong", name: "Sorong", capital: "Aimas", province: "Papua Barat Daya" },
+  { slug: "kota-sorong", name: "Kota Sorong", capital: "Sorong", province: "Papua Barat Daya" },
+  { slug: "maybrat", name: "Maybrat", capital: "Kumurkek", province: "Papua Barat Daya" },
+  { slug: "raja-ampat", name: "Raja Ampat", capital: "Waisai", province: "Papua Barat Daya" },
+  { slug: "sorong-selatan", name: "Sorong Selatan", capital: "Teminabuan", province: "Papua Barat Daya" },
+  { slug: "tambrauw", name: "Tambrauw", capital: "Fef", province: "Papua Barat Daya" },
 ];
