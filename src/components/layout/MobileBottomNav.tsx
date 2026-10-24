@@ -63,7 +63,8 @@ export const MobileBottomNav = () => {
   }, []);
 
   useEffect(() => {
-    if (pathname?.startsWith("/layanan")) return;
+    if (pathname?.startsWith("/layanan") || pathname?.startsWith("/wilayah"))
+      return;
 
     const sectionIds = ["beranda", "layanan", "portofolio", "harga", "tentang"];
 
@@ -89,7 +90,7 @@ export const MobileBottomNav = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, [pathname]);
 
-  if (pathname?.startsWith("/layanan")) {
+  if (pathname?.startsWith("/layanan") || pathname?.startsWith("/wilayah")) {
     return null;
   }
 

@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { ArrowUp } from "lucide-react";
 import { siteData, getWhatsAppLink } from "@/data/site";
+import { jatimCities } from "@/data/jatimCities";
 import { Logo } from "@/components/common/Logo";
 
 const footerNav = [
@@ -171,6 +172,23 @@ export const Footer = () => {
                 <span className="font-bold">{brand.workingHours}</span>
               </div>
             </div>
+          </div>
+        </div>
+
+        <div className="pt-8 pb-6 border-b border-[#E5E7EB] dark:border-white/10">
+          <p className="text-xs font-bold uppercase tracking-wider text-[#1D5BD8] dark:text-[#60A5FA] mb-3">
+            Layanan Jasa Website, Aplikasi & Tugas Coding di Jawa Timur:
+          </p>
+          <div className="flex flex-wrap gap-x-3.5 gap-y-2 text-xs font-semibold text-[#4B5563] dark:text-slate-300">
+            {jatimCities.map((c) => (
+              <Link
+                key={c.slug}
+                href={`/wilayah/${c.slug}`}
+                className="hover:text-[#1D5BD8] dark:hover:text-[#60A5FA] transition-colors"
+              >
+                {c.fullName}
+              </Link>
+            ))}
           </div>
         </div>
 
