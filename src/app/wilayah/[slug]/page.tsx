@@ -13,6 +13,7 @@ import {
   ShieldCheck,
   Clock,
   Sparkles,
+  Layers,
 } from "lucide-react";
 import { siteData, getWhatsAppLink } from "@/data/site";
 import { jatimCities, type JatimCity } from "@/data/jatimCities";
@@ -41,8 +42,9 @@ export async function generateMetadata({
     };
   }
 
+  const province = city.province || "Jawa Timur";
   const title = `Jasa Pembuatan Website, Aplikasi & Tugas Coding di ${city.name} | PrajaLinks`;
-  const description = `PrajaLinks melayani Jasa Pembuatan Website, Jasa Pembuatan Aplikasi Android/iOS/Web, dan Jasa Pembuatan Tugas Coding online untuk UMKM, bisnis, dan mahasiswa di ${city.name}, Jawa Timur. Cepat, bergaransi & harga terjangkau.`;
+  const description = `PrajaLinks melayani Jasa Pembuatan Website, Jasa Pembuatan Aplikasi Android/iOS/Web, dan Jasa Pembuatan Tugas Coding online untuk UMKM, bisnis, dan mahasiswa di ${city.name}, ${province}. Cepat, bergaransi & harga terjangkau.`;
   const canonicalUrl = `https://www.prajalinks.my.id/wilayah/${city.slug}`;
 
   return {
@@ -50,15 +52,16 @@ export async function generateMetadata({
     description,
     keywords: [
       `jasa pembuatan website ${city.name.toLowerCase()}`,
-      `jasa pembuatan website di ${city.name.toLowerCase()}`,
       `jasa pembuatan aplikasi ${city.name.toLowerCase()}`,
-      `jasa aplikasi android ${city.name.toLowerCase()}`,
       `jasa pembuatan tugas coding ${city.name.toLowerCase()}`,
-      `jasa tugas coding mahasiswa ${city.name.toLowerCase()}`,
+      `jasa pembuatan website & aplikasi ${city.name.toLowerCase()}`,
+      `jasa pembuatan website dan aplikasi ${city.name.toLowerCase()}`,
+      `jasa website ${city.name.toLowerCase()}`,
+      `jasa aplikasi ${city.name.toLowerCase()}`,
+      `jasa tugas coding ${city.name.toLowerCase()}`,
       `jasa skripsi informatika ${city.name.toLowerCase()}`,
       `web developer ${city.name.toLowerCase()}`,
       `software house ${city.name.toLowerCase()}`,
-      `jasa website desa ${city.name.toLowerCase()}`,
       "prajalinks",
     ],
     alternates: {
@@ -95,6 +98,8 @@ export default async function CityDetailPage({
     notFound();
   }
 
+  const province = city.province || "Jawa Timur";
+
   const localJsonLd = {
     "@context": "https://schema.org",
     "@graph": [
@@ -102,7 +107,7 @@ export default async function CityDetailPage({
         "@type": "ProfessionalService",
         "@id": `https://www.prajalinks.my.id/wilayah/${city.slug}#service`,
         name: `PrajaLinks - Jasa Website, Aplikasi & Tugas Coding ${city.name}`,
-        description: `Layanan rekayasa software pembuatan website, aplikasi Android/iOS, dan tugas coding untuk wilayah ${city.name}, Jawa Timur.`,
+        description: `Layanan rekayasa software pembuatan website, aplikasi Android/iOS, dan tugas coding untuk wilayah ${city.name}, ${province}.`,
         url: `https://www.prajalinks.my.id/wilayah/${city.slug}`,
         telephone: `+${siteData.brand.waNumber}`,
         areaServed: {
@@ -112,10 +117,48 @@ export default async function CityDetailPage({
         address: {
           "@type": "PostalAddress",
           addressLocality: city.name,
-          addressRegion: "Jawa Timur",
+          addressRegion: province,
           addressCountry: "ID",
         },
         priceRange: "Rp 750.000 - Rp 5.000.000+",
+        hasOfferCatalog: {
+          "@type": "OfferCatalog",
+          name: `Layanan PrajaLinks di ${city.name}`,
+          itemListElement: [
+            {
+              "@type": "Offer",
+              itemOffered: {
+                "@type": "Service",
+                name: `Jasa Pembuatan Website ${city.name}`,
+                description: `Jasa pembuatan website company profile, toko online WhatsApp, dan website bisnis di ${city.name}.`,
+              },
+            },
+            {
+              "@type": "Offer",
+              itemOffered: {
+                "@type": "Service",
+                name: `Jasa Pembuatan Aplikasi ${city.name}`,
+                description: `Jasa pembuatan aplikasi Android, iOS, dan aplikasi kasir POS di ${city.name}.`,
+              },
+            },
+            {
+              "@type": "Offer",
+              itemOffered: {
+                "@type": "Service",
+                name: `Jasa Pembuatan Tugas Coding ${city.name}`,
+                description: `Jasa pengerjaan tugas coding kuliah, Python, Laravel, React, dan skripsi IT di ${city.name}.`,
+              },
+            },
+            {
+              "@type": "Offer",
+              itemOffered: {
+                "@type": "Service",
+                name: `Jasa Pembuatan Website & Aplikasi ${city.name}`,
+                description: `Paket lengkap integrasi website dan aplikasi mobile/web kustom untuk bisnis di ${city.name}.`,
+              },
+            },
+          ],
+        },
       },
       {
         "@type": "BreadcrumbList",
@@ -186,6 +229,22 @@ export default async function CityDetailPage({
       ctaSlug: "/layanan/jasa-pembuatan-tugas-coding",
       waText: `Halo PrajaLinks, saya ingin tanya Jasa Pembuatan Tugas Coding untuk mahasiswa di ${city.name}.`,
     },
+    {
+      id: "web-app",
+      icon: Layers,
+      badge: "Paket Lengkap Terintegrasi",
+      title: `Jasa Pembuatan Website & Aplikasi di ${city.name}`,
+      desc: `Solusi digital terintegrasi menggabungkan website profil bisnis dan sistem aplikasi kasir/stok operasional dengan database terpusat yang tersinkronisasi 100%.`,
+      features: [
+        "Website company profile + aplikasi sistem operasional",
+        "Database cloud terpusat & real-time",
+        "Manajemen admin dari web dan smartphone",
+        "Garansi perawatan sistem & pelatihan staf",
+      ],
+      price: "Paket Bundling Terjangkau",
+      ctaSlug: "/layanan/jasa-pembuatan-aplikasi",
+      waText: `Halo PrajaLinks, saya tertarik dengan paket Jasa Pembuatan Website & Aplikasi untuk wilayah ${city.name}.`,
+    },
   ];
 
   return (
@@ -218,7 +277,7 @@ export default async function CityDetailPage({
         <div className="relative rounded-[32px] bg-white dark:bg-[#111C33] border border-[#E2E8F0] dark:border-white/10 p-6 sm:p-10 lg:p-12 shadow-[0_20px_50px_-15px_rgba(29,91,216,0.08)] overflow-hidden mb-12">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#EBF2FF] dark:bg-[#1D5BD8]/20 text-[#1D5BD8] dark:text-[#60A5FA] text-xs sm:text-sm font-bold mb-5">
             <MapPin className="w-4 h-4 text-[#C88A23]" />
-            <span>Layanan Digital Area {city.name}, Jawa Timur</span>
+            <span>Layanan Digital Area {city.name}, {province}</span>
           </div>
 
           <h1 className="font-heading text-2xl sm:text-4xl lg:text-[40px] font-extrabold text-[#111827] dark:text-white leading-[1.25] tracking-tight mb-5">
@@ -285,16 +344,16 @@ export default async function CityDetailPage({
           </div>
         </div>
 
-        {/* 3 Core Services in this City */}
+        {/* 4 Core Services in this City */}
         <section className="mb-14">
           <h2 className="font-heading text-xl sm:text-3xl font-extrabold text-[#111827] dark:text-white mb-3">
-            3 Layanan Utama PrajaLinks untuk Wilayah {city.name}
+            Layanan Pembuatan Website & Aplikasi di {city.name}
           </h2>
           <p className="text-sm sm:text-base text-[#4B5563] dark:text-slate-300 font-medium mb-8">
             Dikerjakan langsung dengan arsitektur modern berstandar industri oleh tim software engineer berpengalaman.
           </p>
 
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {servicesPillars.map((srv) => {
               const Icon = srv.icon;
               return (
