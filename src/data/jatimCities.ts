@@ -109,4 +109,37 @@ export const jatimCities: JatimCity[] = [
   { slug: "banjar", name: "Banjar", capital: "Banjar", province: "Jawa Barat" },
   { slug: "cimahi", name: "Cimahi", capital: "Cimahi", province: "Jawa Barat" },
   { slug: "depok", name: "Depok", capital: "Depok", province: "Jawa Barat" },
+
+  // ==========================================
+  // DKI JAKARTA (6 Wilayah)
+  // ==========================================
+  { slug: "jakarta-barat", name: "Jakarta Barat", capital: "Kembangan", province: "DKI Jakarta" },
+  { slug: "jakarta-pusat", name: "Jakarta Pusat", capital: "Menteng", province: "DKI Jakarta" },
+  { slug: "jakarta-selatan", name: "Jakarta Selatan", capital: "Kebayoran Baru", province: "DKI Jakarta" },
+  { slug: "jakarta-timur", name: "Jakarta Timur", capital: "Cakung", province: "DKI Jakarta" },
+  { slug: "jakarta-utara", name: "Jakarta Utara", capital: "Koja", province: "DKI Jakarta" },
+  { slug: "kepulauan-seribu", name: "Kepulauan Seribu", capital: "Pulau Pramuka", province: "DKI Jakarta" },
+
+  // ==========================================
+  // BANTEN (6 Wilayah Utama)
+  // ==========================================
+  { slug: "lebak", name: "Lebak", capital: "Rangkasbitung", province: "Banten" },
+  { slug: "pandeglang", name: "Pandeglang", capital: "Pandeglang", province: "Banten" },
+  { slug: "serang", name: "Serang", capital: "Serang / Ciruas", province: "Banten" },
+  { slug: "tangerang", name: "Tangerang", capital: "Tangerang / Tigaraksa", province: "Banten" },
+  { slug: "cilegon", name: "Cilegon", capital: "Cilegon", province: "Banten" },
+  { slug: "tangerang-selatan", name: "Tangerang Selatan", capital: "Ciputat", province: "Banten" },
+
+  // ==========================================
+  // BALI (9 Wilayah)
+  // ==========================================
+  { slug: "badung", name: "Badung", capital: "Mangupura", province: "Bali" },
+  { slug: "bangli", name: "Bangli", capital: "Bangli", province: "Bali" },
+  { slug: "buleleng", name: "Buleleng", capital: "Singaraja", province: "Bali" },
+  { slug: "gianyar", name: "Gianyar", capital: "Gianyar", province: "Bali" },
+  { slug: "jembrana", name: "Jembrana", capital: "Negara", province: "Bali" },
+  { slug: "karangasem", name: "Karangasem", capital: "Amlapura", province: "Bali" },
+  { slug: "klungkung", name: "Klungkung", capital: "Semarapura", province: "Bali" },
+  { slug: "tabanan", name: "Tabanan", capital: "Tabanan", province: "Bali" },
+  { slug: "denpasar", name: "Denpasar", capital: "Denpasar", province: "Bali" },
 ];
