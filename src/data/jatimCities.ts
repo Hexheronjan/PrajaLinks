@@ -178,4 +178,78 @@ export const jatimCities: JatimCity[] = [
   { slug: "pematangsiantar", name: "Pematangsiantar", capital: "Pematangsiantar", province: "Sumatera Utara" },
   { slug: "sibolga", name: "Sibolga", capital: "Sibolga", province: "Sumatera Utara" },
   { slug: "tanjungbalai", name: "Tanjungbalai", capital: "Tanjungbalai", province: "Sumatera Utara" },
+
+  // ==========================================
+  // KEPULAUAN RIAU (7 Wilayah)
+  // ==========================================
+  { slug: "batam", name: "Batam", capital: "Batam", province: "Kepulauan Riau" },
+  { slug: "bintan", name: "Bintan", capital: "Bandar Seri Bentan", province: "Kepulauan Riau" },
+  { slug: "karimun", name: "Karimun", capital: "Tanjung Balai Karimun", province: "Kepulauan Riau" },
+  { slug: "kepulauan-anambas", name: "Kepulauan Anambas", capital: "Tarempa", province: "Kepulauan Riau" },
+  { slug: "lingga", name: "Lingga", capital: "Daik", province: "Kepulauan Riau" },
+  { slug: "natuna", name: "Natuna", capital: "Ranai", province: "Kepulauan Riau" },
+  { slug: "tanjungpinang", name: "Tanjungpinang", capital: "Tanjungpinang", province: "Kepulauan Riau" },
+
+  // ==========================================
+  // JAMBI (11 Wilayah)
+  // ==========================================
+  { slug: "batang-hari", name: "Batang Hari", capital: "Muara Bulian", province: "Jambi" },
+  { slug: "bungo", name: "Bungo", capital: "Muara Bungo", province: "Jambi" },
+  { slug: "kerinci", name: "Kerinci", capital: "Siulak", province: "Jambi" },
+  { slug: "merangin", name: "Merangin", capital: "Bangko", province: "Jambi" },
+  { slug: "muaro-jambi", name: "Muaro Jambi", capital: "Sengeti", province: "Jambi" },
+  { slug: "sarolangun", name: "Sarolangun", capital: "Sarolangun", province: "Jambi" },
+  { slug: "tanjung-jabung-barat", name: "Tanjung Jabung Barat", capital: "Kuala Tungkal", province: "Jambi" },
+  { slug: "tanjung-jabung-timur", name: "Tanjung Jabung Timur", capital: "Muara Sabak", province: "Jambi" },
+  { slug: "tebo", name: "Tebo", capital: "Muara Tebo", province: "Jambi" },
+  { slug: "jambi", name: "Jambi", capital: "Kota Jambi", province: "Jambi" },
+  { slug: "sungai-penuh", name: "Sungai Penuh", capital: "Sungai Penuh", province: "Jambi" },
+
+  // ==========================================
+  // SUMATERA SELATAN (12 Wilayah)
+  // ==========================================
+  { slug: "banyuasin", name: "Banyuasin", capital: "Pangkalan Balai", province: "Sumatera Selatan" },
+  { slug: "empat-lawang", name: "Empat Lawang", capital: "Tebing Tinggi", province: "Sumatera Selatan" },
+  { slug: "lahat", name: "Lahat", capital: "Lahat", province: "Sumatera Selatan" },
+  { slug: "muara-enim", name: "Muara Enim", capital: "Muara Enim", province: "Sumatera Selatan" },
+  { slug: "musi-banyuasin", name: "Musi Banyuasin", capital: "Sekayu", province: "Sumatera Selatan" },
+  { slug: "musi-rawas", name: "Musi Rawas", capital: "Muara Beliti", province: "Sumatera Selatan" },
+  { slug: "musi-rawas-utara", name: "Musi Rawas Utara", capital: "Rupit", province: "Sumatera Selatan" },
+  { slug: "ogan-ilir", name: "Ogan Ilir", capital: "Indralaya", province: "Sumatera Selatan" },
+  { slug: "ogan-komering-ilir", name: "Ogan Komering Ilir", capital: "Kayu Agung", province: "Sumatera Selatan" },
+  { slug: "ogan-komering-ulu", name: "Ogan Komering Ulu", capital: "Baturaja", province: "Sumatera Selatan" },
+  { slug: "palembang", name: "Palembang", capital: "Palembang", province: "Sumatera Selatan" },
+  { slug: "prabumulih", name: "Prabumulih", capital: "Prabumulih", province: "Sumatera Selatan" },
+
+  // ==========================================
+  // LAMPUNG (14 Wilayah)
+  // ==========================================
+  { slug: "bandar-lampung", name: "Bandar Lampung", capital: "Bandar Lampung", province: "Lampung" },
+  { slug: "lampung-selatan", name: "Lampung Selatan", capital: "Kalianda", province: "Lampung" },
+  { slug: "lampung-tengah", name: "Lampung Tengah", capital: "Gunung Sugih", province: "Lampung" },
+  { slug: "lampung-timur", name: "Lampung Timur", capital: "Sukadana", province: "Lampung" },
+  { slug: "lampung-utara", name: "Lampung Utara", capital: "Kotabumi", province: "Lampung" },
+  { slug: "mesuji", name: "Mesuji", capital: "Mesuji", province: "Lampung" },
+  { slug: "metro", name: "Metro", capital: "Metro", province: "Lampung" },
+  { slug: "pesawaran", name: "Pesawaran", capital: "Gedong Tataan", province: "Lampung" },
+  { slug: "pesisir-barat", name: "Pesisir Barat", capital: "Krui", province: "Lampung" },
+  { slug: "pringsewu", name: "Pringsewu", capital: "Pringsewu", province: "Lampung" },
+  { slug: "tanggamus", name: "Tanggamus", capital: "Kota Agung", province: "Lampung" },
+  { slug: "tulang-bawang", name: "Tulang Bawang", capital: "Menggala", province: "Lampung" },
+  { slug: "tulang-bawang-barat", name: "Tulang Bawang Barat", capital: "Panaragan Jaya", province: "Lampung" },
+  { slug: "way-kanan", name: "Way Kanan", capital: "Blambangan Umpu", province: "Lampung" },
+
+  // ==========================================
+  // BENGKULU (10 Wilayah)
+  // ==========================================
+  { slug: "bengkulu-selatan", name: "Bengkulu Selatan", capital: "Manna", province: "Bengkulu" },
+  { slug: "bengkulu-tengah", name: "Bengkulu Tengah", capital: "Karang Tinggi", province: "Bengkulu" },
+  { slug: "bengkulu-utara", name: "Bengkulu Utara", capital: "Arga Makmur", province: "Bengkulu" },
+  { slug: "kaur", name: "Kaur", capital: "Bintuhan", province: "Bengkulu" },
+  { slug: "kepahiang", name: "Kepahiang", capital: "Kepahiang", province: "Bengkulu" },
+  { slug: "lebong", name: "Lebong", capital: "Tubei", province: "Bengkulu" },
+  { slug: "mukomuko", name: "Mukomuko", capital: "Mukomuko", province: "Bengkulu" },
+  { slug: "rejang-lebong", name: "Rejang Lebong", capital: "Curup", province: "Bengkulu" },
+  { slug: "seluma", name: "Seluma", capital: "Tais", province: "Bengkulu" },
+  { slug: "bengkulu", name: "Bengkulu", capital: "Kota Bengkulu", province: "Bengkulu" },
 ];
