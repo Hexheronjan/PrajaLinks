@@ -84,4 +84,29 @@ export const jatimCities: JatimCity[] = [
   { slug: "wonosobo", name: "Wonosobo", capital: "Wonosobo", province: "Jawa Tengah" },
   { slug: "salatiga", name: "Salatiga", capital: "Salatiga", province: "Jawa Tengah" },
   { slug: "surakarta", name: "Surakarta", capital: "Surakarta (Solo)", province: "Jawa Tengah" },
+
+  // ==========================================
+  // JAWA BARAT (21 Wilayah Utama)
+  // ==========================================
+  { slug: "bandung", name: "Bandung", capital: "Bandung / Soreang", province: "Jawa Barat" },
+  { slug: "bandung-barat", name: "Bandung Barat", capital: "Ngamprah", province: "Jawa Barat" },
+  { slug: "bekasi", name: "Bekasi", capital: "Bekasi / Cikarang", province: "Jawa Barat" },
+  { slug: "bogor", name: "Bogor", capital: "Bogor / Cibinong", province: "Jawa Barat" },
+  { slug: "ciamis", name: "Ciamis", capital: "Ciamis", province: "Jawa Barat" },
+  { slug: "cianjur", name: "Cianjur", capital: "Cianjur", province: "Jawa Barat" },
+  { slug: "cirebon", name: "Cirebon", capital: "Cirebon / Sumber", province: "Jawa Barat" },
+  { slug: "garut", name: "Garut", capital: "Tarogong Kidul", province: "Jawa Barat" },
+  { slug: "indramayu", name: "Indramayu", capital: "Indramayu", province: "Jawa Barat" },
+  { slug: "karawang", name: "Karawang", capital: "Karawang Barat", province: "Jawa Barat" },
+  { slug: "kuningan", name: "Kuningan", capital: "Kuningan", province: "Jawa Barat" },
+  { slug: "majalengka", name: "Majalengka", capital: "Majalengka", province: "Jawa Barat" },
+  { slug: "pangandaran", name: "Pangandaran", capital: "Parigi", province: "Jawa Barat" },
+  { slug: "purwakarta", name: "Purwakarta", capital: "Purwakarta", province: "Jawa Barat" },
+  { slug: "subang", name: "Subang", capital: "Subang", province: "Jawa Barat" },
+  { slug: "sukabumi", name: "Sukabumi", capital: "Sukabumi / Palabuhanratu", province: "Jawa Barat" },
+  { slug: "sumedang", name: "Sumedang", capital: "Sumedang", province: "Jawa Barat" },
+  { slug: "tasikmalaya", name: "Tasikmalaya", capital: "Tasikmalaya / Singaparna", province: "Jawa Barat" },
+  { slug: "banjar", name: "Banjar", capital: "Banjar", province: "Jawa Barat" },
+  { slug: "cimahi", name: "Cimahi", capital: "Cimahi", province: "Jawa Barat" },
+  { slug: "depok", name: "Depok", capital: "Depok", province: "Jawa Barat" },
 ];
