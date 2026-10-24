@@ -44,24 +44,31 @@ export async function generateMetadata({
 
   const province = city.province || "Jawa Timur";
   const title = `Jasa Pembuatan Website, Aplikasi & Tugas Coding di ${city.name} | PrajaLinks`;
-  const description = `PrajaLinks melayani Jasa Pembuatan Website, Jasa Pembuatan Aplikasi Android/iOS/Web, dan Jasa Pembuatan Tugas Coding online untuk UMKM, bisnis, dan mahasiswa di ${city.name}, ${province}. Cepat, bergaransi & harga terjangkau.`;
+  const description = `PrajaLinks melayani Jasa Pembuatan Website, Jasa Pembuatan Aplikasi Android/iOS/Web, dan Tugas Coding untuk wilayah Kota & Kabupaten ${city.name}, ${province} dan sekitarnya. Cepat, bergaransi & harga terjangkau.`;
   const canonicalUrl = `https://www.prajalinks.my.id/wilayah/${city.slug}`;
+
+  const cleanName = city.name.toLowerCase();
 
   return {
     title,
     description,
     keywords: [
-      `jasa pembuatan website ${city.name.toLowerCase()}`,
-      `jasa pembuatan aplikasi ${city.name.toLowerCase()}`,
-      `jasa pembuatan tugas coding ${city.name.toLowerCase()}`,
-      `jasa pembuatan website & aplikasi ${city.name.toLowerCase()}`,
-      `jasa pembuatan website dan aplikasi ${city.name.toLowerCase()}`,
-      `jasa website ${city.name.toLowerCase()}`,
-      `jasa aplikasi ${city.name.toLowerCase()}`,
-      `jasa tugas coding ${city.name.toLowerCase()}`,
-      `jasa skripsi informatika ${city.name.toLowerCase()}`,
-      `web developer ${city.name.toLowerCase()}`,
-      `software house ${city.name.toLowerCase()}`,
+      `jasa pembuatan website ${cleanName}`,
+      `jasa pembuatan aplikasi ${cleanName}`,
+      `jasa pembuatan tugas coding ${cleanName}`,
+      `jasa pembuatan website & aplikasi ${cleanName}`,
+      `jasa pembuatan website kota ${cleanName}`,
+      `jasa pembuatan aplikasi kota ${cleanName}`,
+      `jasa pembuatan tugas coding kota ${cleanName}`,
+      `jasa pembuatan website kabupaten ${cleanName}`,
+      `jasa pembuatan aplikasi kabupaten ${cleanName}`,
+      `jasa pembuatan tugas coding kabupaten ${cleanName}`,
+      `jasa website ${cleanName}`,
+      `jasa aplikasi ${cleanName}`,
+      `jasa tugas coding ${cleanName}`,
+      `jasa skripsi informatika ${cleanName}`,
+      `web developer ${cleanName}`,
+      `software house ${cleanName}`,
       "prajalinks",
     ],
     alternates: {
@@ -107,13 +114,23 @@ export default async function CityDetailPage({
         "@type": "ProfessionalService",
         "@id": `https://www.prajalinks.my.id/wilayah/${city.slug}#service`,
         name: `PrajaLinks - Jasa Website, Aplikasi & Tugas Coding ${city.name}`,
-        description: `Layanan rekayasa software pembuatan website, aplikasi Android/iOS, dan tugas coding untuk wilayah ${city.name}, ${province}.`,
+        description: `Layanan rekayasa software pembuatan website, aplikasi Android/iOS, dan tugas coding untuk seluruh wilayah Kota dan Kabupaten ${city.name}, ${province}.`,
         url: `https://www.prajalinks.my.id/wilayah/${city.slug}`,
         telephone: `+${siteData.brand.waNumber}`,
-        areaServed: {
-          "@type": "AdministrativeArea",
-          name: city.name,
-        },
+        areaServed: [
+          {
+            "@type": "AdministrativeArea",
+            name: `${city.name}`,
+          },
+          {
+            "@type": "AdministrativeArea",
+            name: `Kota ${city.name}`,
+          },
+          {
+            "@type": "AdministrativeArea",
+            name: `Kabupaten ${city.name}`,
+          },
+        ],
         address: {
           "@type": "PostalAddress",
           addressLocality: city.name,
@@ -285,7 +302,7 @@ export default async function CityDetailPage({
           </h1>
 
           <p className="text-base sm:text-lg text-[#374151] dark:text-slate-200 font-medium leading-relaxed max-w-3xl mb-8">
-            Butuh website profesional untuk usaha Anda, aplikasi kasir dan operasional bisnis, atau butuh bantuan pengerjaan tugas pemrograman kuliah di <strong>{city.name}</strong>? Studio PrajaLinks melayani secara online dengan respons cepat 24 jam dan hasil bergaransi.
+            Butuh website profesional untuk usaha Anda, aplikasi kasir dan operasional bisnis, atau butuh bantuan pengerjaan tugas pemrograman kuliah di <strong>Kota maupun Kabupaten {city.name}</strong>? Studio PrajaLinks melayani secara online dengan respons cepat 24 jam dan hasil bergaransi.
           </p>
 
           {/* Value Badges */}

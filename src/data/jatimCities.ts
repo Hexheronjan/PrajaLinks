@@ -276,7 +276,6 @@ export const jatimCities: JatimCity[] = [
   { slug: "sumbawa-barat", name: "Sumbawa Barat", capital: "Taliwang", province: "Nusa Tenggara Barat" },
   { slug: "dompu", name: "Dompu", capital: "Dompu", province: "Nusa Tenggara Barat" },
   { slug: "bima", name: "Bima", capital: "Woha", province: "Nusa Tenggara Barat" },
-  { slug: "kota-bima", name: "Kota Bima", capital: "Bima", province: "Nusa Tenggara Barat" },
 
   // ==========================================
   // NUSA TENGGARA TIMUR (22 Wilayah)
@@ -523,7 +522,6 @@ export const jatimCities: JatimCity[] = [
   { slug: "sarmi", name: "Sarmi", capital: "Sarmi", province: "Papua" },
   { slug: "supiori", name: "Supiori", capital: "Sorendiweri", province: "Papua" },
   { slug: "waropen", name: "Waropen", capital: "Botawa", province: "Papua" },
-  { slug: "kota-jayapura", name: "Kota Jayapura", capital: "Jayapura", province: "Papua" },
 
   // ==========================================
   // PAPUA BARAT (7 Wilayah)
@@ -572,7 +570,6 @@ export const jatimCities: JatimCity[] = [
   // PAPUA BARAT DAYA (6 Wilayah)
   // ==========================================
   { slug: "sorong", name: "Sorong", capital: "Aimas", province: "Papua Barat Daya" },
-  { slug: "kota-sorong", name: "Kota Sorong", capital: "Sorong", province: "Papua Barat Daya" },
   { slug: "maybrat", name: "Maybrat", capital: "Kumurkek", province: "Papua Barat Daya" },
   { slug: "raja-ampat", name: "Raja Ampat", capital: "Waisai", province: "Papua Barat Daya" },
   { slug: "sorong-selatan", name: "Sorong Selatan", capital: "Teminabuan", province: "Papua Barat Daya" },
