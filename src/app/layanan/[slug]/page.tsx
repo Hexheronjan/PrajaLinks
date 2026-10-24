@@ -39,7 +39,7 @@ interface ServiceSEOData {
   }[];
 }
 
-export const seoServices: Record<string, ServiceSEOData> = {
+const seoServices: Record<string, ServiceSEOData> = {
   "jasa-pembuatan-website": {
     slug: "jasa-pembuatan-website",
     badge: "Layanan Unggulan #1 • Website Profesional",
