@@ -5,13 +5,13 @@ import {
   CheckCircle2,
   ArrowRight,
   ArrowLeft,
-  Sparkles,
   ShieldCheck,
   Clock,
   Code2,
   Globe,
   Smartphone,
   Terminal,
+  Landmark,
   MessageCircle,
 } from "lucide-react";
 import { siteData, getWhatsAppLink } from "@/data/site";
@@ -39,10 +39,17 @@ interface ServiceSEOData {
   }[];
 }
 
+const serviceIcons: Record<string, React.ComponentType<{ className?: string }>> = {
+  "jasa-pembuatan-website": Globe,
+  "jasa-pembuatan-aplikasi": Smartphone,
+  "jasa-pembuatan-tugas-coding": Terminal,
+  "jasa-website-desa": Landmark,
+};
+
 const seoServices: Record<string, ServiceSEOData> = {
   "jasa-pembuatan-website": {
     slug: "jasa-pembuatan-website",
-    badge: "Layanan Unggulan #1 • Website Profesional",
+    badge: "Layanan Unggulan #1 — Website Profesional",
     title: "Jasa Pembuatan Website Profesional, Company Profile & Toko Online UMKM",
     seoTitle:
       "Jasa Pembuatan Website Profesional, Company Profile & UMKM | PrajaLinks",
@@ -127,7 +134,7 @@ const seoServices: Record<string, ServiceSEOData> = {
   },
   "jasa-pembuatan-aplikasi": {
     slug: "jasa-pembuatan-aplikasi",
-    badge: "Layanan Unggulan #2 • Aplikasi Mobile & Web",
+    badge: "Layanan Unggulan #2 — Aplikasi Mobile & Web",
     title: "Jasa Pembuatan Aplikasi Android, iOS & Sistem Aplikasi Web Custom",
     seoTitle:
       "Jasa Pembuatan Aplikasi Android, iOS & Web App Custom | PrajaLinks",
@@ -212,7 +219,7 @@ const seoServices: Record<string, ServiceSEOData> = {
   },
   "jasa-pembuatan-tugas-coding": {
     slug: "jasa-pembuatan-tugas-coding",
-    badge: "Layanan Unggulan #3 • Coding & Akademik IT",
+    badge: "Layanan Unggulan #3 — Coding & Akademik IT",
     title: "Jasa Pembuatan Tugas Coding, Pemrograman Kuliah & Sistem Skripsi IT",
     seoTitle:
       "Jasa Pembuatan Tugas Coding, Pemrograman & Skripsi IT Online | PrajaLinks",
@@ -297,7 +304,7 @@ const seoServices: Record<string, ServiceSEOData> = {
   },
   "jasa-website-desa": {
     slug: "jasa-website-desa",
-    badge: "Layanan Pemerintahan • Desa Digital & SID",
+    badge: "Layanan Pemerintahan — Desa Digital & SID",
     title: "Jasa Pembuatan Website Desa & Sistem Informasi Desa (SID) Terintegrasi",
     seoTitle:
       "Jasa Pembuatan Website Desa & Sistem Informasi Desa (SID) | PrajaLinks",
@@ -438,6 +445,8 @@ export default async function ServiceDetailPage({
     (s) => s.slug !== service.slug
   );
 
+  const ServiceIcon = serviceIcons[service.slug] || Code2;
+
   const serviceJsonLd = {
     "@context": "https://schema.org",
     "@graph": [
@@ -525,7 +534,7 @@ export default async function ServiceDetailPage({
         {/* Hero Card */}
         <div className="relative rounded-[32px] bg-white dark:bg-[#111C33] border border-[#E2E8F0] dark:border-white/10 p-6 sm:p-10 lg:p-12 shadow-[0_20px_50px_-15px_rgba(29,91,216,0.08)] overflow-hidden mb-12">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#EBF2FF] dark:bg-[#1D5BD8]/20 text-[#1D5BD8] dark:text-[#60A5FA] text-xs sm:text-sm font-bold mb-5">
-            <Sparkles className="w-4 h-4 text-[#C88A23]" />
+            <ServiceIcon className="w-4 h-4 text-[#1D5BD8] dark:text-[#60A5FA]" />
             <span>{service.badge}</span>
           </div>
 
