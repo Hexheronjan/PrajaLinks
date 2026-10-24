@@ -13,6 +13,10 @@ import {
   Terminal,
   Landmark,
   MessageCircle,
+  Zap,
+  Star,
+  Check,
+  Lock,
 } from "lucide-react";
 import { siteData, getWhatsAppLink } from "@/data/site";
 
@@ -39,7 +43,10 @@ interface ServiceSEOData {
   }[];
 }
 
-const serviceIcons: Record<string, React.ComponentType<{ className?: string }>> = {
+const serviceIcons: Record<
+  string,
+  React.ComponentType<{ className?: string }>
+> = {
   "jasa-pembuatan-website": Globe,
   "jasa-pembuatan-aplikasi": Smartphone,
   "jasa-pembuatan-tugas-coding": Terminal,
@@ -506,14 +513,54 @@ export default async function ServiceDetailPage({
   };
 
   return (
-    <div className="pt-28 pb-20 bg-[#FAF9F6] dark:bg-[#0B1120] min-h-screen">
+    <div className="relative overflow-hidden pt-28 pb-20 bg-[#FAF9F6] dark:bg-[#0B1120] min-h-screen">
+      {/* -------------------------------------------------------------
+          Ambient Glow & Smooth Curved SVG Latar Belakang Khas PrajaLinks
+      -------------------------------------------------------------- */}
+      <div
+        aria-hidden="true"
+        className="absolute -top-32 -left-32 w-[480px] h-[480px] rounded-full bg-[#1D5BD8]/5 blur-3xl pointer-events-none"
+      />
+      <div
+        aria-hidden="true"
+        className="absolute top-1/4 right-0 w-[550px] h-[550px] rounded-full bg-[#C88A23]/5 blur-3xl pointer-events-none"
+      />
+
+      <svg
+        aria-hidden="true"
+        viewBox="0 0 1440 600"
+        fill="none"
+        className="absolute inset-0 w-full h-full pointer-events-none opacity-[0.35] dark:opacity-[0.15]"
+        preserveAspectRatio="none"
+      >
+        <path
+          d="M -100,120 C 320,40 680,260 1100,100 C 1280,30 1420,120 1560,90"
+          stroke="url(#service-curve-gradient)"
+          strokeWidth="1.5"
+          strokeDasharray="4 4"
+        />
+        <defs>
+          <linearGradient
+            id="service-curve-gradient"
+            x1="0%"
+            y1="0%"
+            x2="100%"
+            y2="0%"
+          >
+            <stop offset="0%" stopColor="#1D5BD8" stopOpacity="0.8" />
+            <stop offset="50%" stopColor="#C88A23" stopOpacity="0.9" />
+            <stop offset="100%" stopColor="#1D5BD8" stopOpacity="0.4" />
+          </linearGradient>
+        </defs>
+      </svg>
+
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceJsonLd) }}
       />
 
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Breadcrumb */}
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Breadcrumb Navigation */}
         <nav
           aria-label="Breadcrumb"
           className="flex flex-wrap items-center gap-2 text-xs sm:text-sm font-bold text-[#4B5563] dark:text-slate-300 mb-8"
@@ -531,95 +578,267 @@ export default async function ServiceDetailPage({
           </span>
         </nav>
 
-        {/* Hero Card */}
-        <div className="relative rounded-[32px] bg-white dark:bg-[#111C33] border border-[#E2E8F0] dark:border-white/10 p-6 sm:p-10 lg:p-12 shadow-[0_20px_50px_-15px_rgba(29,91,216,0.08)] overflow-hidden mb-12">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#EBF2FF] dark:bg-[#1D5BD8]/20 text-[#1D5BD8] dark:text-[#60A5FA] text-xs sm:text-sm font-bold mb-5">
-            <ServiceIcon className="w-4 h-4 text-[#1D5BD8] dark:text-[#60A5FA]" />
-            <span>{service.badge}</span>
-          </div>
-
-          <h1 className="font-heading text-2xl sm:text-4xl lg:text-[42px] font-extrabold text-[#111827] dark:text-white leading-[1.2] tracking-tight mb-5">
-            {service.title}
-          </h1>
-
-          <p className="text-base sm:text-lg text-[#374151] dark:text-slate-200 font-medium leading-relaxed max-w-3xl mb-8">
-            {service.heroSubtitle}
-          </p>
-
-          {/* Quick Info Pills */}
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-8">
-            <div className="p-4 rounded-2xl bg-[#F8FAFC] dark:bg-white/5 border border-[#E2E8F0] dark:border-white/10">
-              <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-[#1D5BD8] dark:text-[#60A5FA] mb-1">
-                <ShieldCheck className="w-4 h-4 text-[#C88A23]" />
-                <span>Estimasi Biaya</span>
+        {/* ==============================================================
+            HERO DUA KOLOM: Headline + Mockup Interaktif macOS Studio
+        ============================================================== */}
+        <div className="relative rounded-[32px] bg-white dark:bg-[#111C33] border border-[#E2E8F0] dark:border-white/10 p-6 sm:p-10 lg:p-12 shadow-[0_20px_50px_-15px_rgba(29,91,216,0.08)] overflow-hidden mb-16">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+            {/* Kolom Kiri: Teks & Penawaran */}
+            <div className="lg:col-span-7">
+              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#EBF2FF] dark:bg-[#1D5BD8]/20 text-[#1D5BD8] dark:text-[#60A5FA] text-xs sm:text-sm font-bold mb-5">
+                <ServiceIcon className="w-4 h-4 text-[#1D5BD8] dark:text-[#60A5FA]" />
+                <span>{service.badge}</span>
               </div>
-              <p className="text-base sm:text-lg font-extrabold text-[#111827] dark:text-white">
-                {service.priceStart}
+
+              <h1 className="font-heading text-2xl sm:text-4xl lg:text-[40px] font-extrabold text-[#111827] dark:text-white leading-[1.25] tracking-tight mb-5">
+                {service.title}
+              </h1>
+
+              {/* Garis Coretan Emas Khas PrajaLinks */}
+              <div className="w-24 h-1.5 bg-[#C88A23] rounded-full -mt-2 mb-6 opacity-90" />
+
+              <p className="text-base sm:text-lg text-[#374151] dark:text-slate-200 font-medium leading-relaxed mb-8">
+                {service.heroSubtitle}
               </p>
+
+              {/* Quick Info Pills */}
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-3.5 mb-8">
+                <div className="p-3.5 rounded-2xl bg-[#F8FAFC] dark:bg-white/5 border border-[#E2E8F0] dark:border-white/10">
+                  <div className="flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-[#1D5BD8] dark:text-[#60A5FA] mb-1">
+                    <ShieldCheck className="w-4 h-4 text-[#C88A23]" />
+                    <span>Biaya Mulai</span>
+                  </div>
+                  <p className="text-sm sm:text-base font-extrabold text-[#111827] dark:text-white">
+                    {service.priceStart}
+                  </p>
+                </div>
+
+                <div className="p-3.5 rounded-2xl bg-[#F8FAFC] dark:bg-white/5 border border-[#E2E8F0] dark:border-white/10">
+                  <div className="flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-[#1D5BD8] dark:text-[#60A5FA] mb-1">
+                    <Clock className="w-4 h-4 text-[#C88A23]" />
+                    <span>Pengerjaan</span>
+                  </div>
+                  <p className="text-sm sm:text-base font-extrabold text-[#111827] dark:text-white">
+                    {service.deliveryTime}
+                  </p>
+                </div>
+
+                <div className="p-3.5 rounded-2xl bg-[#F8FAFC] dark:bg-white/5 border border-[#E2E8F0] dark:border-white/10">
+                  <div className="flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-[#1D5BD8] dark:text-[#60A5FA] mb-1">
+                    <Globe className="w-4 h-4 text-[#C88A23]" />
+                    <span>Jangkauan</span>
+                  </div>
+                  <p className="text-sm sm:text-base font-extrabold text-[#111827] dark:text-white">
+                    Online Se-Indonesia
+                  </p>
+                </div>
+              </div>
+
+              {/* Highlights Checklist */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 mb-8">
+                {service.highlights.slice(0, 4).map((item) => (
+                  <div
+                    key={item}
+                    className="flex items-start gap-2 text-xs sm:text-[13.5px] font-bold text-[#1F2937] dark:text-slate-100"
+                  >
+                    <CheckCircle2 className="w-4 h-4 text-[#1D5BD8] dark:text-[#60A5FA] shrink-0 mt-0.5" />
+                    <span>{item}</span>
+                  </div>
+                ))}
+              </div>
+
+              {/* Action Buttons */}
+              <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3.5">
+                <a
+                  href={getWhatsAppLink(service.waMessage)}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center justify-center gap-2.5 px-7 py-3.5 rounded-full bg-[#1D5BD8] hover:bg-[#1648B0] text-white font-bold text-sm sm:text-base shadow-lg shadow-[#1D5BD8]/25 transition-all"
+                >
+                  <MessageCircle className="w-5 h-5" />
+                  <span>Konsultasi via WhatsApp</span>
+                  <ArrowRight className="w-4 h-4" />
+                </a>
+                <Link
+                  href="/#demo-desa"
+                  className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-full bg-[#F1F5F9] dark:bg-white/10 hover:bg-[#E2E8F0] dark:hover:bg-white/15 text-[#111827] dark:text-white font-bold text-sm transition-all"
+                >
+                  <span>Coba Demo Interaktif</span>
+                </Link>
+              </div>
             </div>
 
-            <div className="p-4 rounded-2xl bg-[#F8FAFC] dark:bg-white/5 border border-[#E2E8F0] dark:border-white/10">
-              <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-[#1D5BD8] dark:text-[#60A5FA] mb-1">
-                <Clock className="w-4 h-4 text-[#C88A23]" />
-                <span>Estimasi Pengerjaan</span>
+            {/* Kolom Kanan: Showcase Mockup Interaktif macOS Studio */}
+            <div className="lg:col-span-5 flex justify-center">
+              <div className="w-full max-w-[420px] rounded-[24px] border border-slate-200/90 dark:border-white/15 bg-white dark:bg-[#0F172A] shadow-xl overflow-hidden">
+                {/* Header macOS Bersih */}
+                <div className="flex items-center justify-between px-4 py-2.5 bg-[#F8FAFC] dark:bg-[#1E293B] border-b border-slate-200 dark:border-white/10">
+                  <div className="flex items-center gap-2">
+                    <div className="flex items-center gap-1.5">
+                      <span className="w-2.5 h-2.5 rounded-full bg-[#EF4444]" />
+                      <span className="w-2.5 h-2.5 rounded-full bg-[#F59E0B]" />
+                      <span className="w-2.5 h-2.5 rounded-full bg-[#10B981]" />
+                    </div>
+                    <span className="h-3 w-px bg-slate-300 dark:bg-white/20 mx-1" />
+                    <span className="text-xs font-bold text-[#111827] dark:text-white flex items-center gap-1.5">
+                      <Zap className="w-3.5 h-3.5 text-[#C88A23] fill-[#C88A23]" />
+                      PrajaLinks Live Preview
+                    </span>
+                  </div>
+                  <div className="flex items-center gap-1.5 text-[10.5px] font-bold text-[#16A34A] bg-[#DCFCE7] dark:bg-emerald-950/60 dark:text-emerald-300 px-2 py-0.5 rounded-full">
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#16A34A] animate-pulse" />
+                    <span>Aktif 24 Jam</span>
+                  </div>
+                </div>
+
+                {/* Konten Showcase Spesifik Layanan */}
+                <div className="p-4 bg-gradient-to-b from-[#F8FAFC] via-white to-[#F1F5F9] dark:from-[#0B1528] dark:to-[#0F172A]">
+                  {/* 1. MOCKUP WEBSITE */}
+                  {service.slug === "jasa-pembuatan-website" && (
+                    <div className="space-y-3">
+                      <div className="flex items-center gap-2 px-3 py-1.5 bg-white dark:bg-white/10 rounded-lg border border-slate-200 dark:border-white/10 text-[11px] text-[#4B5563] dark:text-slate-300 font-mono">
+                        <Lock className="w-3 h-3 text-[#16A34A]" />
+                        <span>https://bisnis-anda.com</span>
+                      </div>
+                      <div className="p-3.5 rounded-xl bg-white dark:bg-[#1E293B] border border-slate-200 dark:border-white/10 shadow-xs">
+                        <div className="flex items-center justify-between mb-2">
+                          <span className="text-xs font-bold text-[#1D5BD8] dark:text-[#60A5FA]">
+                            Company Profile & Toko UMKM
+                          </span>
+                          <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-[#DCFCE7] text-[#16A34A]">
+                            Skor 98/100
+                          </span>
+                        </div>
+                        <p className="text-xs text-[#4B5563] dark:text-slate-300 leading-relaxed mb-3">
+                          Website berkecepatan tinggi dengan integrasi tombol
+                          order langsung WhatsApp.
+                        </p>
+                        <div className="flex items-center justify-between text-[11px] font-bold pt-2 border-t border-slate-100 dark:border-white/10">
+                          <span className="text-[#111827] dark:text-white">
+                            Google PageSpeed
+                          </span>
+                          <span className="text-[#16A34A]">✓ Super Cepat</span>
+                        </div>
+                      </div>
+                    </div>
+                  )}
+
+                  {/* 2. MOCKUP APLIKASI */}
+                  {service.slug === "jasa-pembuatan-aplikasi" && (
+                    <div className="space-y-3">
+                      <div className="p-3.5 rounded-xl bg-white dark:bg-[#1E293B] border border-slate-200 dark:border-white/10 shadow-xs">
+                        <div className="flex items-center justify-between mb-2 pb-2 border-b border-slate-100 dark:border-white/10">
+                          <span className="text-xs font-bold text-[#111827] dark:text-white flex items-center gap-1.5">
+                            <Smartphone className="w-3.5 h-3.5 text-[#1D5BD8]" />
+                            <span>Kasir POS & Android</span>
+                          </span>
+                          <span className="text-[10px] font-bold text-[#16A34A]">
+                            Stok Terhubung
+                          </span>
+                        </div>
+                        <div className="space-y-1.5 text-xs">
+                          <div className="flex justify-between font-medium text-[#4B5563] dark:text-slate-300">
+                            <span>1x Order #PL-892</span>
+                            <span className="font-bold text-[#111827] dark:text-white">
+                              Rp 176.000
+                            </span>
+                          </div>
+                          <div className="flex justify-between font-medium text-[#4B5563] dark:text-slate-300">
+                            <span>Metode Bayar</span>
+                            <span className="text-xs font-bold text-[#1D5BD8]">
+                              QRIS & Tunai
+                            </span>
+                          </div>
+                        </div>
+                        <div className="mt-3 pt-2 border-t border-slate-100 dark:border-white/10 flex items-center justify-between text-[11px] font-bold">
+                          <span>Status Laporan</span>
+                          <span className="text-[#16A34A]">✓ Sinkron Real-time</span>
+                        </div>
+                      </div>
+                    </div>
+                  )}
+
+                  {/* 3. MOCKUP TUGAS CODING */}
+                  {service.slug === "jasa-pembuatan-tugas-coding" && (
+                    <div className="rounded-xl border border-slate-200 dark:border-white/10 bg-[#1E1E1E] text-white p-3.5 font-mono text-[11px] leading-relaxed shadow-xs">
+                      <div className="flex items-center justify-between text-slate-400 text-[10.5px] pb-2 border-b border-white/10">
+                        <span className="flex items-center gap-1.5 text-sky-400 font-bold">
+                          <Terminal className="w-3.5 h-3.5 text-sky-400" />
+                          <span>tugas_coding.py</span>
+                        </span>
+                        <span className="text-emerald-400 font-bold">
+                          Python 3.11
+                        </span>
+                      </div>
+                      <div className="pt-2 space-y-1">
+                        <p className="text-slate-400">
+                          # PrajaLinks — Jasa Pembuatan Tugas Coding
+                        </p>
+                        <p>
+                          <span className="text-[#C586C0]">def</span>{" "}
+                          <span className="text-[#DCDCAA]">selesaikan_tugas</span>
+                          ():
+                        </p>
+                        <p className="pl-3 text-[#9CDCFE]">
+                          return{" "}
+                          <span className="text-[#CE9178]">
+                            &quot;100% Berjalan Tanpa Error ✓&quot;
+                          </span>
+                        </p>
+                      </div>
+                      <div className="mt-2.5 pt-2 border-t border-white/10 flex items-center justify-between text-[10.5px] text-emerald-400 font-bold">
+                        <span>$ python test_tugas.py</span>
+                        <span>[10/10 PASS • DIBIMBING]</span>
+                      </div>
+                    </div>
+                  )}
+
+                  {/* 4. MOCKUP WEBSITE DESA */}
+                  {service.slug === "jasa-website-desa" && (
+                    <div className="p-3.5 rounded-xl bg-white dark:bg-[#1E293B] border border-slate-200 dark:border-white/10 shadow-xs space-y-2.5">
+                      <div className="flex items-center justify-between text-xs font-bold text-[#1D5BD8] dark:text-[#60A5FA]">
+                        <span>Portal Resmi Desa .desa.id</span>
+                        <span className="text-[10px] text-[#16A34A] bg-[#DCFCE7] px-2 py-0.5 rounded-full">
+                          SPJ Lengkap
+                        </span>
+                      </div>
+                      <p className="text-xs text-[#4B5563] dark:text-slate-300">
+                        Pelayanan surat online mandiri (SKTM, Domisili) &
+                        transparansi APBDes terbuka.
+                      </p>
+                      <div className="pt-2 border-t border-slate-100 dark:border-white/10 flex items-center justify-between text-[11px] font-bold">
+                        <span>Status Sistem</span>
+                        <span className="text-[#16A34A]">✓ Siap Audit APBDes</span>
+                      </div>
+                    </div>
+                  )}
+                </div>
+
+                {/* Footer Kartu Studio */}
+                <div className="px-4 py-3 bg-[#F8FAFC] dark:bg-[#1E293B] border-t border-slate-200 dark:border-white/10 flex items-center justify-between text-xs font-bold text-[#111827] dark:text-white">
+                  <span className="flex items-center gap-1.5 text-[#1D5BD8] dark:text-[#60A5FA]">
+                    <Check className="w-4 h-4 text-[#16A34A]" />
+                    <span>Garansi Pengerjaan</span>
+                  </span>
+                  <span className="text-xs text-[#6B7280] dark:text-slate-400">
+                    100+ Proyek Selesai
+                  </span>
+                </div>
               </div>
-              <p className="text-base sm:text-lg font-extrabold text-[#111827] dark:text-white">
-                {service.deliveryTime}
-              </p>
             </div>
-
-            <div className="p-4 rounded-2xl bg-[#F8FAFC] dark:bg-white/5 border border-[#E2E8F0] dark:border-white/10">
-              <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-[#1D5BD8] dark:text-[#60A5FA] mb-1">
-                <Globe className="w-4 h-4 text-[#C88A23]" />
-                <span>Jangkauan Layanan</span>
-              </div>
-              <p className="text-base sm:text-lg font-extrabold text-[#111827] dark:text-white">
-                Online Seluruh Indonesia (24 Jam)
-              </p>
-            </div>
-          </div>
-
-          {/* Highlights Checklist */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-3 mb-8">
-            {service.highlights.map((item) => (
-              <div
-                key={item}
-                className="flex items-start gap-2.5 text-sm sm:text-[15px] font-bold text-[#1F2937] dark:text-slate-100"
-              >
-                <CheckCircle2 className="w-5 h-5 text-[#1D5BD8] dark:text-[#60A5FA] shrink-0 mt-0.5" />
-                <span>{item}</span>
-              </div>
-            ))}
-          </div>
-
-          {/* CTA Buttons */}
-          <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3.5 pt-2">
-            <a
-              href={getWhatsAppLink(service.waMessage)}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center justify-center gap-2.5 px-7 py-4 rounded-full bg-[#1D5BD8] hover:bg-[#1648B0] text-white font-bold text-sm sm:text-base shadow-lg shadow-[#1D5BD8]/25 transition-all"
-            >
-              <MessageCircle className="w-5 h-5" />
-              <span>Konsultasi Gratis via WhatsApp</span>
-              <ArrowRight className="w-4 h-4" />
-            </a>
-            <Link
-              href="/#demo-desa"
-              className="inline-flex items-center justify-center gap-2 px-6 py-4 rounded-full bg-[#F1F5F9] dark:bg-white/10 hover:bg-[#E2E8F0] dark:hover:bg-white/15 text-[#111827] dark:text-white font-bold text-sm sm:text-base transition-all"
-            >
-              <span>Coba Simulasi Demo Interaktif</span>
-            </Link>
           </div>
         </div>
 
-        {/* Features Grid */}
+        {/* ==============================================================
+            FITUR & SOLUSI
+        ============================================================== */}
         <section className="mb-14">
           <h2 className="font-heading text-xl sm:text-3xl font-extrabold text-[#111827] dark:text-white mb-3">
             Cakupan Layanan & Solusi yang Kami Kerjakan
           </h2>
           <p className="text-sm sm:text-base text-[#4B5563] dark:text-slate-300 font-medium mb-8">
-            Setiap proyek dikerjakan langsung oleh tim engineer PrajaLinks dengan standar kualitas tinggi.
+            Setiap proyek dikerjakan langsung oleh tim engineer PrajaLinks dengan
+            standar kode bersih dan performa tinggi.
           </p>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -642,7 +861,9 @@ export default async function ServiceDetailPage({
           </div>
         </section>
 
-        {/* Tech Stack */}
+        {/* ==============================================================
+            TEKNOLOGI YANG DIDUKUNG
+        ============================================================== */}
         <section className="mb-14 rounded-[28px] bg-white dark:bg-[#111C33] border border-[#E2E8F0] dark:border-white/10 p-6 sm:p-8">
           <div className="flex items-center gap-2.5 mb-4">
             <Code2 className="w-5 h-5 text-[#1D5BD8]" />
@@ -662,7 +883,9 @@ export default async function ServiceDetailPage({
           </div>
         </section>
 
-        {/* FAQ Specific to Service */}
+        {/* ==============================================================
+            FAQ
+        ============================================================== */}
         <section className="mb-14">
           <h2 className="font-heading text-xl sm:text-2xl font-extrabold text-[#111827] dark:text-white mb-6">
             Pertanyaan yang Sering Diajukan (FAQ)
@@ -684,7 +907,9 @@ export default async function ServiceDetailPage({
           </div>
         </section>
 
-        {/* Cross-links to Other Main Services (Internal Linking for Googlebot) */}
+        {/* ==============================================================
+            CROSS-LINKS KE LAYANAN LAINNYA
+        ============================================================== */}
         <section className="pt-6 border-t border-[#E2E8F0] dark:border-white/10">
           <h2 className="font-heading text-lg sm:text-xl font-extrabold text-[#111827] dark:text-white mb-4">
             Jelajahi Layanan Utama PrajaLinks Lainnya
