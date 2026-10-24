@@ -152,10 +152,10 @@ export const Navbar = () => {
               {isSubPage ? (
                 <Link
                   href="/"
-                  className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-md bg-[#1D5BD8] text-white font-bold text-xs"
+                  className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-[#1D5BD8] hover:bg-[#1648B0] text-white font-bold text-xs shadow-xs transition-colors"
                 >
                   <Home className="w-3.5 h-3.5" />
-                  <span>Beranda</span>
+                  <span>Web Utama</span>
                 </Link>
               ) : (
                 <button

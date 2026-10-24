@@ -206,7 +206,7 @@ export default async function CityDetailPage({
             className="inline-flex items-center gap-1.5 text-[#1D5BD8] dark:text-[#60A5FA] hover:underline"
           >
             <ArrowLeft className="w-4 h-4" />
-            <span>Beranda PrajaLinks</span>
+            <span>Website Utama</span>
           </Link>
           <span>/</span>
           <span className="text-[#111827] dark:text-white truncate max-w-xs sm:max-w-md">
