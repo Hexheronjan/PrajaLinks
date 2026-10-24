@@ -415,4 +415,100 @@ export const jatimCities: JatimCity[] = [
   { slug: "sigi", name: "Sigi", capital: "Sigi Biromaru", province: "Sulawesi Tengah" },
   { slug: "tojo-una-una", name: "Tojo Una-Una", capital: "Ampana", province: "Sulawesi Tengah" },
   { slug: "tolitoli", name: "Tolitoli", capital: "Tolitoli", province: "Sulawesi Tengah" },
+
+  // ==========================================
+  // SULAWESI SELATAN (24 Wilayah)
+  // ==========================================
+  { slug: "makassar", name: "Makassar", capital: "Makassar", province: "Sulawesi Selatan" },
+  { slug: "bantaeng", name: "Bantaeng", capital: "Bantaeng", province: "Sulawesi Selatan" },
+  { slug: "barru", name: "Barru", capital: "Barru", province: "Sulawesi Selatan" },
+  { slug: "bone", name: "Bone", capital: "Watampone", province: "Sulawesi Selatan" },
+  { slug: "bulukumba", name: "Bulukumba", capital: "Ujung Bulu", province: "Sulawesi Selatan" },
+  { slug: "enrekang", name: "Enrekang", capital: "Enrekang", province: "Sulawesi Selatan" },
+  { slug: "gowa", name: "Gowa", capital: "Sungguminasa", province: "Sulawesi Selatan" },
+  { slug: "jeneponto", name: "Jeneponto", capital: "Bontosunggu", province: "Sulawesi Selatan" },
+  { slug: "kepulauan-selayar", name: "Kepulauan Selayar", capital: "Benteng", province: "Sulawesi Selatan" },
+  { slug: "luwu", name: "Luwu", capital: "Belopa", province: "Sulawesi Selatan" },
+  { slug: "luwu-timur", name: "Luwu Timur", capital: "Malili", province: "Sulawesi Selatan" },
+  { slug: "luwu-utara", name: "Luwu Utara", capital: "Masamba", province: "Sulawesi Selatan" },
+  { slug: "maros", name: "Maros", capital: "Turikale", province: "Sulawesi Selatan" },
+  { slug: "pangkajene-dan-kepulauan", name: "Pangkajene dan Kepulauan", capital: "Pangkajene", province: "Sulawesi Selatan" },
+  { slug: "pinrang", name: "Pinrang", capital: "Watang Sawitto", province: "Sulawesi Selatan" },
+  { slug: "sidenreng-rappang", name: "Sidenreng Rappang", capital: "Pangkajene Sidenreng", province: "Sulawesi Selatan" },
+  { slug: "sinjai", name: "Sinjai", capital: "Sinjai Utara", province: "Sulawesi Selatan" },
+  { slug: "soppeng", name: "Soppeng", capital: "Watansoppeng", province: "Sulawesi Selatan" },
+  { slug: "takalar", name: "Takalar", capital: "Pattallassang", province: "Sulawesi Selatan" },
+  { slug: "tana-toraja", name: "Tana Toraja", capital: "Makale", province: "Sulawesi Selatan" },
+  { slug: "toraja-utara", name: "Toraja Utara", capital: "Rantepao", province: "Sulawesi Selatan" },
+  { slug: "wajo", name: "Wajo", capital: "Sengkang", province: "Sulawesi Selatan" },
+  { slug: "palopo", name: "Palopo", capital: "Palopo", province: "Sulawesi Selatan" },
+  { slug: "parepare", name: "Parepare", capital: "Parepare", province: "Sulawesi Selatan" },
+
+  // ==========================================
+  // SULAWESI TENGGARA (17 Wilayah)
+  // ==========================================
+  { slug: "kendari", name: "Kendari", capital: "Kendari", province: "Sulawesi Tenggara" },
+  { slug: "baubau", name: "Baubau", capital: "Baubau", province: "Sulawesi Tenggara" },
+  { slug: "bombana", name: "Bombana", capital: "Rumbia", province: "Sulawesi Tenggara" },
+  { slug: "buton", name: "Buton", capital: "Pasarwajo", province: "Sulawesi Tenggara" },
+  { slug: "buton-selatan", name: "Buton Selatan", capital: "Batauga", province: "Sulawesi Tenggara" },
+  { slug: "buton-tengah", name: "Buton Tengah", capital: "Labungkari", province: "Sulawesi Tenggara" },
+  { slug: "buton-utara", name: "Buton Utara", capital: "Buranga", province: "Sulawesi Tenggara" },
+  { slug: "kolaka", name: "Kolaka", capital: "Kolaka", province: "Sulawesi Tenggara" },
+  { slug: "kolaka-timur", name: "Kolaka Timur", capital: "Tirawuta", province: "Sulawesi Tenggara" },
+  { slug: "kolaka-utara", name: "Kolaka Utara", capital: "Lasusua", province: "Sulawesi Tenggara" },
+  { slug: "konawe", name: "Konawe", capital: "Unaaha", province: "Sulawesi Tenggara" },
+  { slug: "konawe-kepulauan", name: "Konawe Kepulauan", capital: "Langara", province: "Sulawesi Tenggara" },
+  { slug: "konawe-selatan", name: "Konawe Selatan", capital: "Andoolo", province: "Sulawesi Tenggara" },
+  { slug: "konawe-utara", name: "Konawe Utara", capital: "Wanggudu", province: "Sulawesi Tenggara" },
+  { slug: "muna", name: "Muna", capital: "Raha", province: "Sulawesi Tenggara" },
+  { slug: "muna-barat", name: "Muna Barat", capital: "Sawerigadi", province: "Sulawesi Tenggara" },
+  { slug: "wakatobi", name: "Wakatobi", capital: "Wangi-Wangi", province: "Sulawesi Tenggara" },
+
+  // ==========================================
+  // GORONTALO (5 Wilayah)
+  // ==========================================
+  { slug: "gorontalo", name: "Gorontalo", capital: "Gorontalo", province: "Gorontalo" },
+  { slug: "boalemo", name: "Boalemo", capital: "Tilamuta", province: "Gorontalo" },
+  { slug: "bone-bolango", name: "Bone Bolango", capital: "Suwawa", province: "Gorontalo" },
+  { slug: "gorontalo-utara", name: "Gorontalo Utara", capital: "Kwandang", province: "Gorontalo" },
+  { slug: "pohuwato", name: "Pohuwato", capital: "Marisa", province: "Gorontalo" },
+
+  // ==========================================
+  // SULAWESI BARAT (6 Wilayah)
+  // ==========================================
+  { slug: "mamuju", name: "Mamuju", capital: "Mamuju", province: "Sulawesi Barat" },
+  { slug: "majene", name: "Majene", capital: "Majene", province: "Sulawesi Barat" },
+  { slug: "mamasa", name: "Mamasa", capital: "Mamasa", province: "Sulawesi Barat" },
+  { slug: "mamuju-tengah", name: "Mamuju Tengah", capital: "Tobadak", province: "Sulawesi Barat" },
+  { slug: "pasangkayu", name: "Pasangkayu", capital: "Pasangkayu", province: "Sulawesi Barat" },
+  { slug: "polewali-mandar", name: "Polewali Mandar", capital: "Polewali", province: "Sulawesi Barat" },
+
+  // ==========================================
+  // MALUKU (10 Wilayah)
+  // ==========================================
+  { slug: "ambon", name: "Ambon", capital: "Ambon", province: "Maluku" },
+  { slug: "tual", name: "Tual", capital: "Tual", province: "Maluku" },
+  { slug: "buru", name: "Buru", capital: "Namlea", province: "Maluku" },
+  { slug: "buru-selatan", name: "Buru Selatan", capital: "Namrole", province: "Maluku" },
+  { slug: "kepulauan-aru", name: "Kepulauan Aru", capital: "Dobo", province: "Maluku" },
+  { slug: "maluku-barat-daya", name: "Maluku Barat Daya", capital: "Tiakur", province: "Maluku" },
+  { slug: "maluku-tengah", name: "Maluku Tengah", capital: "Masohi", province: "Maluku" },
+  { slug: "maluku-tenggara", name: "Maluku Tenggara", capital: "Langgur", province: "Maluku" },
+  { slug: "seram-bagian-barat", name: "Seram Bagian Barat", capital: "Piru", province: "Maluku" },
+  { slug: "seram-bagian-timur", name: "Seram Bagian Timur", capital: "Bula", province: "Maluku" },
+
+  // ==========================================
+  // MALUKU UTARA (10 Wilayah)
+  // ==========================================
+  { slug: "ternate", name: "Ternate", capital: "Ternate", province: "Maluku Utara" },
+  { slug: "tidore-kepulauan", name: "Tidore Kepulauan", capital: "Soasio", province: "Maluku Utara" },
+  { slug: "halmahera-barat", name: "Halmahera Barat", capital: "Jailolo", province: "Maluku Utara" },
+  { slug: "halmahera-selatan", name: "Halmahera Selatan", capital: "Labuha", province: "Maluku Utara" },
+  { slug: "halmahera-tengah", name: "Halmahera Tengah", capital: "Weda", province: "Maluku Utara" },
+  { slug: "halmahera-timur", name: "Halmahera Timur", capital: "Kota Maba", province: "Maluku Utara" },
+  { slug: "halmahera-utara", name: "Halmahera Utara", capital: "Tobelo", province: "Maluku Utara" },
+  { slug: "kepulauan-sula", name: "Kepulauan Sula", capital: "Sanana", province: "Maluku Utara" },
+  { slug: "pulau-morotai", name: "Pulau Morotai", capital: "Daruba", province: "Maluku Utara" },
+  { slug: "pulau-taliabu", name: "Pulau Taliabu", capital: "Bobong", province: "Maluku Utara" },
 ];
