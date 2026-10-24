@@ -1,26 +1,45 @@
+import Link from "next/link";
 import { ArrowUp } from "lucide-react";
 import { siteData, getWhatsAppLink } from "@/data/site";
 import { Logo } from "@/components/common/Logo";
 
 const footerNav = [
-  { name: "Beranda", href: "#beranda" },
-  { name: "Layanan", href: "#layanan" },
-  { name: "Demo Website Desa", href: "#demo-desa" },
-  { name: "Portofolio", href: "#portofolio" },
-  { name: "Harga", href: "#harga" },
-  { name: "Proses Kerja", href: "#proses" },
-  { name: "Tentang", href: "#tentang" },
-  { name: "FAQ", href: "#faq" },
-  { name: "Kontak", href: "#kontak" },
+  { name: "Beranda", href: "/#beranda" },
+  { name: "Layanan", href: "/#layanan" },
+  { name: "Demo Interaktif", href: "/#demo-desa" },
+  { name: "Portofolio", href: "/#portofolio" },
+  { name: "Harga", href: "/#harga" },
+  { name: "Proses Kerja", href: "/#proses" },
+  { name: "Tentang", href: "/#tentang" },
+  { name: "FAQ", href: "/#faq" },
+  { name: "Kontak", href: "/#kontak" },
 ];
 
 const footerServices = [
-  "Website Desa & Sistem Informasi",
-  "Company Profile & UMKM",
-  "Jasa Pembuatan Tugas Coding",
-  "Toko Online WhatsApp",
-  "Aplikasi Web & Mobile",
-  "Pemeliharaan & Keamanan",
+  {
+    name: "Jasa Pembuatan Website",
+    href: "/layanan/jasa-pembuatan-website",
+  },
+  {
+    name: "Jasa Pembuatan Aplikasi",
+    href: "/layanan/jasa-pembuatan-aplikasi",
+  },
+  {
+    name: "Jasa Pembuatan Tugas Coding",
+    href: "/layanan/jasa-pembuatan-tugas-coding",
+  },
+  {
+    name: "Website Desa & Sistem Informasi",
+    href: "/layanan/jasa-website-desa",
+  },
+  {
+    name: "Company Profile & Toko Online",
+    href: "/layanan/jasa-pembuatan-website",
+  },
+  {
+    name: "Aplikasi Android, iOS & Kasir POS",
+    href: "/layanan/jasa-pembuatan-aplikasi",
+  },
 ];
 
 export const Footer = () => {
@@ -122,13 +141,13 @@ export const Footer = () => {
             </h4>
             <ul className="space-y-2.5 text-sm sm:text-[15px] font-bold text-[#111827] dark:text-white">
               {footerServices.map((s) => (
-                <li key={s}>
-                  <a
-                    href="#layanan"
+                <li key={s.name}>
+                  <Link
+                    href={s.href}
                     className="hover:text-[#1D5BD8] dark:hover:text-[#60A5FA] transition-colors"
                   >
-                    {s}
-                  </a>
+                    {s.name}
+                  </Link>
                 </li>
               ))}
             </ul>
