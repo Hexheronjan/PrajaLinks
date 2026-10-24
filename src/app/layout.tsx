@@ -23,23 +23,23 @@ const plusJakartaSans = Plus_Jakarta_Sans({
 });
 
 export const metadata: Metadata = {
-  title: `${siteData.brand.name} | Jasa Pembuatan Website & Aplikasi Profesional Ponorogo`,
-  description: `${siteData.brand.name} melayani jasa pembuatan website desa, company profile bisnis, toko online, sistem informasi, dan aplikasi mobile profesional di Ponorogo, Jawa Timur. Layanan 24 jam nonstop.`,
+  title: `${siteData.brand.name} | Jasa Pembuatan Website, Aplikasi & Tugas Coding Online`,
+  description: `${siteData.brand.name} melayani jasa pembuatan website desa, company profile bisnis, toko online WhatsApp, sistem informasi, dan jasa pembuatan tugas coding online untuk seluruh kota di Indonesia. Layanan responsif 24 jam nonstop.`,
   keywords: [
+    "jasa pembuatan tugas coding",
+    "jasa tugas coding online",
+    "bantuan tugas informatika",
+    "jasa skripsi informatika",
+    "jasa tugas pemrograman",
     "jasa pembuatan website ponorogo",
-    "jasa pembuatan aplikasi ponorogo",
-    "jasa tugas coding ponorogo",
-    "joki tugas coding",
-    "jasa pembuatan skripsi informatika",
-    "jasa bimbingan coding mahasiswa",
-    "pembuatan website desa ponorogo",
-    "sistem informasi desa ponorogo",
-    "web developer ponorogo",
-    "jasa company profile madiun ponorogo",
-    "web desa jawa timur",
+    "jasa pembuatan website indonesia",
+    "jasa website desa",
+    "sistem informasi desa",
+    "web developer indonesia",
+    "jasa company profile",
     "prajalinks",
-    "toko online ponorogo",
-    "aplikasi web custom ponorogo",
+    "toko online katalog whatsapp",
+    "aplikasi web custom",
   ],
   authors: [{ name: "PrajaLinks Studio" }],
   creator: "PrajaLinks",
@@ -49,9 +49,9 @@ export const metadata: Metadata = {
     canonical: "/",
   },
   openGraph: {
-    title: `${siteData.brand.name} - Jasa Pembuatan Website & Aplikasi Ponorogo`,
+    title: `${siteData.brand.name} - Jasa Pembuatan Website, Aplikasi & Tugas Coding`,
     description:
-      "Jasa pembuatan website desa, company profile bisnis, toko online, sistem informasi, dan aplikasi mobile kustom di Ponorogo, Jawa Timur. Responsif 24 jam nonstop.",
+      "Jasa pembuatan website desa, company profile, aplikasi web & mobile, serta jasa pembuatan tugas coding online melayani seluruh Indonesia. Responsif 24 jam.",
     url: "https://prajalinks.com",
     siteName: siteData.brand.name,
     locale: "id_ID",
@@ -61,13 +61,13 @@ export const metadata: Metadata = {
         url: "/og-image.png",
         width: 1200,
         height: 630,
-        alt: `${siteData.brand.name} - Studio Digital Ponorogo`,
+        alt: `${siteData.brand.name} - Studio Digital`,
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: `${siteData.brand.name} - Studio Digital Ponorogo`,
+    title: `${siteData.brand.name} - Studio Digital`,
     description: siteData.brand.description,
     images: ["/og-image.png"],
   },
@@ -82,7 +82,6 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  // Structured Data (JSON-LD LocalBusiness)
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "ProfessionalService",
@@ -125,7 +124,7 @@ export default function RootLayout({
         />
       </head>
       <body
-        className={`${sora.variable} ${plusJakartaSans.variable} font-body bg-[#FFFFFF] dark:bg-[#0A1228] text-[#0A0F1E] dark:text-[#EAF1FF] antialiased selection:bg-blue-600 selection:text-white min-h-screen flex flex-col`}
+        className={`${sora.variable} ${plusJakartaSans.variable} font-body bg-[#FAF9F6] dark:bg-[#0B1120] text-[#111827] dark:text-[#EAF1FF] antialiased selection:bg-[#1D5BD8] selection:text-white min-h-screen flex flex-col`}
       >
         <ThemeProvider>
           <SmoothScrollProvider>
@@ -141,6 +140,3 @@ export default function RootLayout({
     </html>
   );
 }
-
-
-

@@ -13,17 +13,9 @@ export const GlobalElements = () => {
     restDelta: 0.001,
   });
 
-  const [mousePosition, setMousePosition] = useState({ x: -100, y: -100 });
   const [showScrollTop, setShowScrollTop] = useState(false);
-  const [isTouchDevice, setIsTouchDevice] = useState(false);
 
   useEffect(() => {
-    setIsTouchDevice("ontouchstart" in window || navigator.maxTouchPoints > 0);
-
-    const handleMouseMove = (e: MouseEvent) => {
-      setMousePosition({ x: e.clientX, y: e.clientY });
-    };
-
     const handleScroll = () => {
       if (window.scrollY > 400) {
         setShowScrollTop(true);
@@ -32,11 +24,8 @@ export const GlobalElements = () => {
       }
     };
 
-    window.addEventListener("mousemove", handleMouseMove);
     window.addEventListener("scroll", handleScroll, { passive: true });
-
     return () => {
-      window.removeEventListener("mousemove", handleMouseMove);
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
@@ -53,19 +42,6 @@ export const GlobalElements = () => {
         style={{ scaleX }}
       />
 
-      {/* 2. Desktop Cursor Glow (hidden on touch devices) */}
-      {!isTouchDevice && (
-        <div
-          className="fixed pointer-events-none z-30 transition-transform duration-75 ease-out -translate-x-1/2 -translate-y-1/2 hidden md:block"
-          style={{
-            left: `${mousePosition.x}px`,
-            top: `${mousePosition.y}px`,
-          }}
-        >
-          {/* Cincin tipis pengikut kursor, menggantikan glow blur */}
-          <div className="w-9 h-9 rounded-full border border-[#1D5BD8]/70" />
-        </div>
-      )}
 
       {/* 3. Floating WhatsApp CTA with Subtle Pulse */}
       <div className="fixed bottom-[74px] sm:bottom-6 right-4 sm:right-6 z-40 flex flex-col items-end gap-2.5">

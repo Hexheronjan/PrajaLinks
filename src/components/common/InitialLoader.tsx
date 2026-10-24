@@ -14,8 +14,8 @@ const markLoaderDone = () => {
 };
 
 /**
- * Loader awal: logo, dua node terhubung garis yang tergambar (1 detik),
- * lalu layar terbuka ke atas.
+ * Loader awal: logo, dua node terhubung garis (biru & emas sesuai logo resmi),
+ * lalu layar terbuka ke atas secara halus.
  */
 export const InitialLoader = () => {
   const [loading, setLoading] = useState(true);
@@ -30,7 +30,7 @@ export const InitialLoader = () => {
     const timer = setTimeout(() => {
       setLoading(false);
       sessionStorage.setItem("prajalinks_loader_shown", "true");
-    }, 1900);
+    }, 1800);
     return () => clearTimeout(timer);
   }, []);
 
@@ -40,46 +40,44 @@ export const InitialLoader = () => {
         <motion.div
           key="prajalinks-initial-loader"
           initial={{ y: 0 }}
-          exit={{ y: "-100%", transition: { duration: 0.85, ease: smoothEase } }}
-          className="fixed inset-0 z-[100] flex flex-col items-center justify-center bg-white border-b-4 border-blue-600 overflow-hidden"
+          exit={{ y: "-100%", transition: { duration: 0.7, ease: smoothEase } }}
+          className="fixed inset-0 z-[100] flex flex-col items-center justify-center bg-[#FAF9F6] dark:bg-[#0B1120] border-b-2 border-[#1D5BD8] overflow-hidden"
           role="status"
           aria-label="Memuat PrajaLinks"
         >
-          <div className="absolute inset-0 bg-grid-fine opacity-70" />
-
           <div className="relative flex flex-col items-center">
             <motion.div
-              initial={{ opacity: 0, y: 16 }}
+              initial={{ opacity: 0, y: 12 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7, ease: smoothEase }}
+              transition={{ duration: 0.5, ease: smoothEase }}
             >
               <Logo variant="full" priority className="w-56 sm:w-64 h-auto" />
             </motion.div>
 
-            {/* Dua node dihubungkan garis yang tergambar selama 1 detik */}
-            <div className="relative mt-4 h-8 w-64 flex items-center justify-between px-2">
+            {/* Dua node biru & emas terhubung garis yang tergambar secara presisi */}
+            <div className="relative mt-4 h-6 w-56 flex items-center justify-between px-2">
               <motion.span
                 initial={{ scale: 0 }}
                 animate={{ scale: 1 }}
-                transition={{ duration: 0.4, ease: smoothEase }}
-                className="relative z-10 h-3.5 w-3.5 rounded-full bg-blue-600"
+                transition={{ duration: 0.3, ease: smoothEase }}
+                className="relative z-10 h-2.5 w-2.5 rounded-full bg-[#1D5BD8]"
               />
-              <svg className="absolute inset-0 h-full w-full" viewBox="0 0 256 32" fill="none" aria-hidden="true">
+              <svg className="absolute inset-0 h-full w-full" viewBox="0 0 224 24" fill="none" aria-hidden="true">
                 <motion.path
-                  d="M 16 16 L 240 16"
+                  d="M 12 12 L 212 12"
                   stroke="#1D5BD8"
-                  strokeWidth="2.5"
+                  strokeWidth="2"
                   strokeLinecap="round"
                   initial={{ pathLength: 0 }}
                   animate={{ pathLength: 1 }}
-                  transition={{ duration: 1, delay: 0.3, ease: smoothEase }}
+                  transition={{ duration: 0.9, delay: 0.2, ease: smoothEase }}
                 />
               </svg>
               <motion.span
                 initial={{ scale: 0 }}
                 animate={{ scale: 1 }}
-                transition={{ duration: 0.4, delay: 1.2, ease: smoothEase }}
-                className="relative z-10 h-3.5 w-3.5 rounded-full bg-amber-500"
+                transition={{ duration: 0.3, delay: 1.0, ease: smoothEase }}
+                className="relative z-10 h-2.5 w-2.5 rounded-full bg-[#C88A23]"
               />
             </div>
           </div>

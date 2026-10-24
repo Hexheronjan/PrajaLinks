@@ -15,7 +15,7 @@ interface NavItem {
 const navItems: NavItem[] = [
   {
     id: "beranda",
-    name: "Home",
+    name: "Beranda",
     href: "#beranda",
     icon: Home,
   },
@@ -27,7 +27,7 @@ const navItems: NavItem[] = [
   },
   {
     id: "portofolio",
-    name: "Portfolio",
+    name: "Portofolio",
     href: "#portofolio",
     icon: Briefcase,
     isCenter: true,
@@ -39,9 +39,9 @@ const navItems: NavItem[] = [
     icon: Package,
   },
   {
-    id: "faq",
+    id: "tentang",
     name: "Tentang",
-    href: "#faq",
+    href: "#tentang",
     icon: Info,
   },
 ];
@@ -50,7 +50,6 @@ export const MobileBottomNav = () => {
   const [activeSection, setActiveSection] = useState("beranda");
   const [ready, setReady] = useState(false);
 
-  // Tunggu loader awal selesai sebelum navigasi muncul
   useEffect(() => {
     if ((window as unknown as { __plLoaded?: boolean }).__plLoaded) {
       setReady(true);
@@ -62,7 +61,7 @@ export const MobileBottomNav = () => {
   }, []);
 
   useEffect(() => {
-    const sectionIds = ["beranda", "layanan", "portofolio", "harga", "faq"];
+    const sectionIds = ["beranda", "layanan", "portofolio", "harga", "tentang"];
 
     const handleScroll = () => {
       const scrollPosition = window.scrollY + 250;
@@ -90,7 +89,7 @@ export const MobileBottomNav = () => {
     <nav
       aria-label="Navigasi Bawah Mobile"
       aria-hidden={!ready}
-      className={`fixed bottom-0 left-0 right-0 z-50 sm:hidden bg-[#0A0D1A]/95 dark:bg-[#070B16]/95 backdrop-blur-xl border-t border-white/10 px-3 py-2 shadow-[0_-10px_30px_rgba(0,0,0,0.5)] transition-all duration-500 ease-out ${
+      className={`fixed bottom-0 left-0 right-0 z-50 sm:hidden bg-white/95 dark:bg-[#111827]/95 backdrop-blur-md border-t border-[#E5E7EB] dark:border-white/10 px-3 py-2 shadow-sm transition-all duration-300 ease-out ${
         ready ? "translate-y-0 opacity-100" : "translate-y-full opacity-0 pointer-events-none"
       }`}
     >
@@ -100,7 +99,6 @@ export const MobileBottomNav = () => {
           const isActive = activeSection === item.id;
 
           if (item.isCenter) {
-            // Pill button in the center (like the screenshot with royal blue/purple background)
             return (
               <a
                 key={item.id}
@@ -109,10 +107,10 @@ export const MobileBottomNav = () => {
                 aria-label={item.name}
               >
                 <div
-                  className={`flex items-center gap-1.5 px-4 py-2 rounded-full font-heading font-extrabold text-xs transition-all duration-300 shadow-lg ${
+                  className={`flex items-center gap-1.5 px-4 py-2 rounded-full font-semibold text-xs transition-colors duration-150 ${
                     isActive
-                      ? "bg-[#4338CA] text-white shadow-indigo-600/40 scale-105"
-                      : "bg-[#2563EB] text-white hover:bg-[#1D4ED8]"
+                      ? "bg-[#1D5BD8] text-white"
+                      : "bg-[#1D5BD8] text-white hover:bg-[#1748B5]"
                   }`}
                 >
                   <Icon className="w-4 h-4" />
@@ -122,15 +120,14 @@ export const MobileBottomNav = () => {
             );
           }
 
-          // Regular icon items
           return (
             <a
               key={item.id}
               href={item.href}
-              className={`flex flex-col items-center justify-center p-2 rounded-lg transition-colors ${
+              className={`flex flex-col items-center justify-center p-2 rounded-md transition-colors duration-150 ${
                 isActive
-                  ? "text-blue-400 font-bold"
-                  : "text-slate-400 hover:text-slate-200"
+                  ? "text-[#1D5BD8] dark:text-[#60A5FA] font-semibold"
+                  : "text-[#5F6978] dark:text-[#94A3B8] hover:text-[#111827] dark:hover:text-white"
               }`}
               aria-label={item.name}
             >

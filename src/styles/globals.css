@@ -3,32 +3,39 @@
 @tailwind utilities;
 
 /*
-  Palet: putih + biru (diambil dari logo).
-  Tinta hampir hitam untuk teks, biru logo untuk aksi, oranye logo hanya sebagai penanda kecil.
+  Palet Visual PrajaLinks (Clean, Profesional, Typography Tegas & Terbaca):
+  - Warna Utama: Biru Korporat #1D5BD8 (Bukan warna neon/AI)
+  - Aksen Pendukung: Emas Elegan #C88A23
+  - Background: Putih #FFFFFF & Bersih #FAF9F6
+  - Teks utama: #111827 (Hitam pekat tegas)
+  - Teks sekunder: #374151 (Abu-abu gelap terbaca jelas, kontras tinggi)
+  - Border tipis: #E5E7EB
+  - Radius: Kartu 8px, Tombol & Input 6px
 */
 :root {
-  --bg-primary: #FFFFFF;
-  --bg-alt: #F3F7FF;
-  --surface-primary: #FFFFFF;
-  --border-subtle: #D6E0F2;
-  --text-primary: #0A0F1E;
-  --text-muted: #1F2A44;
+  --bg-primary: #FAF9F6;
+  --bg-surface: #FFFFFF;
+  --bg-subtle: #F8FAFC;
+  --border-subtle: #E5E7EB;
+  --text-primary: #111827;
+  --text-muted: #374151;
   --brand-blue: #1D5BD8;
-  --brand-navy: #14235F;
-  --brand-cyan: #1EC0F5;
-  --brand-orange: #F28C00;
-  --ease-smooth: cubic-bezier(0.22, 1, 0.36, 1);
-  --parang: rgba(29, 91, 216, 0.07);
+  --brand-blue-hover: #1748B5;
+  --brand-gold: #C88A23;
+  --brand-gold-hover: #B47818;
 }
 
 .dark {
-  --bg-primary: #0A1228;
-  --bg-alt: #0C1631;
-  --surface-primary: #0F1B3A;
-  --border-subtle: rgba(234, 241, 255, 0.14);
-  --text-primary: #F2F6FF;
-  --text-muted: #B9C6E2;
-  --parang: rgba(234, 241, 255, 0.05);
+  --bg-primary: #0B1120;
+  --bg-surface: #111827;
+  --bg-subtle: #182234;
+  --border-subtle: rgba(255, 255, 255, 0.1);
+  --text-primary: #F8FAFC;
+  --text-muted: #CBD5E1;
+  --brand-blue: #3B82F6;
+  --brand-blue-hover: #60A5FA;
+  --brand-gold: #F59E0B;
+  --brand-gold-hover: #FBBF24;
 }
 
 html {
@@ -40,61 +47,120 @@ body {
   color: var(--text-primary);
   font-family: var(--font-plus-jakarta), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   overflow-x: hidden;
-  transition: background-color 0.4s ease, color 0.4s ease;
+  line-height: 1.65;
+  font-size: 17px;
+  -webkit-font-smoothing: antialiased;
 }
 
-/* Teks isi dibuat lebih tegas supaya terbaca jelas */
-p,
-li {
-  font-weight: 500;
+p, li {
+  font-weight: 450;
+  color: inherit;
 }
 
-h1,
-h2,
-h3,
-h4 {
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 700;
   letter-spacing: -0.02em;
+  color: inherit;
 }
 
-/* Motif parang: pita diagonal tipis, dipakai di beberapa blok saja */
-.bg-batik-subtle {
-  background-image:
-    repeating-linear-gradient(135deg, var(--parang) 0, var(--parang) 2px, transparent 2px, transparent 26px),
-    repeating-linear-gradient(135deg, var(--parang) 0, var(--parang) 1px, transparent 1px, transparent 26px);
-  background-size: auto, 26px 26px;
-  background-position: 0 0, 13px 13px;
-}
-
-/* Grid tipis untuk latar hero */
-.bg-grid-fine {
-  background-image:
-    linear-gradient(to right, var(--parang) 1px, transparent 1px),
-    linear-gradient(to bottom, var(--parang) 1px, transparent 1px);
-  background-size: 56px 56px;
-}
-
-/* Navbar: bidang solid dengan garis bawah, tanpa efek kaca */
+/* Navigasi bersih dengan batas tipis */
 .glass-nav {
-  background: var(--bg-primary);
+  background-color: rgba(255, 255, 255, 0.96);
+  backdrop-filter: blur(10px);
   border-bottom: 1px solid var(--border-subtle);
 }
 
-/* Border kartu Pro: bergerak halus, biru ke cyan */
-@keyframes animated-gradient {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
+.dark .glass-nav {
+  background-color: rgba(17, 24, 39, 0.96);
+  border-bottom: 1px solid var(--border-subtle);
 }
 
-.gradient-border-animated {
-  background: linear-gradient(60deg, #14235F, #1D5BD8, #1EC0F5, #1D5BD8, #14235F);
-  background-size: 300% 300%;
-  animation: animated-gradient 6s ease infinite;
+/* Standar Tombol & Kartu Konsisten */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  background-color: #1D5BD8;
+  color: #FFFFFF;
+  font-weight: 700;
+  font-size: 0.9375rem;
+  border-radius: 6px;
+  padding: 0.6875rem 1.375rem;
+  transition: background-color 150ms ease, opacity 150ms ease;
+}
+
+.btn-primary:hover {
+  background-color: #1748B5;
+}
+
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  background-color: transparent;
+  color: #111827;
+  font-weight: 700;
+  font-size: 0.9375rem;
+  border: 1.5px solid #E5E7EB;
+  border-radius: 6px;
+  padding: 0.6875rem 1.375rem;
+  transition: border-color 150ms ease, background-color 150ms ease;
+}
+
+.btn-secondary:hover {
+  border-color: #1D5BD8;
+  background-color: #F8FAFC;
+}
+
+.dark .btn-secondary {
+  color: #F8FAFC;
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+.dark .btn-secondary:hover {
+  border-color: #3B82F6;
+  background-color: #1E293B;
+}
+
+/* Tombol Aksen Emas (Bila diperlukan) */
+.btn-gold {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  background-color: #C88A23;
+  color: #FFFFFF;
+  font-weight: 700;
+  font-size: 0.9375rem;
+  border-radius: 6px;
+  padding: 0.6875rem 1.375rem;
+  transition: background-color 150ms ease;
+}
+
+.btn-gold:hover {
+  background-color: #B47818;
+}
+
+/* Aksesibilitas Focus Ring */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+  outline: 2px solid #1D5BD8;
+  outline-offset: 2px;
+}
+
+::selection {
+  background-color: #1D5BD8;
+  color: #FFFFFF;
 }
 
 ::-webkit-scrollbar {
-  width: 8px;
-  height: 8px;
+  width: 7px;
+  height: 7px;
 }
 
 ::-webkit-scrollbar-track {
@@ -102,18 +168,10 @@ h4 {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: rgba(29, 91, 216, 0.35);
-  border-radius: 9999px;
+  background: #D1D5DB;
+  border-radius: 4px;
 }
 
-/* Hormati preferensi reduced-motion */
-@media (prefers-reduced-motion: reduce) {
-  *,
-  ::before,
-  ::after {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
-    scroll-behavior: auto !important;
-  }
+::-webkit-scrollbar-thumb:hover {
+  background: #9CA3AF;
 }

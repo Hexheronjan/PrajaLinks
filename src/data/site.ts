@@ -63,6 +63,11 @@ export interface SiteConfig {
       };
     }[];
   };
+  videoConfig: {
+    title: string;
+    caption: string;
+    url: string;
+  };
   portfolio: {
     id: string;
     title: string;
@@ -106,7 +111,7 @@ export interface SiteConfig {
   }[];
   stats: {
     label: string;
-    value: number;
+    value: number | string;
     suffix: string;
     description: string;
   }[];
@@ -147,7 +152,6 @@ export const siteData: SiteConfig = {
     github: "https://github.com",
   },
   marqueeTech: [
-    "WordPress",
     "Laravel",
     "Next.js",
     "React Native",
@@ -159,18 +163,19 @@ export const siteData: SiteConfig = {
     "Tailwind CSS",
     "TypeScript",
     "Docker",
+    "Python",
+    "WordPress",
   ],
   marqueeServices: [
-    "Website Desa Modern",
-    "Sistem Informasi Desa (SID)",
-    "Jasa Tugas Coding & Skripsi IT",
-    "Company Profile Premium",
-    "Toko Online & UMKM",
     "Aplikasi Web Khusus",
-    "Bimbingan & Joki Coding Mahasiswa",
+    "Jasa Pembuatan Tugas Coding",
     "Layanan Surat Digital",
     "Transparansi APBDes",
     "Optimasi SEO & Google Maps",
+    "Website Desa Modern",
+    "Toko Online & UMKM",
+    "Company Profile Premium",
+    "Sistem Informasi Desa (SID)",
     "Pemeliharaan & Keamanan Web",
   ],
   dualTrack: {
@@ -291,12 +296,12 @@ export const siteData: SiteConfig = {
     },
     {
       id: "joki-coding",
-      title: "Jasa Tugas Coding & Bimbingan IT",
+      title: "Jasa Pembuatan Tugas Coding",
       category: "Akademik & Mahasiswa",
-      shortDesc: "Penyelesaian tugas pemrograman, skripsi IT, dan bimbingan koding kilat.",
+      shortDesc: "Penyelesaian tugas pemrograman, skripsi IT, dan proyek koding kilat.",
       description:
-        "Bantuan pengerjaan tugas kuliah, skripsi informatika/sistem informasi, perbaikan bug kode, hingga bimbingan logika koding sampai paham (Python, Web, PHP, Java, C++, JS).",
-      tech: ["Web / Full-Stack", "Laravel / Next.js", "Python / C++", "Bimbingan 1-on-1"],
+        "Bantuan pengerjaan tugas kuliah informatika/sistem informasi, skripsi koding, pembuatan aplikasi tugas akhir, serta perbaikan error/bug (Python, Web, PHP, Java, C++, JS, Mobile). Melayani mahasiswa dari seluruh kota di Indonesia secara online.",
+      tech: ["Web / Full-Stack", "Laravel / Next.js", "Python / C++", "Seluruh Indonesia"],
       featured: true,
       colSpan: "lg:col-span-1",
       icon: "GraduationCap",
@@ -478,6 +483,11 @@ export const siteData: SiteConfig = {
         },
       },
     ],
+  },
+  videoConfig: {
+    title: "Lihat Cara Kerjanya",
+    caption: "Simulasi alur pembuatan website, integrasi sistem desa, dan pengerjaan tugas coding di PrajaLinks.",
+    url: "", // Masukkan URL YouTube (contoh: "https://www.youtube.com/watch?v=...") untuk menampilkan video
   },
   portfolio: [
     {
@@ -735,36 +745,36 @@ export const siteData: SiteConfig = {
     },
     {
       id: "local-roots",
-      title: "Berbasis di Ponorogo, Pendampingan Langsung",
-      desc: "Untuk instansi desa, sekolah, atau pengusaha di Ponorogo dan sekitarnya, kami siap memberikan pendampingan intensif langsung di lokasi Anda.",
+      title: "Melayani Seluruh Indonesia & Koordinasi Fleksibel",
+      desc: "Seluruh pengerjaan website, aplikasi, dan tugas coding dapat dikerjakan 100% online untuk klien dari seluruh kota di Indonesia, dengan opsi pendampingan langsung bagi wilayah terjangkau.",
       icon: "MapPin",
-      proof: "Komunikasi mudah dan responsif via WhatsApp, panggilan telepon, maupun koordinasi langsung.",
+      proof: "Komunikasi mudah, progres real-time via WhatsApp, video call, maupun koordinasi langsung.",
     },
   ],
   stats: [
     {
-      label: "Koleksi Portofolio & Purwarupa",
-      value: 21,
-      suffix: " Proyek",
-      description: "Website desa, profil bisnis, toko online, dan sistem digital",
+      label: "Proyek Terselesaikan",
+      value: "100+",
+      suffix: "",
+      description: "Website, aplikasi web & mobile, serta tugas coding",
     },
     {
-      label: "Kecepatan Respons Konsultasi",
-      value: 24,
+      label: "Respons Konsultasi",
+      value: "24",
       suffix: " Jam",
       description: "Layanan konsultasi online aktif via WhatsApp setiap hari",
     },
     {
-      label: "Estimasi Waktu Pengerjaan",
-      value: 7,
-      suffix: "-14 Hari",
-      description: "Jadwal pengerjaan bertahap sesuai spesifikasi paket",
+      label: "Estimasi Pengerjaan",
+      value: "7–14",
+      suffix: " Hari",
+      description: "Pengerjaan terstruktur bertahap sesuai spesifikasi paket",
     },
     {
       label: "Garansi Teknis Pasca-Rilis",
-      value: 6,
+      value: "6",
       suffix: " Bulan",
-      description: "Dukungan perbaikan kendala teknis setelah website online",
+      description: "Dukungan perbaikan kendala teknis setelah rilis",
     },
   ],
   testimonialsPlaceholder: {

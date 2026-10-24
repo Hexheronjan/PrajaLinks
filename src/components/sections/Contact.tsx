@@ -11,17 +11,18 @@ import {
   Sparkles,
   PhoneCall,
   CheckCircle2,
+  ArrowUpRight,
 } from "lucide-react";
 import { siteData, getWhatsAppLink } from "@/data/site";
 import { smoothEase } from "@/utils/animations";
 
 export const Contact = () => {
   const containerRef = useRef<HTMLDivElement>(null);
-  const isInView = useInView(containerRef, { once: true, margin: "-100px" });
+  const isInView = useInView(containerRef, { once: true, margin: "-80px" });
 
   const [formState, setFormState] = useState({
     name: "",
-    needCategory: "Pemerintahan Desa",
+    needCategory: "Pemerintahan Desa (Website Desa / SID / Surat)",
     message: "",
   });
   const [submitted, setSubmitted] = useState(false);
@@ -42,139 +43,146 @@ Pesan: ${formState.message}`;
     <section
       id="kontak"
       ref={containerRef}
-      className="py-24 relative overflow-hidden bg-slate-50 dark:bg-[#0A1228]"
+      className="scroll-mt-20 py-14 sm:py-20 pb-28 sm:pb-32 relative overflow-hidden bg-[#FAF9F6] dark:bg-[#0B1120] border-t border-[#E5E7EB] dark:border-white/10"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-          {/* Left Column: Contact details */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
+          {/* Kolom Kiri: Informasi Kontak Terstruktur & Rapi */}
           <motion.div
-            initial={{ opacity: 0, x: -50 }}
-            animate={isInView ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 0.75, ease: smoothEase }}
-            className="lg:col-span-5 flex flex-col justify-between"
+            initial={{ opacity: 0, y: 16 }}
+            animate={isInView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.45, ease: smoothEase }}
+            className="lg:col-span-6 flex flex-col justify-between"
           >
             <div>
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/10 text-[#1D5BD8] dark:text-[#8DB8FF] text-xs font-bold uppercase tracking-wider mb-4">
+              <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#1D5BD8]/10 text-[#1D5BD8] dark:text-[#60A5FA] text-xs font-bold uppercase tracking-wider mb-3.5">
                 <MessageSquare className="w-3.5 h-3.5" />
                 <span>Hubungi Kami</span>
               </div>
 
-              <h2 className="text-3xl sm:text-4xl font-extrabold font-heading text-slate-900 dark:text-white tracking-tight mb-4">
-                Mari Diskusikan Proyek Website & Aplikasi Anda
+              <h2 className="text-2xl sm:text-3xl lg:text-[2rem] font-bold text-[#111827] dark:text-white tracking-tight mb-3 leading-snug">
+                Mari Diskusikan Proyek Website &amp; Aplikasi Anda
               </h2>
 
-              <p className="text-sm text-slate-600 dark:text-[#B9C6E2] leading-relaxed mb-8 font-body">
-                Kirim pesan melalui formulir singkat di samping atau hubungi kami
-                langsung via WhatsApp dan email. Kami siap melayani konsultasi
-                online 24 jam nonstop maupun temu langsung di Ponorogo dan sekitarnya.
+              <p className="text-sm sm:text-base text-[#4B5563] dark:text-slate-300 leading-relaxed mb-6 font-medium max-w-xl">
+                Kirim pesan melalui formulir konsultasi cepat atau hubungi kami langsung via WhatsApp dan email. Kami siap melayani konsultasi online 24 jam nonstop untuk seluruh kota di Indonesia maupun temu langsung di Ponorogo dan sekitarnya.
               </p>
 
-              {/* Direct Info List */}
-              <div className="space-y-6">
-                <div className="flex items-start gap-4">
-                  <div className="w-10 h-10 rounded-xl bg-blue-500/10 dark:bg-blue-500/15 text-[#1D5BD8] dark:text-[#8DB8FF] flex items-center justify-center shrink-0">
-                    <PhoneCall className="w-5 h-5" />
+              {/* Grid 2x2 Kontak Rapi & Compact */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-3">
+                {/* WhatsApp */}
+                <a
+                  href={getWhatsAppLink()}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="p-3.5 rounded-lg bg-white dark:bg-[#111827] border border-[#E5E7EB] dark:border-white/10 hover:border-[#1D5BD8] transition-colors group flex items-start gap-3 shadow-sm"
+                >
+                  <div className="w-9 h-9 rounded-md bg-[#1D5BD8]/10 text-[#1D5BD8] dark:text-[#60A5FA] flex items-center justify-center shrink-0 group-hover:bg-[#1D5BD8] group-hover:text-white transition-colors">
+                    <PhoneCall className="w-4 h-4" />
                   </div>
-                  <div>
-                    <h4 className="text-xs font-bold text-slate-400 uppercase tracking-wider">
+                  <div className="min-w-0">
+                    <span className="text-[11px] font-bold text-[#6B7280] dark:text-slate-400 uppercase tracking-wider block">
                       WhatsApp Resmi
-                    </h4>
-                    <a
-                      href={getWhatsAppLink()}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-sm sm:text-base font-semibold text-slate-900 dark:text-white hover:text-blue-500 transition-colors"
-                    >
+                    </span>
+                    <span className="text-sm font-bold text-[#111827] dark:text-white group-hover:text-[#1D5BD8] transition-colors truncate block">
                       {siteData.brand.waDisplay}
-                    </a>
+                    </span>
                   </div>
-                </div>
+                </a>
 
-                <div className="flex items-start gap-4">
-                  <div className="w-10 h-10 rounded-xl bg-emerald-500/10 dark:bg-emerald-500/15 text-[#0EA5E9] flex items-center justify-center shrink-0">
-                    <Mail className="w-5 h-5" />
+                {/* Email */}
+                <a
+                  href={`mailto:${siteData.brand.email}`}
+                  className="p-3.5 rounded-lg bg-white dark:bg-[#111827] border border-[#E5E7EB] dark:border-white/10 hover:border-[#1D5BD8] transition-colors group flex items-start gap-3 shadow-sm"
+                >
+                  <div className="w-9 h-9 rounded-md bg-[#1D5BD8]/10 text-[#1D5BD8] dark:text-[#60A5FA] flex items-center justify-center shrink-0 group-hover:bg-[#1D5BD8] group-hover:text-white transition-colors">
+                    <Mail className="w-4 h-4" />
                   </div>
-                  <div>
-                    <h4 className="text-xs font-bold text-slate-400 uppercase tracking-wider">
+                  <div className="min-w-0">
+                    <span className="text-[11px] font-bold text-[#6B7280] dark:text-slate-400 uppercase tracking-wider block">
                       Alamat Email
-                    </h4>
-                    <span className="text-sm sm:text-base font-semibold text-slate-900 dark:text-white">
+                    </span>
+                    <span className="text-sm font-bold text-[#111827] dark:text-white group-hover:text-[#1D5BD8] transition-colors truncate block">
                       {siteData.brand.email}
                     </span>
                   </div>
-                </div>
+                </a>
 
-                <div className="flex items-start gap-4">
-                  <div className="w-10 h-10 rounded-xl bg-amber-500/10 dark:bg-amber-500/15 text-[#F28C00] flex items-center justify-center shrink-0">
-                    <MapPin className="w-5 h-5" />
+                {/* Lokasi Studio */}
+                <div className="p-3.5 rounded-lg bg-white dark:bg-[#111827] border border-[#E5E7EB] dark:border-white/10 flex items-start gap-3 shadow-sm">
+                  <div className="w-9 h-9 rounded-md bg-[#1D5BD8]/10 text-[#1D5BD8] dark:text-[#60A5FA] flex items-center justify-center shrink-0">
+                    <MapPin className="w-4 h-4" />
                   </div>
-                  <div>
-                    <h4 className="text-xs font-bold text-slate-400 uppercase tracking-wider">
+                  <div className="min-w-0">
+                    <span className="text-[11px] font-bold text-[#6B7280] dark:text-slate-400 uppercase tracking-wider block">
                       Lokasi Studio
-                    </h4>
-                    <span className="text-sm sm:text-base font-semibold text-slate-900 dark:text-white">
+                    </span>
+                    <span className="text-xs sm:text-[13px] font-bold text-[#111827] dark:text-white leading-snug block">
                       {siteData.brand.address}
                     </span>
                   </div>
                 </div>
 
-                <div className="flex items-start gap-4">
-                  <div className="w-10 h-10 rounded-xl bg-purple-500/10 dark:bg-purple-500/15 text-purple-400 flex items-center justify-center shrink-0">
-                    <Clock className="w-5 h-5" />
+                {/* Jam Layanan */}
+                <div className="p-3.5 rounded-lg bg-white dark:bg-[#111827] border border-[#E5E7EB] dark:border-white/10 flex items-start gap-3 shadow-sm">
+                  <div className="w-9 h-9 rounded-md bg-[#1D5BD8]/10 text-[#1D5BD8] dark:text-[#60A5FA] flex items-center justify-center shrink-0">
+                    <Clock className="w-4 h-4" />
                   </div>
-                  <div>
-                    <h4 className="text-xs font-bold text-slate-400 uppercase tracking-wider">
-                      Jam Kerja Operasional
-                    </h4>
-                    <span className="text-sm sm:text-base font-semibold text-slate-900 dark:text-white">
+                  <div className="min-w-0">
+                    <span className="text-[11px] font-bold text-[#6B7280] dark:text-slate-400 uppercase tracking-wider block">
+                      Jam Layanan
+                    </span>
+                    <span className="text-xs sm:text-[13px] font-bold text-[#111827] dark:text-white leading-snug block">
                       {siteData.brand.workingHours}
                     </span>
                   </div>
                 </div>
+              </div>
 
-                <div className="flex items-start gap-4">
-                  <div className="w-10 h-10 rounded-xl bg-pink-500/10 dark:bg-pink-500/15 text-pink-500 flex items-center justify-center shrink-0">
-                    <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              {/* Instagram Row */}
+              <a
+                href={siteData.brand.instagram}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="p-3 rounded-lg bg-white dark:bg-[#111827] border border-[#E5E7EB] dark:border-white/10 hover:border-[#1D5BD8] transition-colors flex items-center justify-between gap-3 text-xs sm:text-sm font-bold text-[#111827] dark:text-white shadow-sm group"
+              >
+                <div className="flex items-center gap-2.5">
+                  <div className="w-7 h-7 rounded-md bg-[#C88A23]/10 text-[#C88A23] flex items-center justify-center shrink-0">
+                    <svg className="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                       <rect width="20" height="20" x="2" y="2" rx="5" ry="5"/>
                       <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
                       <line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/>
                     </svg>
                   </div>
-                  <div>
-                    <h4 className="text-xs font-bold text-slate-400 uppercase tracking-wider">
-                      Instagram Resmi
-                    </h4>
-                    <a
-                      href={siteData.brand.instagram}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-sm sm:text-base font-semibold text-slate-900 dark:text-white hover:text-pink-600 transition-colors inline-flex items-center gap-1.5"
-                    >
-                      <span>prajaLinks ({siteData.brand.instagramDisplay})</span>
-                    </a>
-                  </div>
+                  <span>Instagram: <strong>prajaLinks ({siteData.brand.instagramDisplay})</strong></span>
                 </div>
-              </div>
+                <ArrowUpRight className="w-4 h-4 text-[#6B7280] group-hover:text-[#1D5BD8] transition-colors" />
+              </a>
             </div>
           </motion.div>
 
-          {/* Right Column: Interactive Quick Form routing to WhatsApp */}
+          {/* Kolom Kanan: Formulir Konsultasi Cepat (Rapi & Proporsional) */}
           <motion.div
-            initial={{ opacity: 0, x: 50 }}
-            animate={isInView ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 0.75, ease: smoothEase }}
-            className="lg:col-span-7"
+            initial={{ opacity: 0, y: 16 }}
+            animate={isInView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.45, delay: 0.1, ease: smoothEase }}
+            className="lg:col-span-6"
           >
-            <div className="p-8 sm:p-10 rounded-xl bg-[#FFFFFF] dark:bg-[#0F1B3A] border border-slate-200 dark:border-white/10 shadow-xl">
-              <div className="flex items-center gap-2 mb-6">
-                <Sparkles className="w-5 h-5 text-emerald-500" />
-                <h3 className="text-xl font-bold font-heading text-slate-900 dark:text-white">
-                  Formulir Konsultasi Cepat
-                </h3>
+            <div className="p-6 sm:p-7 rounded-lg bg-white dark:bg-[#111827] border border-[#E5E7EB] dark:border-white/10 shadow-sm">
+              <div className="flex items-center justify-between pb-3.5 mb-4 border-b border-[#E5E7EB] dark:border-white/10">
+                <div className="flex items-center gap-2">
+                  <Sparkles className="w-4 h-4 text-[#C88A23]" />
+                  <h3 className="text-base sm:text-lg font-bold text-[#111827] dark:text-white">
+                    Formulir Konsultasi Cepat
+                  </h3>
+                </div>
+                <span className="text-[11px] font-semibold text-[#1D5BD8] dark:text-[#60A5FA] bg-[#1D5BD8]/10 px-2 py-0.5 rounded">
+                  Respons Cepat
+                </span>
               </div>
 
               {submitted && (
-                <div className="mb-6 p-4 rounded-xl bg-emerald-500/10 border border-emerald-500/20 text-emerald-600 dark:text-emerald-400 text-xs flex items-center gap-2">
+                <div className="mb-4 p-3 rounded-md bg-[#1D5BD8]/10 border border-[#1D5BD8]/20 text-[#1D5BD8] dark:text-[#60A5FA] text-xs font-semibold flex items-center gap-2">
                   <CheckCircle2 className="w-4 h-4 shrink-0" />
                   <span>
                     Formulir berhasil diteruskan ke WhatsApp! Jendela chat telah dibuka.
@@ -182,11 +190,11 @@ Pesan: ${formState.message}`;
                 </div>
               )}
 
-              <form onSubmit={handleSubmit} className="space-y-5">
+              <form onSubmit={handleSubmit} className="space-y-3.5">
                 <div>
                   <label
                     htmlFor="contact-name"
-                    className="block text-xs font-bold uppercase tracking-wider text-slate-700 dark:text-slate-300 mb-2"
+                    className="block text-xs font-bold text-[#374151] dark:text-slate-200 mb-1"
                   >
                     Nama Lengkap / Instansi
                   </label>
@@ -199,14 +207,14 @@ Pesan: ${formState.message}`;
                     onChange={(e) =>
                       setFormState({ ...formState, name: e.target.value })
                     }
-                    className="w-full px-4 py-3 rounded-xl bg-slate-50 dark:bg-[#0A1228] border border-slate-200 dark:border-white/10 text-slate-900 dark:text-white text-sm focus:outline-none focus:border-blue-500 transition-colors"
+                    className="w-full px-3.5 py-2.5 rounded-md bg-[#F9FAFB] dark:bg-[#0B1120] border border-[#D1D5DB] dark:border-white/15 text-[#111827] dark:text-white text-sm font-medium focus:outline-none focus:border-[#1D5BD8] focus:bg-white focus:ring-1 focus:ring-[#1D5BD8] transition-all"
                   />
                 </div>
 
                 <div>
                   <label
                     htmlFor="contact-category"
-                    className="block text-xs font-bold uppercase tracking-wider text-slate-700 dark:text-slate-300 mb-2"
+                    className="block text-xs font-bold text-[#374151] dark:text-slate-200 mb-1"
                   >
                     Kategori Kebutuhan
                   </label>
@@ -216,7 +224,7 @@ Pesan: ${formState.message}`;
                     onChange={(e) =>
                       setFormState({ ...formState, needCategory: e.target.value })
                     }
-                    className="w-full px-4 py-3 rounded-xl bg-slate-50 dark:bg-[#0A1228] border border-slate-200 dark:border-white/10 text-slate-900 dark:text-white text-sm focus:outline-none focus:border-blue-500 transition-colors"
+                    className="w-full px-3.5 py-2.5 rounded-md bg-[#F9FAFB] dark:bg-[#0B1120] border border-[#D1D5DB] dark:border-white/15 text-[#111827] dark:text-white text-sm font-medium focus:outline-none focus:border-[#1D5BD8] focus:bg-white focus:ring-1 focus:ring-[#1D5BD8] transition-all"
                   >
                     <option value="Pemerintahan Desa (Website Desa / SID / Surat)">
                       Pemerintahan Desa (Website Desa / SID / Surat)
@@ -226,6 +234,9 @@ Pesan: ${formState.message}`;
                     </option>
                     <option value="Toko Online Katalog WhatsApp">
                       Toko Online Katalog WhatsApp
+                    </option>
+                    <option value="Jasa Pembuatan Tugas Coding (Mahasiswa / Siswa Online)">
+                      Jasa Pembuatan Tugas Coding (Mahasiswa / Siswa Online)
                     </option>
                     <option value="Website Sekolah / Yayasan">
                       Website Sekolah / Yayasan
@@ -245,32 +256,32 @@ Pesan: ${formState.message}`;
                 <div>
                   <label
                     htmlFor="contact-message"
-                    className="block text-xs font-bold uppercase tracking-wider text-slate-700 dark:text-slate-300 mb-2"
+                    className="block text-xs font-bold text-[#374151] dark:text-slate-200 mb-1"
                   >
                     Catatan Kebutuhan / Pertanyaan
                   </label>
                   <textarea
                     id="contact-message"
                     required
-                    rows={4}
+                    rows={3}
                     placeholder="Tuliskan gambaran fitur yang diinginkan atau jadwal konsultasi yang diharapkan..."
                     value={formState.message}
                     onChange={(e) =>
                       setFormState({ ...formState, message: e.target.value })
                     }
-                    className="w-full px-4 py-3 rounded-xl bg-slate-50 dark:bg-[#0A1228] border border-slate-200 dark:border-white/10 text-slate-900 dark:text-white text-sm focus:outline-none focus:border-blue-500 transition-colors"
+                    className="w-full px-3.5 py-2.5 rounded-md bg-[#F9FAFB] dark:bg-[#0B1120] border border-[#D1D5DB] dark:border-white/15 text-[#111827] dark:text-white text-sm font-medium focus:outline-none focus:border-[#1D5BD8] focus:bg-white focus:ring-1 focus:ring-[#1D5BD8] transition-all"
                   />
                 </div>
 
                 <button
                   type="submit"
-                  className="w-full py-4 rounded-xl bg-[#1D5BD8] hover:bg-[#1748B5] text-white font-bold text-sm uppercase tracking-wider shadow-lg hover:shadow-md transition-all flex items-center justify-center gap-2 group"
+                  className="w-full py-3 rounded-md bg-[#1D5BD8] hover:bg-[#1748B5] text-white font-bold text-sm transition-colors duration-150 flex items-center justify-center gap-2 shadow-sm"
                 >
-                  <Send className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+                  <Send className="w-4 h-4" />
                   <span>Kirim Pesan ke WhatsApp Studio</span>
                 </button>
 
-                <p className="text-[11px] text-slate-400 text-center">
+                <p className="text-[11px] text-[#6B7280] dark:text-slate-400 text-center font-medium pt-0.5">
                   Formulir ini secara otomatis menyusun draf pesan WhatsApp yang siap Anda kirim dalam 1 klik.
                 </p>
               </form>

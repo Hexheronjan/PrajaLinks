@@ -29,7 +29,6 @@ export const Navbar = () => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 30);
 
-      // Menu aktif mengikuti section yang sedang terlihat
       const sections = navLinks.map((l) => l.href.substring(1));
       const scrollPos = window.scrollY + 180;
       for (let i = sections.length - 1; i >= 0; i--) {
@@ -49,40 +48,45 @@ export const Navbar = () => {
 
   return (
     <>
-      {/* Animasi: navbar turun dari atas saat load, lalu mengecil saat scroll */}
       <motion.header
         initial={{ y: -80, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
-        transition={{ duration: 0.8, ease: smoothEase }}
-        className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 ${
-          isScrolled ? "py-2.5 glass-nav shadow-sm" : "py-4 bg-transparent"
+        transition={{ duration: 0.6, ease: smoothEase }}
+        className={`fixed top-0 left-0 right-0 z-40 transition-all duration-200 ${
+          isScrolled
+            ? "py-3 bg-white/96 dark:bg-[#111827]/96 backdrop-blur-md border-b border-[#E5E7EB] dark:border-white/10 shadow-sm"
+            : "py-4 sm:py-5 bg-transparent"
         }`}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between gap-6">
-            <a href="#beranda" className="shrink-0 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-blue-600 rounded" aria-label="PrajaLinks, kembali ke beranda">
+            <a
+              href="#beranda"
+              className="shrink-0 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#1D5BD8] rounded-md"
+              aria-label="PrajaLinks, kembali ke beranda"
+            >
               <Logo priority />
             </a>
 
             {/* Navigasi desktop */}
-            <nav className="hidden lg:flex items-center gap-1" aria-label="Navigasi utama">
+            <nav className="hidden lg:flex items-center gap-1.5" aria-label="Navigasi utama">
               {navLinks.map((link) => {
                 const isActive = activeSection === link.href.substring(1);
                 return (
                   <a
                     key={link.name}
                     href={link.href}
-                    className={`relative px-3 py-2 text-[13px] font-bold transition-colors ${
+                    className={`relative px-3.5 py-2 text-[14px] font-bold transition-colors duration-150 ${
                       isActive
-                        ? "text-blue-700 dark:text-blue-300"
-                        : "text-slate-900 dark:text-slate-100 hover:text-blue-700 dark:hover:text-blue-300"
+                        ? "text-[#1D5BD8] dark:text-[#60A5FA]"
+                        : "text-[#111827] dark:text-white hover:text-[#1D5BD8] dark:hover:text-[#60A5FA]"
                     }`}
                   >
                     <span>{link.name}</span>
                     {isActive && (
                       <motion.span
                         layoutId="activeNavLine"
-                        className="absolute left-3 right-3 -bottom-0.5 h-[2px] bg-blue-600 dark:bg-blue-300"
+                        className="absolute left-3.5 right-3.5 -bottom-0.5 h-[2.5px] bg-[#1D5BD8] dark:bg-[#60A5FA] rounded-full"
                         transition={{ type: "spring", stiffness: 380, damping: 32 }}
                       />
                     )}
@@ -91,11 +95,11 @@ export const Navbar = () => {
               })}
             </nav>
 
-            <div className="hidden sm:flex items-center gap-3">
+            <div className="hidden sm:flex items-center gap-3.5">
               <button
                 onClick={toggleTheme}
                 aria-label="Ganti mode terang atau gelap"
-                className="w-9 h-9 rounded-md flex items-center justify-center border border-slate-300 dark:border-white/20 text-slate-900 dark:text-slate-100 hover:border-blue-600 hover:text-blue-700 dark:hover:text-blue-300 transition-colors"
+                className="w-10 h-10 rounded-md flex items-center justify-center border border-[#E5E7EB] dark:border-white/15 text-[#111827] dark:text-white hover:border-[#1D5BD8] hover:text-[#1D5BD8] dark:hover:text-[#60A5FA] transition-colors duration-150"
               >
                 <ThemeIcon className="w-4 h-4" />
               </button>
@@ -104,10 +108,10 @@ export const Navbar = () => {
                 href={getWhatsAppLink("Halo PrajaLinks, saya ingin konsultasi gratis mengenai pembuatan website / sistem digital.")}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-4 py-2.5 rounded-md text-[13px] font-bold bg-blue-600 hover:bg-blue-700 text-white transition-colors"
+                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-md text-[14px] font-bold bg-[#1D5BD8] hover:bg-[#1748B5] text-white transition-colors duration-150 shadow-sm"
               >
                 <span>Konsultasi Gratis</span>
-                <ArrowRight className="w-3.5 h-3.5" />
+                <ArrowRight className="w-4 h-4" />
               </a>
             </div>
 
@@ -116,7 +120,7 @@ export const Navbar = () => {
               <button
                 onClick={toggleTheme}
                 aria-label="Ganti mode terang atau gelap"
-                className="w-10 h-10 rounded-md flex items-center justify-center border border-slate-300 dark:border-white/20 text-slate-900 dark:text-slate-100"
+                className="w-10 h-10 rounded-md flex items-center justify-center border border-[#E5E7EB] dark:border-white/15 text-[#111827] dark:text-white"
               >
                 <ThemeIcon className="w-4 h-4" />
               </button>
@@ -124,7 +128,7 @@ export const Navbar = () => {
                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
                 aria-label="Buka menu navigasi"
                 aria-expanded={mobileMenuOpen}
-                className="w-10 h-10 rounded-md flex items-center justify-center bg-blue-600 text-white"
+                className="w-10 h-10 rounded-md flex items-center justify-center bg-[#1D5BD8] text-white font-bold"
               >
                 {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
               </button>
@@ -137,23 +141,23 @@ export const Navbar = () => {
       <AnimatePresence>
         {mobileMenuOpen && (
           <motion.div
-            initial={{ opacity: 0, y: -16 }}
+            initial={{ opacity: 0, y: -12 }}
             animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -16 }}
-            transition={{ duration: 0.3, ease: smoothEase }}
+            exit={{ opacity: 0, y: -12 }}
+            transition={{ duration: 0.2, ease: smoothEase }}
             className="fixed inset-x-0 top-[64px] z-30 p-3 sm:hidden"
           >
-            <div className="bg-white dark:bg-[#0F1B3A] rounded-lg p-5 shadow-xl border border-slate-200 dark:border-white/15">
+            <div className="bg-white dark:bg-[#111827] rounded-lg p-5 shadow-lg border border-[#E5E7EB] dark:border-white/15">
               <div className="flex flex-col">
                 {navLinks.map((link) => (
                   <a
                     key={link.name}
                     href={link.href}
                     onClick={() => setMobileMenuOpen(false)}
-                    className="flex items-center justify-between py-3 text-[15px] font-bold text-slate-900 dark:text-white border-b border-slate-200 dark:border-white/10 hover:text-blue-700 dark:hover:text-blue-300 transition-colors"
+                    className="flex items-center justify-between py-3 text-[15px] font-bold text-[#111827] dark:text-white border-b border-[#E5E7EB] dark:border-white/10 hover:text-[#1D5BD8] dark:hover:text-[#60A5FA] transition-colors"
                   >
                     <span>{link.name}</span>
-                    <ArrowRight className="w-4 h-4 opacity-60" />
+                    <ArrowRight className="w-4 h-4 opacity-50" />
                   </a>
                 ))}
               </div>
@@ -161,7 +165,7 @@ export const Navbar = () => {
                 href={getWhatsAppLink("Halo PrajaLinks, saya ingin konsultasi gratis mengenai website.")}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="mt-5 w-full flex items-center justify-center gap-2 py-3 rounded-md bg-blue-600 hover:bg-blue-700 text-white font-bold text-sm"
+                className="mt-5 w-full flex items-center justify-center gap-2 py-3 rounded-md bg-[#1D5BD8] hover:bg-[#1748B5] text-white font-bold text-sm transition-colors duration-150"
               >
                 <MessageSquare className="w-4 h-4" />
                 <span>Konsultasi via WhatsApp</span>

@@ -3,6 +3,7 @@ import { Marquee } from "@/components/sections/Marquee";
 import { DualTrack } from "@/components/sections/DualTrack";
 import { Services } from "@/components/sections/Services";
 import { VillageDemo } from "@/components/sections/VillageDemo";
+import { VideoSection } from "@/components/sections/VideoSection";
 import { Portfolio } from "@/components/sections/Portfolio";
 import { Pricing } from "@/components/sections/Pricing";
 import { Process } from "@/components/sections/Process";
@@ -31,7 +32,10 @@ export default function Home() {
       {/* 6. Demo Website Desa Interaktif */}
       <VillageDemo />
 
-      {/* 7. Portofolio (Pinned Horizontal Desktop / Drag Mobile) */}
+      {/* 7. Video Section (Lihat Cara Kerjanya) */}
+      <VideoSection />
+
+      {/* 8. Portofolio (Pinned Horizontal Desktop / Drag Mobile) */}
       <Portfolio />
 
       {/* 8. Paket Harga (4 Kartu & WA pre-filled) */}

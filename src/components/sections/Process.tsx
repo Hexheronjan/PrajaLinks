@@ -1,54 +1,41 @@
 "use client";
 
 import { useRef } from "react";
-import { motion, useScroll, useTransform, useInView } from "framer-motion";
-import { CheckCircle2, Clock, Sparkles } from "lucide-react";
+import { motion, useInView } from "framer-motion";
+import { CheckCircle2, Clock } from "lucide-react";
 import { siteData } from "@/data/site";
 import { smoothEase } from "@/utils/animations";
 import { SectionHeading } from "@/components/common/SectionHeading";
 
 export const Process = () => {
   const containerRef = useRef<HTMLDivElement>(null);
-  const isInView = useInView(containerRef, { once: true, margin: "-100px" });
+  const isInView = useInView(containerRef, { once: true, margin: "-60px" });
 
   const { processSteps } = siteData;
-
-  const { scrollYProgress } = useScroll({
-    target: containerRef,
-    offset: ["start center", "end end"],
-  });
-
-  const lineHeight = useTransform(scrollYProgress, [0, 1], ["0%", "100%"]);
 
   return (
     <section
       id="proses"
       ref={containerRef}
-      className="py-24 relative overflow-hidden bg-[#FFFFFF] dark:bg-[#0A1228]"
+      className="py-20 lg:py-24 relative overflow-hidden bg-[#FAF9F6] dark:bg-[#0B1120]"
     >
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Judul section */}
         <SectionHeading
           index="06"
-          eyebrow={"Alur Pengerjaan Transparan"}
-          title={"5 Langkah Terukur dari Ide Hingga Rilis"}
-          desc={"Setiap tahap memiliki target keluaran yang konkret sehingga Anda selalu mengetahui progres perkembangan website Anda."}
+          eyebrow="Alur Pengerjaan Transparan"
+          title="5 Langkah Terukur dari Ide Hingga Rilis"
+          desc="Setiap tahap memiliki target keluaran yang konkret sehingga Anda selalu mengetahui progres perkembangan website Anda."
         />
 
-        {/* Timeline with Center Progress Line */}
+        {/* Timeline */}
         <div className="relative">
-          {/* Background vertical track line */}
-          <div className="absolute left-3.5 sm:left-1/2 top-4 bottom-4 w-[2px] bg-slate-200 dark:bg-white/10 -translate-x-1/2" />
+          {/* Vertical track line */}
+          <div className="absolute left-3.5 sm:left-1/2 top-4 bottom-4 w-[1px] bg-[#E5E7EB] dark:bg-white/10 -translate-x-1/2" />
 
-          {/* Filling vertical progress line */}
-          <motion.div
-            style={{ height: lineHeight }}
-            className="absolute left-3.5 sm:left-1/2 top-4 w-[3px] bg-[#1D5BD8] -translate-x-1/2 origin-top"
-          />
-
-          <div className="space-y-10 sm:space-y-16">
+          <div className="space-y-8 sm:space-y-12">
             {processSteps.map((step, idx) => {
-              const isEven = idx % 2 === 1; // 0 is odd in 1-based (Step 1), 1 is even (Step 2)
+              const isEven = idx % 2 === 1;
               const entersFromLeft = !isEven;
 
               return (
@@ -59,53 +46,53 @@ export const Process = () => {
                   }`}
                 >
                   {/* Timeline Node Badge in the middle */}
-                  <div className="absolute left-3.5 sm:left-1/2 -translate-x-1/2 z-10 w-7 h-7 sm:w-9 sm:h-9 rounded-full bg-[#FFFFFF] dark:bg-[#0F1B3A] border-2 border-blue-500 shadow-md flex items-center justify-center text-[11px] sm:text-xs font-bold font-heading text-slate-900 dark:text-white">
+                  <div className="absolute left-3.5 sm:left-1/2 -translate-x-1/2 z-10 w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-white dark:bg-[#111827] border-2 border-[#1D5BD8] flex items-center justify-center text-xs sm:text-sm font-mono font-bold text-[#111827] dark:text-white shadow-sm">
                     {step.step}
                   </div>
 
-                  {/* Step Card: Odd enters from LEFT, Even from RIGHT */}
+                  {/* Step Card */}
                   <motion.div
                     initial={{
                       opacity: 0,
-                      x: entersFromLeft ? -20 : 20,
+                      x: entersFromLeft ? -16 : 16,
                     }}
                     whileInView={{
                       opacity: 1,
                       x: 0,
                     }}
-                    viewport={{ once: true, margin: "-60px" }}
-                    transition={{ duration: 0.6, ease: smoothEase }}
+                    viewport={{ once: true, margin: "-40px" }}
+                    transition={{ duration: 0.45, ease: smoothEase }}
                     className={`pl-8 sm:pl-0 sm:w-1/2 ${
-                      isEven ? "sm:pl-12" : "sm:pr-12"
+                      isEven ? "sm:pl-10" : "sm:pr-10"
                     } w-full min-w-0`}
                   >
-                    <div className="p-5 sm:p-7 rounded-xl bg-[#FFFFFF] dark:bg-[#0F1B3A] border border-slate-200 dark:border-white/10 shadow-sm hover:shadow-md transition-shadow">
-                      <div className="flex items-center justify-between gap-3 mb-3">
-                        <span className="text-xs font-bold text-emerald-600 dark:text-emerald-400 uppercase tracking-wider">
+                    <div className="p-5 sm:p-7 rounded-[8px] bg-white dark:bg-[#111827] border border-[#E5E7EB] dark:border-white/10 shadow-sm">
+                      <div className="flex items-center justify-between gap-3 mb-2.5">
+                        <span className="text-xs sm:text-[13px] font-bold text-[#1D5BD8] dark:text-[#60A5FA] uppercase tracking-wider">
                           Langkah {step.step}
                         </span>
-                        <div className="flex items-center gap-1.5 text-xs text-slate-500 dark:text-[#B9C6E2]">
-                          <Clock className="w-3.5 h-3.5" />
+                        <div className="flex items-center gap-1.5 text-xs sm:text-[13px] font-semibold text-[#5F6978] dark:text-slate-400">
+                          <Clock className="w-4 h-4" />
                           <span>{step.timeline}</span>
                         </div>
                       </div>
 
-                      <h3 className="text-lg sm:text-xl font-bold font-heading text-slate-900 dark:text-white mb-2">
+                      <h3 className="text-base sm:text-lg lg:text-xl font-bold text-[#111827] dark:text-white mb-2 leading-snug">
                         {step.title}
                       </h3>
 
-                      <p className="text-xs sm:text-sm text-slate-600 dark:text-[#B9C6E2] leading-relaxed mb-4">
+                      <p className="text-sm sm:text-[15px] text-[#374151] dark:text-slate-200 leading-relaxed mb-4 font-medium">
                         {step.description}
                       </p>
 
                       {/* Deliverables */}
-                      <div className="pt-3 border-t border-slate-100 dark:border-white/5 space-y-1.5">
-                        <span className="text-[11px] font-semibold text-slate-400 block mb-1">
+                      <div className="pt-3.5 border-t border-[#E5E7EB] dark:border-white/10 space-y-2">
+                        <span className="text-xs font-bold text-[#5F6978] dark:text-slate-400 block mb-1">
                           Output Tahap Ini:
                         </span>
                         {step.deliverables.map((item, dIdx) => (
-                          <div key={dIdx} className="flex items-center gap-2 text-xs text-slate-700 dark:text-slate-300">
-                            <CheckCircle2 className="w-3.5 h-3.5 text-blue-500 shrink-0" />
+                          <div key={dIdx} className="flex items-center gap-2.5 text-xs sm:text-sm text-[#111827] dark:text-slate-100 font-semibold">
+                            <CheckCircle2 className="w-4 h-4 text-[#1D5BD8] dark:text-[#60A5FA] shrink-0" />
                             <span>{item}</span>
                           </div>
                         ))}
