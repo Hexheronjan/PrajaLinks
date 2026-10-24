@@ -95,11 +95,6 @@ export default async function CityDetailPage({
     notFound();
   }
 
-  // Get up to 6 other Jatim cities for internal linking
-  const otherCities = jatimCities
-    .filter((c) => c.slug !== city.slug)
-    .slice(0, 8);
-
   const localJsonLd = {
     "@context": "https://schema.org",
     "@graph": [
@@ -371,38 +366,16 @@ export default async function CityDetailPage({
           </div>
         </section>
 
-        {/* Cross-linking to Other Jatim Cities */}
-        <section className="pt-8 border-t border-[#E2E8F0] dark:border-white/10">
-          <h2 className="font-heading text-lg sm:text-xl font-extrabold text-[#111827] dark:text-white mb-2">
-            Wilayah Kabupaten & Kota Lainnya di Jawa Timur
-          </h2>
-          <p className="text-xs sm:text-sm text-[#4B5563] dark:text-slate-300 font-medium mb-5">
-            PrajaLinks melayani pembuatan website, aplikasi, dan tugas coding secara online untuk seluruh daerah:
-          </p>
-
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
-            {otherCities.map((other) => (
-              <Link
-                key={other.slug}
-                href={`/wilayah/${other.slug}`}
-                className="p-3.5 rounded-xl bg-white dark:bg-[#111C33] border border-[#E2E8F0] dark:border-white/10 hover:border-[#1D5BD8] text-xs sm:text-sm font-bold text-[#111827] dark:text-white transition-all flex items-center justify-between group"
-              >
-                <span>{other.fullName}</span>
-                <ArrowRight className="w-3.5 h-3.5 text-[#1D5BD8] dark:text-[#60A5FA] opacity-0 group-hover:opacity-100 group-hover:translate-x-0.5 transition-all" />
-              </Link>
-            ))}
-          </div>
-
-          <div className="mt-6 text-center">
-            <Link
-              href="/"
-              className="inline-flex items-center gap-1.5 text-xs sm:text-sm font-bold text-[#1D5BD8] dark:text-[#60A5FA] hover:underline"
-            >
-              <ArrowLeft className="w-4 h-4" />
-              <span>Kembali ke Halaman Utama PrajaLinks</span>
-            </Link>
-          </div>
-        </section>
+        {/* Back Link */}
+        <div className="pt-4 text-center">
+          <Link
+            href="/"
+            className="inline-flex items-center gap-1.5 text-xs sm:text-sm font-bold text-[#1D5BD8] dark:text-[#60A5FA] hover:underline"
+          >
+            <ArrowLeft className="w-4 h-4" />
+            <span>Kembali ke Halaman Utama PrajaLinks</span>
+          </Link>
+        </div>
       </div>
     </div>
   );
