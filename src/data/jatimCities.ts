@@ -574,4 +574,69 @@ export const jatimCities: JatimCity[] = [
   { slug: "raja-ampat", name: "Raja Ampat", capital: "Waisai", province: "Papua Barat Daya" },
   { slug: "sorong-selatan", name: "Sorong Selatan", capital: "Teminabuan", province: "Papua Barat Daya" },
   { slug: "tambrauw", name: "Tambrauw", capital: "Fef", province: "Papua Barat Daya" },
+
+  // ==========================================
+  // ACEH (23 Wilayah)
+  // ==========================================
+  { slug: "aceh-barat", name: "Aceh Barat", capital: "Meulaboh", province: "Aceh" },
+  { slug: "aceh-barat-daya", name: "Aceh Barat Daya", capital: "Blangpidie", province: "Aceh" },
+  { slug: "aceh-besar", name: "Aceh Besar", capital: "Kota Jantho", province: "Aceh" },
+  { slug: "aceh-jaya", name: "Aceh Jaya", capital: "Calang", province: "Aceh" },
+  { slug: "aceh-selatan", name: "Aceh Selatan", capital: "Tapaktuan", province: "Aceh" },
+  { slug: "aceh-singkil", name: "Aceh Singkil", capital: "Singkil", province: "Aceh" },
+  { slug: "aceh-tamiang", name: "Aceh Tamiang", capital: "Karang Baru", province: "Aceh" },
+  { slug: "aceh-tengah", name: "Aceh Tengah", capital: "Takengon", province: "Aceh" },
+  { slug: "aceh-tenggara", name: "Aceh Tenggara", capital: "Kutacane", province: "Aceh" },
+  { slug: "aceh-timur", name: "Aceh Timur", capital: "Idi Rayeuk", province: "Aceh" },
+  { slug: "aceh-utara", name: "Aceh Utara", capital: "Lhoksukon", province: "Aceh" },
+  { slug: "bener-meriah", name: "Bener Meriah", capital: "Simpang Tiga Redelong", province: "Aceh" },
+  { slug: "bireuen", name: "Bireuen", capital: "Bireuen", province: "Aceh" },
+  { slug: "gayo-lues", name: "Gayo Lues", capital: "Blangkejeren", province: "Aceh" },
+  { slug: "nagan-raya", name: "Nagan Raya", capital: "Suka Makmue", province: "Aceh" },
+  { slug: "pidie", name: "Pidie", capital: "Sigli", province: "Aceh" },
+  { slug: "pidie-jaya", name: "Pidie Jaya", capital: "Meureudu", province: "Aceh" },
+  { slug: "simeulue", name: "Simeulue", capital: "Sinabang", province: "Aceh" },
+  { slug: "banda-aceh", name: "Banda Aceh", capital: "Banda Aceh", province: "Aceh" },
+  { slug: "langsa", name: "Langsa", capital: "Langsa", province: "Aceh" },
+  { slug: "lhokseumawe", name: "Lhokseumawe", capital: "Lhokseumawe", province: "Aceh" },
+  { slug: "sabang", name: "Sabang", capital: "Sabang", province: "Aceh" },
+  { slug: "subulussalam", name: "Subulussalam", capital: "Subulussalam", province: "Aceh" },
+
+  // ==========================================
+  // SUMATERA BARAT (18 Wilayah)
+  // ==========================================
+  { slug: "agam", name: "Agam", capital: "Lubuk Basung", province: "Sumatera Barat" },
+  { slug: "dharmasraya", name: "Dharmasraya", capital: "Pulau Punjung", province: "Sumatera Barat" },
+  { slug: "kepulauan-mentawai", name: "Kepulauan Mentawai", capital: "Tuapejat", province: "Sumatera Barat" },
+  { slug: "lima-puluh-kota", name: "Lima Puluh Kota", capital: "Sarilamak", province: "Sumatera Barat" },
+  { slug: "padang-pariaman", name: "Padang Pariaman", capital: "Parit Malintang", province: "Sumatera Barat" },
+  { slug: "pasaman", name: "Pasaman", capital: "Lubuk Sikaping", province: "Sumatera Barat" },
+  { slug: "pasaman-barat", name: "Pasaman Barat", capital: "Simpang Ampek", province: "Sumatera Barat" },
+  { slug: "pesisir-selatan", name: "Pesisir Selatan", capital: "Painan", province: "Sumatera Barat" },
+  { slug: "sijunjung", name: "Sijunjung", capital: "Muaro Sijunjung", province: "Sumatera Barat" },
+  { slug: "solok", name: "Solok", capital: "Arosuka", province: "Sumatera Barat" },
+  { slug: "solok-selatan", name: "Solok Selatan", capital: "Padang Aro", province: "Sumatera Barat" },
+  { slug: "tanah-datar", name: "Tanah Datar", capital: "Batusangkar", province: "Sumatera Barat" },
+  { slug: "padang", name: "Padang", capital: "Padang", province: "Sumatera Barat" },
+  { slug: "bukittinggi", name: "Bukittinggi", capital: "Bukittinggi", province: "Sumatera Barat" },
+  { slug: "padang-panjang", name: "Padang Panjang", capital: "Padang Panjang", province: "Sumatera Barat" },
+  { slug: "pariaman", name: "Pariaman", capital: "Pariaman", province: "Sumatera Barat" },
+  { slug: "payakumbuh", name: "Payakumbuh", capital: "Payakumbuh", province: "Sumatera Barat" },
+  { slug: "sawahlunto", name: "Sawahlunto", capital: "Sawahlunto", province: "Sumatera Barat" },
+
+  // ==========================================
+  // RIAU (12 Wilayah)
+  // ==========================================
+  { slug: "bengkalis", name: "Bengkalis", capital: "Bengkalis", province: "Riau" },
+  { slug: "indragiri-hilir", name: "Indragiri Hilir", capital: "Tembilahan", province: "Riau" },
+  { slug: "indragiri-hulu", name: "Indragiri Hulu", capital: "Rengat", province: "Riau" },
+  { slug: "kampar", name: "Kampar", capital: "Bangkinang", province: "Riau" },
+  { slug: "kepulauan-meranti", name: "Kepulauan Meranti", capital: "Selatpanjang", province: "Riau" },
+  { slug: "kuantan-singingi", name: "Kuantan Singingi", capital: "Teluk Kuantan", province: "Riau" },
+  { slug: "pelalawan", name: "Pelalawan", capital: "Pangkalan Kerinci", province: "Riau" },
+  { slug: "rokan-hilir", name: "Rokan Hilir", capital: "Bagansiapiapi", province: "Riau" },
+  { slug: "rokan-hulu", name: "Rokan Hulu", capital: "Pasir Pengaraian", province: "Riau" },
+  { slug: "siak", name: "Siak", capital: "Siak Sri Indrapura", province: "Riau" },
+  { slug: "pekanbaru", name: "Pekanbaru", capital: "Pekanbaru", province: "Riau" },
+  { slug: "dumai", name: "Dumai", capital: "Dumai", province: "Riau" },
 ];
