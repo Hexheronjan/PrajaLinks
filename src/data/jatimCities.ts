@@ -252,4 +252,167 @@ export const jatimCities: JatimCity[] = [
   { slug: "rejang-lebong", name: "Rejang Lebong", capital: "Curup", province: "Bengkulu" },
   { slug: "seluma", name: "Seluma", capital: "Tais", province: "Bengkulu" },
   { slug: "bengkulu", name: "Bengkulu", capital: "Kota Bengkulu", province: "Bengkulu" },
+
+  // ==========================================
+  // KEPULAUAN BANGKA BELITUNG (7 Wilayah)
+  // ==========================================
+  { slug: "pangkalpinang", name: "Pangkalpinang", capital: "Pangkalpinang", province: "Kepulauan Bangka Belitung" },
+  { slug: "bangka", name: "Bangka", capital: "Sungailiat", province: "Kepulauan Bangka Belitung" },
+  { slug: "bangka-barat", name: "Bangka Barat", capital: "Muntok", province: "Kepulauan Bangka Belitung" },
+  { slug: "bangka-selatan", name: "Bangka Selatan", capital: "Toboali", province: "Kepulauan Bangka Belitung" },
+  { slug: "bangka-tengah", name: "Bangka Tengah", capital: "Koba", province: "Kepulauan Bangka Belitung" },
+  { slug: "belitung", name: "Belitung", capital: "Tanjung Pandan", province: "Kepulauan Bangka Belitung" },
+  { slug: "belitung-timur", name: "Belitung Timur", capital: "Manggar", province: "Kepulauan Bangka Belitung" },
+
+  // ==========================================
+  // NUSA TENGGARA BARAT (10 Wilayah)
+  // ==========================================
+  { slug: "mataram", name: "Mataram", capital: "Mataram", province: "Nusa Tenggara Barat" },
+  { slug: "lombok-barat", name: "Lombok Barat", capital: "Gerung", province: "Nusa Tenggara Barat" },
+  { slug: "lombok-tengah", name: "Lombok Tengah", capital: "Praya", province: "Nusa Tenggara Barat" },
+  { slug: "lombok-timur", name: "Lombok Timur", capital: "Selong", province: "Nusa Tenggara Barat" },
+  { slug: "lombok-utara", name: "Lombok Utara", capital: "Tanjung", province: "Nusa Tenggara Barat" },
+  { slug: "sumbawa", name: "Sumbawa", capital: "Sumbawa Besar", province: "Nusa Tenggara Barat" },
+  { slug: "sumbawa-barat", name: "Sumbawa Barat", capital: "Taliwang", province: "Nusa Tenggara Barat" },
+  { slug: "dompu", name: "Dompu", capital: "Dompu", province: "Nusa Tenggara Barat" },
+  { slug: "bima", name: "Bima", capital: "Woha", province: "Nusa Tenggara Barat" },
+  { slug: "kota-bima", name: "Kota Bima", capital: "Bima", province: "Nusa Tenggara Barat" },
+
+  // ==========================================
+  // NUSA TENGGARA TIMUR (22 Wilayah)
+  // ==========================================
+  { slug: "kupang", name: "Kupang", capital: "Kupang", province: "Nusa Tenggara Timur" },
+  { slug: "alor", name: "Alor", capital: "Kalabahi", province: "Nusa Tenggara Timur" },
+  { slug: "belu", name: "Belu", capital: "Atambua", province: "Nusa Tenggara Timur" },
+  { slug: "ende", name: "Ende", capital: "Ende", province: "Nusa Tenggara Timur" },
+  { slug: "flores-timur", name: "Flores Timur", capital: "Larantuka", province: "Nusa Tenggara Timur" },
+  { slug: "kupang-timur", name: "Kupang Timur", capital: "Kupang Timur", province: "Nusa Tenggara Timur" },
+  { slug: "lembata", name: "Lembata", capital: "Lewoleba", province: "Nusa Tenggara Timur" },
+  { slug: "malaka", name: "Malaka", capital: "Betun", province: "Nusa Tenggara Timur" },
+  { slug: "manggarai", name: "Manggarai", capital: "Ruteng", province: "Nusa Tenggara Timur" },
+  { slug: "manggarai-barat", name: "Manggarai Barat", capital: "Labuan Bajo", province: "Nusa Tenggara Timur" },
+  { slug: "manggarai-timur", name: "Manggarai Timur", capital: "Borong", province: "Nusa Tenggara Timur" },
+  { slug: "nagekeo", name: "Nagekeo", capital: "Mbay", province: "Nusa Tenggara Timur" },
+  { slug: "ngada", name: "Ngada", capital: "Bajawa", province: "Nusa Tenggara Timur" },
+  { slug: "rote-ndao", name: "Rote Ndao", capital: "Baa", province: "Nusa Tenggara Timur" },
+  { slug: "sabu-raijua", name: "Sabu Raijua", capital: "Menia", province: "Nusa Tenggara Timur" },
+  { slug: "sikka", name: "Sikka", capital: "Maumere", province: "Nusa Tenggara Timur" },
+  { slug: "sumba-barat", name: "Sumba Barat", capital: "Waikabubak", province: "Nusa Tenggara Timur" },
+  { slug: "sumba-barat-daya", name: "Sumba Barat Daya", capital: "Tambolaka", province: "Nusa Tenggara Timur" },
+  { slug: "sumba-tengah", name: "Sumba Tengah", capital: "Waibakul", province: "Nusa Tenggara Timur" },
+  { slug: "sumba-timur", name: "Sumba Timur", capital: "Waingapu", province: "Nusa Tenggara Timur" },
+  { slug: "timor-tengah-selatan", name: "Timor Tengah Selatan", capital: "Soe", province: "Nusa Tenggara Timur" },
+  { slug: "timor-tengah-utara", name: "Timor Tengah Utara", capital: "Kefamenanu", province: "Nusa Tenggara Timur" },
+
+  // ==========================================
+  // KALIMANTAN BARAT (14 Wilayah)
+  // ==========================================
+  { slug: "pontianak", name: "Pontianak", capital: "Pontianak", province: "Kalimantan Barat" },
+  { slug: "singkawang", name: "Singkawang", capital: "Singkawang", province: "Kalimantan Barat" },
+  { slug: "bengkayang", name: "Bengkayang", capital: "Bengkayang", province: "Kalimantan Barat" },
+  { slug: "kapuas-hulu", name: "Kapuas Hulu", capital: "Putussibau", province: "Kalimantan Barat" },
+  { slug: "kayong-utara", name: "Kayong Utara", capital: "Sukadana", province: "Kalimantan Barat" },
+  { slug: "ketapang", name: "Ketapang", capital: "Delta Pawan", province: "Kalimantan Barat" },
+  { slug: "kubu-raya", name: "Kubu Raya", capital: "Sungai Raya", province: "Kalimantan Barat" },
+  { slug: "landak", name: "Landak", capital: "Ngabang", province: "Kalimantan Barat" },
+  { slug: "melawi", name: "Melawi", capital: "Nanga Pinoh", province: "Kalimantan Barat" },
+  { slug: "mempawah", name: "Mempawah", capital: "Mempawah", province: "Kalimantan Barat" },
+  { slug: "sambas", name: "Sambas", capital: "Sambas", province: "Kalimantan Barat" },
+  { slug: "sanggau", name: "Sanggau", capital: "Kapuas", province: "Kalimantan Barat" },
+  { slug: "sekadau", name: "Sekadau", capital: "Sekadau Hilir", province: "Kalimantan Barat" },
+  { slug: "sintang", name: "Sintang", capital: "Sintang", province: "Kalimantan Barat" },
+
+  // ==========================================
+  // KALIMANTAN TENGAH (14 Wilayah)
+  // ==========================================
+  { slug: "palangka-raya", name: "Palangka Raya", capital: "Palangka Raya", province: "Kalimantan Tengah" },
+  { slug: "barito-selatan", name: "Barito Selatan", capital: "Buntok", province: "Kalimantan Tengah" },
+  { slug: "barito-timur", name: "Barito Timur", capital: "Tamiang Layang", province: "Kalimantan Tengah" },
+  { slug: "barito-utara", name: "Barito Utara", capital: "Muara Teweh", province: "Kalimantan Tengah" },
+  { slug: "gunung-mas", name: "Gunung Mas", capital: "Kuala Kurun", province: "Kalimantan Tengah" },
+  { slug: "kapuas", name: "Kapuas", capital: "Kuala Kapuas", province: "Kalimantan Tengah" },
+  { slug: "katingan", name: "Katingan", capital: "Kasongan", province: "Kalimantan Tengah" },
+  { slug: "kotawaringin-barat", name: "Kotawaringin Barat", capital: "Pangkalan Bun", province: "Kalimantan Tengah" },
+  { slug: "kotawaringin-timur", name: "Kotawaringin Timur", capital: "Sampit", province: "Kalimantan Tengah" },
+  { slug: "lamandau", name: "Lamandau", capital: "Nanga Bulik", province: "Kalimantan Tengah" },
+  { slug: "murung-raya", name: "Murung Raya", capital: "Puruk Cahu", province: "Kalimantan Tengah" },
+  { slug: "pulang-pisau", name: "Pulang Pisau", capital: "Pulang Pisau", province: "Kalimantan Tengah" },
+  { slug: "seruyan", name: "Seruyan", capital: "Kuala Pembuang", province: "Kalimantan Tengah" },
+  { slug: "sukamara", name: "Sukamara", capital: "Sukamara", province: "Kalimantan Tengah" },
+
+  // ==========================================
+  // KALIMANTAN SELATAN (13 Wilayah)
+  // ==========================================
+  { slug: "banjarbaru", name: "Banjarbaru", capital: "Banjarbaru", province: "Kalimantan Selatan" },
+  { slug: "banjarmasin", name: "Banjarmasin", capital: "Banjarmasin", province: "Kalimantan Selatan" },
+  { slug: "balangan", name: "Balangan", capital: "Paringin", province: "Kalimantan Selatan" },
+  { slug: "kabupaten-banjar", name: "Banjar", capital: "Martapura", province: "Kalimantan Selatan" },
+  { slug: "barito-kuala", name: "Barito Kuala", capital: "Marabahan", province: "Kalimantan Selatan" },
+  { slug: "hulu-sungai-selatan", name: "Hulu Sungai Selatan", capital: "Kandangan", province: "Kalimantan Selatan" },
+  { slug: "hulu-sungai-tengah", name: "Hulu Sungai Tengah", capital: "Barabai", province: "Kalimantan Selatan" },
+  { slug: "hulu-sungai-utara", name: "Hulu Sungai Utara", capital: "Amuntai", province: "Kalimantan Selatan" },
+  { slug: "kotabaru", name: "Kotabaru", capital: "Kotabaru", province: "Kalimantan Selatan" },
+  { slug: "tabalong", name: "Tabalong", capital: "Tanjung", province: "Kalimantan Selatan" },
+  { slug: "tanah-bumbu", name: "Tanah Bumbu", capital: "Batulicin", province: "Kalimantan Selatan" },
+  { slug: "tanah-laut", name: "Tanah Laut", capital: "Pelaihari", province: "Kalimantan Selatan" },
+  { slug: "tapin", name: "Tapin", capital: "Rantau", province: "Kalimantan Selatan" },
+
+  // ==========================================
+  // KALIMANTAN TIMUR (10 Wilayah)
+  // ==========================================
+  { slug: "samarinda", name: "Samarinda", capital: "Samarinda", province: "Kalimantan Timur" },
+  { slug: "balikpapan", name: "Balikpapan", capital: "Balikpapan", province: "Kalimantan Timur" },
+  { slug: "bontang", name: "Bontang", capital: "Bontang", province: "Kalimantan Timur" },
+  { slug: "berau", name: "Berau", capital: "Tanjung Redeb", province: "Kalimantan Timur" },
+  { slug: "kutai-barat", name: "Kutai Barat", capital: "Sendawar", province: "Kalimantan Timur" },
+  { slug: "kutai-kartanegara", name: "Kutai Kartanegara", capital: "Tenggarong", province: "Kalimantan Timur" },
+  { slug: "kutai-timur", name: "Kutai Timur", capital: "Sangatta", province: "Kalimantan Timur" },
+  { slug: "mahakam-ulu", name: "Mahakam Ulu", capital: "Ujoh Bilang", province: "Kalimantan Timur" },
+  { slug: "paser", name: "Paser", capital: "Tanah Grogot", province: "Kalimantan Timur" },
+  { slug: "penajam-paser-utara", name: "Penajam Paser Utara", capital: "Penajam", province: "Kalimantan Timur" },
+
+  // ==========================================
+  // KALIMANTAN UTARA (5 Wilayah)
+  // ==========================================
+  { slug: "tarakan", name: "Tarakan", capital: "Tarakan", province: "Kalimantan Utara" },
+  { slug: "bulungan", name: "Bulungan", capital: "Tanjung Selor", province: "Kalimantan Utara" },
+  { slug: "malinau", name: "Malinau", capital: "Malinau", province: "Kalimantan Utara" },
+  { slug: "nunukan", name: "Nunukan", capital: "Nunukan", province: "Kalimantan Utara" },
+  { slug: "tana-tidung", name: "Tana Tidung", capital: "Tideng Pale", province: "Kalimantan Utara" },
+
+  // ==========================================
+  // SULAWESI UTARA (15 Wilayah)
+  // ==========================================
+  { slug: "manado", name: "Manado", capital: "Manado", province: "Sulawesi Utara" },
+  { slug: "bitung", name: "Bitung", capital: "Bitung", province: "Sulawesi Utara" },
+  { slug: "kotamobagu", name: "Kotamobagu", capital: "Kotamobagu", province: "Sulawesi Utara" },
+  { slug: "tomohon", name: "Tomohon", capital: "Tomohon", province: "Sulawesi Utara" },
+  { slug: "bolaang-mongondow", name: "Bolaang Mongondow", capital: "Lolak", province: "Sulawesi Utara" },
+  { slug: "bolaang-mongondow-selatan", name: "Bolaang Mongondow Selatan", capital: "Bolaang Uki", province: "Sulawesi Utara" },
+  { slug: "bolaang-mongondow-timur", name: "Bolaang Mongondow Timur", capital: "Tutuyan", province: "Sulawesi Utara" },
+  { slug: "bolaang-mongondow-utara", name: "Bolaang Mongondow Utara", capital: "Boroko", province: "Sulawesi Utara" },
+  { slug: "kepulauan-sangihe", name: "Kepulauan Sangihe", capital: "Tahuna", province: "Sulawesi Utara" },
+  { slug: "kepulauan-siau-tagulandang-biaro", name: "Kepulauan Siau Tagulandang Biaro", capital: "Ondong Siau", province: "Sulawesi Utara" },
+  { slug: "kepulauan-talaud", name: "Kepulauan Talaud", capital: "Melonguane", province: "Sulawesi Utara" },
+  { slug: "minahasa", name: "Minahasa", capital: "Tondano", province: "Sulawesi Utara" },
+  { slug: "minahasa-selatan", name: "Minahasa Selatan", capital: "Amurang", province: "Sulawesi Utara" },
+  { slug: "minahasa-tenggara", name: "Minahasa Tenggara", capital: "Ratahan", province: "Sulawesi Utara" },
+  { slug: "minahasa-utara", name: "Minahasa Utara", capital: "Airmadidi", province: "Sulawesi Utara" },
+
+  // ==========================================
+  // SULAWESI TENGAH (13 Wilayah)
+  // ==========================================
+  { slug: "palu", name: "Palu", capital: "Palu", province: "Sulawesi Tengah" },
+  { slug: "banggai", name: "Banggai", capital: "Luwuk", province: "Sulawesi Tengah" },
+  { slug: "banggai-kepulauan", name: "Banggai Kepulauan", capital: "Salakan", province: "Sulawesi Tengah" },
+  { slug: "banggai-laut", name: "Banggai Laut", capital: "Banggai", province: "Sulawesi Tengah" },
+  { slug: "buol", name: "Buol", capital: "Buol", province: "Sulawesi Tengah" },
+  { slug: "donggala", name: "Donggala", capital: "Banawa", province: "Sulawesi Tengah" },
+  { slug: "morowali", name: "Morowali", capital: "Bungku", province: "Sulawesi Tengah" },
+  { slug: "morowali-utara", name: "Morowali Utara", capital: "Kolonodale", province: "Sulawesi Tengah" },
+  { slug: "parigi-moutong", name: "Parigi Moutong", capital: "Parigi", province: "Sulawesi Tengah" },
+  { slug: "poso", name: "Poso", capital: "Poso", province: "Sulawesi Tengah" },
+  { slug: "sigi", name: "Sigi", capital: "Sigi Biromaru", province: "Sulawesi Tengah" },
+  { slug: "tojo-una-una", name: "Tojo Una-Una", capital: "Ampana", province: "Sulawesi Tengah" },
+  { slug: "tolitoli", name: "Tolitoli", capital: "Tolitoli", province: "Sulawesi Tengah" },
 ];
