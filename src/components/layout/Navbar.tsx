@@ -24,7 +24,7 @@ const navLinks = [
 export const Navbar = () => {
   const pathname = usePathname();
   const isSubPage =
-    pathname?.startsWith("/layanan") || pathname?.startsWith("/wilayah");
+    pathname?.startsWith("/layanan") || pathname === "/wilayah";
 
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
