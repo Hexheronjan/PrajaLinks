@@ -37,6 +37,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "weekly",
       priority: 0.9,
     },
+    {
+      url: `${baseUrl}/wilayah`,
+      lastModified: now,
+      changeFrequency: "daily",
+      priority: 0.95,
+    },
   ];
 
   // 38 Wilayah Kabupaten & Kota di Jawa Timur

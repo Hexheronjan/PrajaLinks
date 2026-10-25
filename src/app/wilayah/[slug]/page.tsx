@@ -43,8 +43,8 @@ export async function generateMetadata({
   }
 
   const province = city.province || "Jawa Timur";
-  const title = `Jasa Pembuatan Website, Aplikasi & Tugas Coding di ${city.name} | PrajaLinks`;
-  const description = `PrajaLinks melayani Jasa Pembuatan Website, Jasa Pembuatan Aplikasi Android/iOS/Web, dan Tugas Coding untuk wilayah Kota & Kabupaten ${city.name}, ${province} dan sekitarnya. Cepat, bergaransi & harga terjangkau.`;
+  const title = `Jasa Pembuatan Website di ${city.name} (Kabupaten & Kota), Aplikasi & Tugas Coding | PrajaLinks`;
+  const description = `PrajaLinks melayani Jasa Pembuatan Website, Jasa Pembuatan Aplikasi Android/iOS/Web, dan Tugas Coding untuk wilayah Kabupaten & Kota ${city.name}, ${province} dan sekitarnya. Cepat, bergaransi & harga terjangkau.`;
   const canonicalUrl = `https://www.prajalinks.my.id/wilayah/${city.slug}`;
 
   const cleanName = city.name.toLowerCase();
@@ -189,6 +189,12 @@ export default async function CityDetailPage({
           {
             "@type": "ListItem",
             position: 2,
+            name: "Semua Wilayah",
+            item: "https://www.prajalinks.my.id/wilayah",
+          },
+          {
+            "@type": "ListItem",
+            position: 3,
             name: `Layanan di ${city.name}`,
             item: `https://www.prajalinks.my.id/wilayah/${city.slug}`,
           },
@@ -285,6 +291,13 @@ export default async function CityDetailPage({
             <span>Website Utama</span>
           </Link>
           <span>/</span>
+          <Link
+            href="/wilayah"
+            className="text-[#1D5BD8] dark:text-[#60A5FA] hover:underline"
+          >
+            Semua Wilayah
+          </Link>
+          <span>/</span>
           <span className="text-[#111827] dark:text-white truncate max-w-xs sm:max-w-md">
             Layanan di {city.name}
           </span>
@@ -298,7 +311,7 @@ export default async function CityDetailPage({
           </div>
 
           <h1 className="font-heading text-2xl sm:text-4xl lg:text-[40px] font-extrabold text-[#111827] dark:text-white leading-[1.25] tracking-tight mb-5">
-            Jasa Pembuatan Website, Aplikasi & Tugas Coding di {city.name}
+            Jasa Pembuatan Website, Aplikasi & Tugas Coding di {city.name} (Kabupaten & Kota)
           </h1>
 
           <p className="text-base sm:text-lg text-[#374151] dark:text-slate-200 font-medium leading-relaxed max-w-3xl mb-8">
