@@ -639,4 +639,16 @@ export const jatimCities: JatimCity[] = [
   { slug: "siak", name: "Siak", capital: "Siak Sri Indrapura", province: "Riau" },
   { slug: "pekanbaru", name: "Pekanbaru", capital: "Pekanbaru", province: "Riau" },
   { slug: "dumai", name: "Dumai", capital: "Dumai", province: "Riau" },
+
+  // ==========================================
+  // TAMBAHAN WILAYAH BARU (8 Wilayah)
+  // ==========================================
+  { slug: "tebing-tinggi", name: "Tebing Tinggi", capital: "Tebing Tinggi", province: "Sumatera Utara" },
+  { slug: "oku-selatan", name: "OKU Selatan", capital: "Muaradua", province: "Sumatera Selatan" },
+  { slug: "oku-timur", name: "OKU Timur", capital: "Martapura", province: "Sumatera Selatan" },
+  { slug: "penukal-abab-lematang-ilir", name: "Penukal Abab Lematang Ilir", capital: "Talang Ubi", province: "Sumatera Selatan" },
+  { slug: "lubuklinggau", name: "Lubuklinggau", capital: "Lubuklinggau", province: "Sumatera Selatan" },
+  { slug: "pagar-alam", name: "Pagar Alam", capital: "Pagar Alam", province: "Sumatera Selatan" },
+  { slug: "lampung-barat", name: "Lampung Barat", capital: "Liwa", province: "Lampung" },
+  { slug: "kepulauan-tanimbar", name: "Kepulauan Tanimbar", capital: "Saumlaki", province: "Maluku" },
 ];
