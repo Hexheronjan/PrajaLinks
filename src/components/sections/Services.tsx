@@ -15,7 +15,7 @@ import {
   GraduationCap,
 } from "lucide-react";
 import { siteData, getWhatsAppLink } from "@/data/site";
-import { staggerContainer, slideUp } from "@/utils/animations";
+import { staggerContainer, slideUp, smoothEase } from "@/utils/animations";
 import { SectionHeading } from "@/components/common/SectionHeading";
 
 const iconMap: Record<string, any> = {
@@ -30,12 +30,23 @@ const iconMap: Record<string, any> = {
   GraduationCap,
 };
 
-const BentoCard = ({ service }: { service: any }) => {
+const BentoCard = ({ service, index }: { service: any; index: number }) => {
   const IconComponent = iconMap[service.icon] || Code2;
+  const isLeft = index % 2 === 0;
 
   return (
     <motion.div
-      variants={slideUp}
+      variants={{
+        hidden: { opacity: 0, x: isLeft ? -55 : 55 },
+        visible: {
+          opacity: 1,
+          x: 0,
+          transition: {
+            duration: 0.65,
+            ease: smoothEase,
+          },
+        },
+      }}
       className={`rounded-[8px] p-6 sm:p-7 flex flex-col justify-between border border-[#E5E7EB] dark:border-white/10 bg-white dark:bg-[#111827] shadow-sm hover:border-[#1D5BD8] dark:hover:border-[#60A5FA] transition-colors duration-200 ${
         service.colSpan || "col-span-1"
       }`}
@@ -114,8 +125,8 @@ export const Services = () => {
           animate={isInView ? "visible" : "hidden"}
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
         >
-          {siteData.services.map((service) => (
-            <BentoCard key={service.id} service={service} />
+          {siteData.services.map((service, index) => (
+            <BentoCard key={service.id} service={service} index={index} />
           ))}
         </motion.div>
       </div>

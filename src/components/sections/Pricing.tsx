@@ -32,13 +32,14 @@ export const Pricing = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 items-stretch mb-14">
           {pricing.map((plan, idx) => {
             const isPro = plan.isPopular;
+            const xOffset = idx < 2 ? -60 + idx * 20 : 40 + (idx - 2) * 20;
 
             return (
               <motion.div
                 key={plan.id}
-                initial={{ opacity: 0, y: 16 }}
-                animate={isInView ? { opacity: 1, y: 0 } : {}}
-                transition={{ duration: 0.45, delay: idx * 0.08, ease: smoothEase }}
+                initial={{ opacity: 0, x: xOffset }}
+                animate={isInView ? { opacity: 1, x: 0 } : {}}
+                transition={{ duration: 0.65, delay: idx * 0.08, ease: smoothEase }}
                 className={`rounded-[8px] p-6 sm:p-7 flex flex-col justify-between transition-colors duration-200 border bg-white dark:bg-[#111827] ${
                   isPro
                     ? "border-[#1D5BD8] dark:border-[#60A5FA] shadow-md ring-2 ring-[#1D5BD8]/20"

@@ -54,14 +54,14 @@ export const Process = () => {
                   <motion.div
                     initial={{
                       opacity: 0,
-                      x: entersFromLeft ? -16 : 16,
+                      x: entersFromLeft ? -70 : 70,
                     }}
                     whileInView={{
                       opacity: 1,
                       x: 0,
                     }}
                     viewport={{ once: true, margin: "-40px" }}
-                    transition={{ duration: 0.45, ease: smoothEase }}
+                    transition={{ duration: 0.65, ease: smoothEase }}
                     className={`pl-8 sm:pl-0 sm:w-1/2 ${
                       isEven ? "sm:pl-10" : "sm:pr-10"
                     } w-full min-w-0`}

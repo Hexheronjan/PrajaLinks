@@ -10,7 +10,7 @@ import {
   MapPin,
 } from "lucide-react";
 import { siteData } from "@/data/site";
-import { staggerContainer, slideUp } from "@/utils/animations";
+import { staggerContainer, slideUp, smoothEase } from "@/utils/animations";
 import { SectionHeading } from "@/components/common/SectionHeading";
 
 const icons: Record<string, any> = {
@@ -49,12 +49,23 @@ export const WhyUs = () => {
           animate={isInView ? "visible" : "hidden"}
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
         >
-          {whyUs.map((item) => {
+          {whyUs.map((item, idx) => {
             const IconComp = icons[item.icon] || Code;
+            const isLeft = idx % 2 === 0;
             return (
               <motion.div
                 key={item.id}
-                variants={slideUp}
+                variants={{
+                  hidden: { opacity: 0, x: isLeft ? -55 : 55 },
+                  visible: {
+                    opacity: 1,
+                    x: 0,
+                    transition: {
+                      duration: 0.65,
+                      ease: smoothEase,
+                    },
+                  },
+                }}
                 className="p-6 sm:p-7 rounded-[8px] bg-[#FAF9F6] dark:bg-[#111827] border border-[#E5E7EB] dark:border-white/10 shadow-sm flex flex-col justify-between"
               >
                 <div>

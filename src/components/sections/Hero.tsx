@@ -117,7 +117,12 @@ export const Hero = () => {
           {/* -----------------------------------------------------------
               Kolom Kiri: Pill Badge, Judul Lengkung, CTA, Poin
           ------------------------------------------------------------ */}
-          <div className="lg:col-span-7">
+          <motion.div
+            initial={{ opacity: 0, x: -50 }}
+            animate={inView ? { opacity: 1, x: 0 } : {}}
+            transition={{ duration: 0.7, ease: smoothEase }}
+            className="lg:col-span-7"
+          >
             {/* Pill Badge Lengkung Premium */}
             <motion.div
               initial={{ opacity: 0, y: 10 }}
@@ -219,12 +224,17 @@ export const Hero = () => {
                 </li>
               ))}
             </motion.ul>
-          </div>
+          </motion.div>
 
           {/* -----------------------------------------------------------
               Kolom Kanan: Card Showcase Studio Modern (Clean White, Royal Blue & Gold)
           ------------------------------------------------------------ */}
-          <div className="lg:col-span-5 flex justify-center relative">
+          <motion.div
+            initial={{ opacity: 0, x: 50 }}
+            animate={inView ? { opacity: 1, x: 0 } : {}}
+            transition={{ duration: 0.7, delay: 0.1, ease: smoothEase }}
+            className="lg:col-span-5 flex justify-center relative"
+          >
             {/* Halo Biru-Emas Halus di Belakang Kartu */}
             <motion.div
               animate={{
@@ -480,7 +490,7 @@ export const Hero = () => {
                 </div>
               </div>
             </motion.div>
-          </div>
+          </motion.div>
         </div>
       </div>
 
