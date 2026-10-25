@@ -74,8 +74,12 @@ export const metadata: Metadata = {
     images: ["/og-image.png"],
   },
   icons: {
-    icon: "/icon.png",
-    apple: "/apple-icon.png",
+    icon: [
+      { url: "/favicon.ico", sizes: "any" },
+      { url: "/icon.png", type: "image/png", sizes: "256x256" },
+    ],
+    shortcut: "/favicon.ico",
+    apple: [{ url: "/apple-icon.png", sizes: "180x180", type: "image/png" }],
   },
 };
 
@@ -93,6 +97,7 @@ export default function RootLayout({
         name: siteData.brand.name,
         description:
           "Studio penyedia Jasa Pembuatan Website, Jasa Pembuatan Aplikasi Android/Web, dan Jasa Pembuatan Tugas Coding Online melayani seluruh Indonesia.",
+        logo: "https://www.prajalinks.my.id/icon.png",
         image: "https://www.prajalinks.my.id/logo-full.png",
         url: "https://www.prajalinks.my.id",
         telephone: `+${siteData.brand.waNumber}`,
