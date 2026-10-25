@@ -39,9 +39,10 @@ export const DualTrack = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 items-stretch">
           {/* Panel 1: Pemerintahan Desa (Slide dari Kiri ke Tengah) */}
           <motion.div
-            initial={{ opacity: 0, x: -70 }}
-            animate={isInView ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 0.7, ease: smoothEase }}
+            initial={{ opacity: 0, x: -100 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, amount: 0.2 }}
+            transition={{ duration: 0.85, ease: [0.16, 1, 0.3, 1] }}
             className="rounded-[8px] p-7 sm:p-9 flex flex-col justify-between border border-[#E5E7EB] dark:border-white/10 bg-white dark:bg-[#111827] shadow-sm"
           >
             <div>
@@ -116,9 +117,10 @@ export const DualTrack = () => {
 
           {/* Panel 2: Bisnis & UMKM (Slide dari Kanan ke Tengah) */}
           <motion.div
-            initial={{ opacity: 0, x: 70 }}
-            animate={isInView ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 0.7, delay: 0.12, ease: smoothEase }}
+            initial={{ opacity: 0, x: 100 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, amount: 0.2 }}
+            transition={{ duration: 0.85, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
             className="rounded-[8px] p-7 sm:p-9 flex flex-col justify-between border border-[#E5E7EB] dark:border-white/10 bg-white dark:bg-[#111827] shadow-sm"
           >
             <div>

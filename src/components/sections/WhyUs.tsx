@@ -55,16 +55,13 @@ export const WhyUs = () => {
             return (
               <motion.div
                 key={item.id}
-                variants={{
-                  hidden: { opacity: 0, x: isLeft ? -55 : 55 },
-                  visible: {
-                    opacity: 1,
-                    x: 0,
-                    transition: {
-                      duration: 0.65,
-                      ease: smoothEase,
-                    },
-                  },
+                initial={{ opacity: 0, x: isLeft ? -90 : 90 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true, amount: 0.2 }}
+                transition={{
+                  duration: 0.85,
+                  delay: (idx % 3) * 0.1,
+                  ease: [0.16, 1, 0.3, 1],
                 }}
                 className="p-6 sm:p-7 rounded-[8px] bg-[#FAF9F6] dark:bg-[#111827] border border-[#E5E7EB] dark:border-white/10 shadow-sm flex flex-col justify-between"
               >

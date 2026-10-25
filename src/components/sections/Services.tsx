@@ -36,16 +36,13 @@ const BentoCard = ({ service, index }: { service: any; index: number }) => {
 
   return (
     <motion.div
-      variants={{
-        hidden: { opacity: 0, x: isLeft ? -55 : 55 },
-        visible: {
-          opacity: 1,
-          x: 0,
-          transition: {
-            duration: 0.65,
-            ease: smoothEase,
-          },
-        },
+      initial={{ opacity: 0, x: isLeft ? -90 : 90 }}
+      whileInView={{ opacity: 1, x: 0 }}
+      viewport={{ once: true, amount: 0.15 }}
+      transition={{
+        duration: 0.8,
+        delay: (index % 3) * 0.08,
+        ease: [0.16, 1, 0.3, 1],
       }}
       className={`rounded-[8px] p-6 sm:p-7 flex flex-col justify-between border border-[#E5E7EB] dark:border-white/10 bg-white dark:bg-[#111827] shadow-sm hover:border-[#1D5BD8] dark:hover:border-[#60A5FA] transition-colors duration-200 ${
         service.colSpan || "col-span-1"
