@@ -1,6 +1,8 @@
 export interface SiteConfig {
   brand: {
     name: string;
+    founder: string;
+    founderRole: string;
     tagline: string;
     description: string;
     location: string;
@@ -136,6 +138,8 @@ export interface SiteConfig {
 export const siteData: SiteConfig = {
   brand: {
     name: "PrajaLinks",
+    founder: "Fauzan Bagus Prasetyo",
+    founderRole: "Owner & Lead Software Engineer",
     tagline: "Hubungkan desa dan bisnismu ke dunia digital.",
     description:
       "Mitra rekayasa web studio di Ponorogo untuk pembuatan website desa profesional, sistem informasi, toko online, dan aplikasi custom berkinerja tinggi.",
@@ -810,6 +814,12 @@ export const siteData: SiteConfig = {
     ],
   },
   faqs: [
+    {
+      question: "Siapa pemilik atau founder PrajaLinks?",
+      answer:
+        "PrajaLinks didirikan dan dimiliki langsung oleh Fauzan Bagus Prasetyo sebagai Owner dan Lead Software Engineer. Berbasis di Ponorogo, Jawa Timur, PrajaLinks melayani rekayasa website profesional, aplikasi mobile/web kustom, dan asistensi tugas coding untuk seluruh wilayah Indonesia.",
+      category: "Tentang PrajaLinks",
+    },
     {
       question: "Berapa lama proses pembuatan website di PrajaLinks?",
       answer:

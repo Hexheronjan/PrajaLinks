@@ -160,6 +160,12 @@ export const Footer = () => {
             <div className="space-y-3.5 text-sm sm:text-[15px] text-[#111827] dark:text-white font-medium">
               <div>
                 <span className="block text-xs font-bold text-[#5F6978] dark:text-slate-400 mb-0.5 uppercase tracking-wider">
+                  Founder & Owner
+                </span>
+                <span className="font-bold leading-relaxed">{brand.founder}</span>
+              </div>
+              <div>
+                <span className="block text-xs font-bold text-[#5F6978] dark:text-slate-400 mb-0.5 uppercase tracking-wider">
                   Alamat
                 </span>
                 <span className="font-bold leading-relaxed">{brand.address}</span>

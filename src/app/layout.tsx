@@ -42,9 +42,18 @@ export const metadata: Metadata = {
     "jasa pembuatan aplikasi web custom",
     "web developer indonesia",
     "prajalinks",
+    "fauzan bagus prasetyo",
+    "fauzan bagus prasetyo prajalinks",
+    "owner prajalinks",
+    "pemilik prajalinks",
+    "founder prajalinks",
+    "pemilik usaha prajalinks",
   ],
-  authors: [{ name: "PrajaLinks Studio" }],
-  creator: "PrajaLinks",
+  authors: [
+    { name: "Fauzan Bagus Prasetyo", url: "https://www.prajalinks.my.id" },
+    { name: "PrajaLinks Studio" },
+  ],
+  creator: "Fauzan Bagus Prasetyo",
   publisher: "PrajaLinks",
   metadataBase: new URL("https://www.prajalinks.my.id"),
   alternates: {
@@ -92,11 +101,33 @@ export default function RootLayout({
     "@context": "https://schema.org",
     "@graph": [
       {
+        "@type": "Person",
+        "@id": "https://www.prajalinks.my.id/#founder",
+        name: "Fauzan Bagus Prasetyo",
+        jobTitle: "Founder, Owner & Lead Software Engineer",
+        worksFor: {
+          "@id": "https://www.prajalinks.my.id/#organization",
+        },
+        url: "https://www.prajalinks.my.id",
+      },
+      {
         "@type": "ProfessionalService",
         "@id": "https://www.prajalinks.my.id/#organization",
         name: siteData.brand.name,
+        founder: {
+          "@type": "Person",
+          name: "Fauzan Bagus Prasetyo",
+          jobTitle: "Owner & Lead Software Engineer",
+        },
+        employee: [
+          {
+            "@type": "Person",
+            name: "Fauzan Bagus Prasetyo",
+            jobTitle: "Founder & Owner",
+          },
+        ],
         description:
-          "Studio penyedia Jasa Pembuatan Website, Jasa Pembuatan Aplikasi Android/Web, dan Jasa Pembuatan Tugas Coding Online melayani seluruh Indonesia.",
+          "Studio penyedia Jasa Pembuatan Website, Jasa Pembuatan Aplikasi Android/Web, dan Jasa Pembuatan Tugas Coding Online didirikan oleh Fauzan Bagus Prasetyo melayani seluruh Indonesia.",
         logo: "https://www.prajalinks.my.id/icon.png",
         image: "https://www.prajalinks.my.id/logo-full.png",
         url: "https://www.prajalinks.my.id",
