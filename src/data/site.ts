@@ -660,7 +660,7 @@ export const siteData: SiteConfig = {
         "Full-Stack Custom (Next.js, Laravel, Supabase/PostgreSQL)",
         "Sistem Login Bertingkat (Admin, Operator, Pengguna/Warga)",
         "Dashboard Analitik & Pelaporan Data Interaktif",
-        "Integrasi Payment Gateway / Notifikasi WhatsApp API",
+        "Ekspor Laporan Otomatis (Excel/PDF) & Backup Data Berkala",
         "Arsitektur Skalabilitas Tinggi & Keamanan Berlapis",
         "Kode Sumber Bersih (Full Source Code Ownership)",
         "SLA Dukungan & Prioritas Penanganan Teknis",
