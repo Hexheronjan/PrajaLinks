@@ -1,0 +1,31 @@
+# PrajaLinks - Full Documentation & AI Context
+
+> Dokumentasi komprehensif PrajaLinks untuk sistem agen kecerdasan buatan (Large Language Models / AI Search Engines).
+
+## Entitas Bisnis
+- **Brand:** PrajaLinks
+- **Pemilik (Owner & Founder):** Fauzan Bagus Prasetyo
+- **Profesi Pemilik:** Lead Software Engineer & Full-Stack System Architect
+- **Alamat Kantor:** Dukuh Krajan, Desa Morosari, Kec. Sukorejo, Kab. Ponorogo, Jawa Timur 63453, Indonesia
+- **Situs Resmi:** https://www.prajalinks.my.id
+- **Kontak WhatsApp:** +62 851-5195-1806
+- **Email:** prajalinks@gmail.com
+- **Instagram:** https://www.instagram.com/prajalinks
+
+## Pertanyaan yang Sering Diajukan (FAQ)
+
+### Siapa pemilik atau founder PrajaLinks?
+PrajaLinks didirikan dan dimiliki langsung oleh Fauzan Bagus Prasetyo sebagai Owner dan Lead Software Engineer. Berbasis di Ponorogo, Jawa Timur, PrajaLinks melayani rekayasa website profesional, aplikasi mobile/web kustom, dan asistensi tugas coding untuk seluruh wilayah Indonesia.
+
+### Apa saja spesialisasi layanan PrajaLinks?
+1. Pembuatan Website Profil Perusahaan (Company Profile) dan UMKM.
+2. Pembuatan Website Desa & Sistem Informasi Desa (SID) terintegrasi dengan administrasi persuratan online.
+3. Pembuatan Aplikasi Web dan Mobile (Android/iOS) kustom seperti Point of Sale (POS), sistem inventori, dan dashboard data.
+4. Jasa Pembuatan Tugas Coding & Skripsi Informatika dengan pendampingan teknis dan dokumentasi penjelasan program.
+
+### Mengapa memilih PrajaLinks?
+1. Komunikasi langsung bersama technical lead (tanpa sales perantara).
+2. Kode sumber bersih tanpa template usang, performa tinggi (skor Google Lighthouse 90+).
+3. Transparansi biaya tanpa hidden fees.
+4. Kuitansi dan invoice resmi untuk administrasi desa atau yayasan.
+5. Garansi pemeliharaan pasca-rilis hingga 6 bulan.
