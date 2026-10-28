@@ -120,7 +120,8 @@ export default function RootLayout({
       {
         "@type": "ProfessionalService",
         "@id": "https://www.prajalinks.my.id/#organization",
-        name: siteData.brand.name,
+        name: "PrajaLinks - Jasa Pembuatan Website & Aplikasi",
+        alternateName: siteData.brand.name,
         founder: {
           "@type": "Person",
           name: "Fauzan Bagus Prasetyo",
@@ -149,6 +150,7 @@ export default function RootLayout({
           streetAddress: siteData.brand.address,
           addressLocality: "Ponorogo",
           addressRegion: "Jawa Timur",
+          postalCode: "63453",
           addressCountry: "ID",
         },
         openingHoursSpecification: {
@@ -162,7 +164,7 @@ export default function RootLayout({
             "Saturday",
             "Sunday",
           ],
-          opens: "00:00",
+          opens: "08:00",
           closes: "23:59",
         },
         hasOfferCatalog: {
@@ -211,9 +213,7 @@ export default function RootLayout({
             },
           ],
         },
-        sameAs: [siteData.brand.instagram, siteData.brand.tiktok].filter((u) =>
-          u.startsWith("http")
-        ),
+        sameAs: ["https://www.instagram.com/prajalinks"],
       },
       {
         "@type": "WebSite",
