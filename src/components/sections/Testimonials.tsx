@@ -1,6 +1,3 @@
-"use client";
-
-import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
 import { Star, Quote } from "lucide-react";
 import { siteData } from "@/data/site";
@@ -8,7 +5,7 @@ import { staggerContainer, slideUp } from "@/utils/animations";
 import { SectionHeading } from "@/components/common/SectionHeading";
 
 export const Testimonials = () => {
-  const containerRef = useRef<HTMLDivElement>(null);
+  const containerRef = undefined;
   const isInView = useInView(containerRef, { once: true, margin: "-60px" });
 
   const { testimonialsPlaceholder } = siteData;

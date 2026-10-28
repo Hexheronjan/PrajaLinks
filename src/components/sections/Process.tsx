@@ -1,6 +1,3 @@
-"use client";
-
-import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
 import { CheckCircle2, Clock } from "lucide-react";
 import { siteData } from "@/data/site";
@@ -8,7 +5,7 @@ import { smoothEase } from "@/utils/animations";
 import { SectionHeading } from "@/components/common/SectionHeading";
 
 export const Process = () => {
-  const containerRef = useRef<HTMLDivElement>(null);
+  const containerRef = undefined;
   const isInView = useInView(containerRef, { once: true, margin: "-60px" });
 
   const { processSteps } = siteData;

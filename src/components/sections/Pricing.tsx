@@ -1,6 +1,3 @@
-"use client";
-
-import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
 import { Check, ArrowRight, FileCheck2 } from "lucide-react";
 import { siteData, getWhatsAppLink } from "@/data/site";
@@ -8,7 +5,7 @@ import { smoothEase } from "@/utils/animations";
 import { SectionHeading } from "@/components/common/SectionHeading";
 
 export const Pricing = () => {
-  const containerRef = useRef<HTMLDivElement>(null);
+  const containerRef = undefined;
   const isInView = useInView(containerRef, { once: true, margin: "-60px" });
 
   const { pricing, pricingNotes } = siteData;

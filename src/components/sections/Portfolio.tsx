@@ -1,6 +1,3 @@
-"use client";
-
-import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
 import Image from "next/image";
 import { Lock, ArrowUpRight, ShieldCheck } from "lucide-react";
@@ -9,7 +6,7 @@ import { staggerContainer, slideUp } from "@/utils/animations";
 import { SectionHeading } from "@/components/common/SectionHeading";
 
 export const Portfolio = () => {
-  const containerRef = useRef<HTMLDivElement>(null);
+  const containerRef = undefined;
   const isInView = useInView(containerRef, { once: true, margin: "-60px" });
 
   const { portfolio } = siteData;

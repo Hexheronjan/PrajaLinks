@@ -1,7 +1,4 @@
-"use client";
-
-import { useEffect, useRef, useState } from "react";
-import { motion, useInView } from "framer-motion";
+import { motion } from "framer-motion";
 import {
   Globe,
   Smartphone,
@@ -225,25 +222,12 @@ const codeLines: React.ReactNode[] = [
 ];
 
 const CodeVisual = () => {
-  const ref = useRef<HTMLDivElement>(null);
-  const inView = useInView(ref, { margin: "-60px" });
-  const [visible, setVisible] = useState(0);
-  const total = codeLines.length + 2; // + 2 baris output terminal
-
-  useEffect(() => {
-    if (!inView) return;
-    const id = setInterval(() => {
-      setVisible((v) => (v >= total + 6 ? 0 : v + 1)); // jeda sejenak lalu ulang
-    }, 380);
-    return () => clearInterval(id);
-  }, [inView, total]);
-
-  const shownCode = Math.min(visible, codeLines.length);
-  const showRun = visible > codeLines.length;
-  const showResult = visible > codeLines.length + 1;
+  const shownCode = codeLines.length;
+  const showRun = true;
+  const showResult = true;
 
   return (
-    <div ref={ref} className="rounded-lg overflow-hidden border border-[#1F2937] bg-[#1E1E1E] shadow-sm">
+    <div className="rounded-lg overflow-hidden border border-[#1F2937] bg-[#1E1E1E] shadow-sm">
       <div className="flex items-center justify-between px-3 py-1.5 bg-[#252526] border-b border-black/40">
         <span className="text-[10px] font-mono text-[#D4D4D4]">prediksi_nilai.py</span>
         <span className="text-[9px] font-mono text-[#858585]">Python 3.11</span>

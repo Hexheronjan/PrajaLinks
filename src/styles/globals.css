@@ -175,3 +175,11 @@ select:focus-visible {
 ::-webkit-scrollbar-thumb:hover {
   background: #9CA3AF;
 }
+
+
+/* Optimasi render & layout halaman untuk section di bawah layar utama */
+main > section:not(#beranda),
+body > footer {
+  content-visibility: auto;
+  contain-intrinsic-size: auto 700px;
+}

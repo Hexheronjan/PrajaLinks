@@ -1,6 +1,3 @@
-"use client";
-
-import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
 import {
   Code2,
@@ -17,7 +14,7 @@ import { siteData, getWhatsAppLink } from "@/data/site";
 import { SectionHeading } from "@/components/common/SectionHeading";
 
 export const Founder = () => {
-  const containerRef = useRef<HTMLDivElement>(null);
+  const containerRef = undefined;
   const isInView = useInView(containerRef, { once: true, margin: "-60px" });
 
   const { brand } = siteData;

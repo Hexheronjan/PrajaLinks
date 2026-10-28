@@ -1,6 +1,3 @@
-"use client";
-
-import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
 import {
   Code2,
@@ -97,7 +94,7 @@ const BentoCard = ({ service, index }: { service: any; index: number }) => {
 };
 
 export const Services = () => {
-  const containerRef = useRef<HTMLDivElement>(null);
+  const containerRef = undefined;
   const isInView = useInView(containerRef, { once: true, margin: "-60px" });
 
   return (

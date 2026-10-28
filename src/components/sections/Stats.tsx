@@ -1,12 +1,9 @@
-"use client";
-
-import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
 import { siteData } from "@/data/site";
 import { smoothEase } from "@/utils/animations";
 
 export const Stats = () => {
-  const containerRef = useRef<HTMLDivElement>(null);
+  const containerRef = undefined;
   const isInView = useInView(containerRef, { once: true, margin: "-40px" });
 
   const { stats } = siteData;

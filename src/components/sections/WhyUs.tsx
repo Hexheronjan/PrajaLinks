@@ -1,6 +1,3 @@
-"use client";
-
-import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
 import {
   Code,
@@ -22,7 +19,7 @@ const icons: Record<string, any> = {
 };
 
 export const WhyUs = () => {
-  const containerRef = useRef<HTMLDivElement>(null);
+  const containerRef = undefined;
   const isInView = useInView(containerRef, { once: true, margin: "-60px" });
 
   const { whyUs } = siteData;

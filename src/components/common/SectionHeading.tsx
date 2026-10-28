@@ -1,6 +1,3 @@
-"use client";
-
-import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
 import { smoothEase } from "@/utils/animations";
 
@@ -17,7 +14,7 @@ interface SectionHeadingProps {
  * Tipografi sedikit ditebalkan dan dibesarkan untuk keterbacaan optimal.
  */
 export const SectionHeading = ({ index, eyebrow, title, desc, align = "left" }: SectionHeadingProps) => {
-  const ref = useRef<HTMLDivElement>(null);
+  const ref = undefined;
   const inView = useInView(ref, { once: true, margin: "-40px" });
 
   if (align === "center") {
