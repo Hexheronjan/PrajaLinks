@@ -8,6 +8,7 @@ import { Portfolio } from "@/components/sections/Portfolio";
 import { Pricing } from "@/components/sections/Pricing";
 import { Process } from "@/components/sections/Process";
 import { WhyUs } from "@/components/sections/WhyUs";
+import { Founder } from "@/components/sections/Founder";
 import { Stats } from "@/components/sections/Stats";
 import { Testimonials } from "@/components/sections/Testimonials";
 import { FAQ } from "@/components/sections/FAQ";
@@ -46,6 +47,9 @@ export default function Home() {
 
       {/* 10. Kenapa PrajaLinks (Poin Jujur & Terbukti) */}
       <WhyUs />
+
+      {/* 11. Di Balik PrajaLinks (Founder & Dedikasi) */}
+      <Founder />
 
       {/* 11. Statistik (Count-up Angka Nyata) */}
       <Stats />
