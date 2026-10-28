@@ -1,5 +1,3 @@
-"use client";
-
 import { siteData } from "@/data/site";
 
 export const Marquee = () => {
@@ -26,7 +24,6 @@ export const Marquee = () => {
       <div className="flex overflow-hidden">
         <div
           className="flex shrink-0 gap-6 sm:gap-8 animate-marquee items-center"
-          style={{ willChange: "transform" }}
         >
           {items.map((item, idx) => (
             <div

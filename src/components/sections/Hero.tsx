@@ -1,7 +1,6 @@
 "use client";
 
-import { useState, useEffect, useRef } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { useState, useEffect } from "react";
 import Image from "next/image";
 import {
   ArrowUpRight,
@@ -52,15 +51,21 @@ const simulations = [
 ];
 
 export const Hero = () => {
-  const ref = useRef<HTMLElement>(null);
   const [activeTab, setActiveTab] = useState(0);
 
-  // Auto-switch mode setiap 4.5 detik
+  // Mulai auto-switch setelah halaman stabil (8 detik) agar tidak mengganggu Speed Index
   useEffect(() => {
-    const timer = setInterval(() => {
-      setActiveTab((prev) => (prev + 1) % simulations.length);
-    }, 4500);
-    return () => clearInterval(timer);
+    let interval: ReturnType<typeof setInterval> | null = null;
+    const startDelay = setTimeout(() => {
+      interval = setInterval(() => {
+        setActiveTab((prev) => (prev + 1) % simulations.length);
+      }, 4500);
+    }, 8000);
+
+    return () => {
+      clearTimeout(startDelay);
+      if (interval) clearInterval(interval);
+    };
   }, []);
 
   const current = simulations[activeTab];
@@ -68,7 +73,6 @@ export const Hero = () => {
   return (
     <section
       id="beranda"
-      ref={ref}
       className="relative overflow-hidden pt-28 pb-16 sm:pb-20 lg:pt-36 lg:pb-24 bg-[#FAF9F6] dark:bg-[#0B1120]"
     >
       {/* -------------------------------------------------------------
@@ -114,7 +118,7 @@ export const Hero = () => {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
           {/* -----------------------------------------------------------
               Kolom Kiri: Pill Badge, Judul Lengkung, CTA, Poin
-              (Render langsung opacity: 1 pada SSR agar FCP & LCP instan)
+              (Render langsung tanpa JS animation wrapper agar FCP/LCP/SI instan)
           ------------------------------------------------------------ */}
           <div className="lg:col-span-7">
             {/* Pill Badge Lengkung Premium */}
@@ -259,7 +263,6 @@ export const Hero = () => {
 
               {/* Visual Area: Robot Maskot 3D Berpadu Mulus dengan Latar Terang */}
               <div className="relative aspect-[16/10] w-full overflow-hidden bg-gradient-to-b from-[#EFF6FF] via-white to-[#FAF9F6] dark:from-[#0B1528] dark:to-[#0F172A] flex items-center justify-center p-3">
-                {/* Robot Maskot dengan Animasi Mengapung Halus */}
                 <div className="relative w-full h-full rounded-xl overflow-hidden border border-slate-200/70 dark:border-white/10 shadow-xs">
                   <Image
                     src="/robot-mascot.jpg"
@@ -274,163 +277,120 @@ export const Hero = () => {
                   <div className="absolute inset-0 bg-gradient-to-t from-white/30 via-transparent to-transparent pointer-events-none" />
                 </div>
 
-                {/* Badge Status Mengapung Elegan di Sudut Kanan */}
-                <AnimatePresence mode="wait">
-                  <motion.div
-                    key={current.id}
-                    initial={{ opacity: 0, scale: 0.85, y: -6 }}
-                    animate={{ opacity: 1, scale: 1, y: 0 }}
-                    exit={{ opacity: 0, scale: 0.85, y: -6 }}
-                    transition={{ duration: 0.3 }}
-                    className="absolute top-5 right-5 flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/95 dark:bg-[#111827]/95 border border-[#1D5BD8]/30 shadow-md text-[#1D5BD8] dark:text-[#60A5FA] text-[11px] font-bold backdrop-blur-sm"
-                  >
-                    <Star className="w-3 h-3 text-[#C88A23] fill-[#C88A23]" />
-                    <span>{current.badgeText}</span>
-                  </motion.div>
-                </AnimatePresence>
+                {/* Badge Status di Sudut Kanan */}
+                <div className="absolute top-5 right-5 flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/95 dark:bg-[#111827]/95 border border-[#1D5BD8]/30 shadow-md text-[#1D5BD8] dark:text-[#60A5FA] text-[11px] font-bold backdrop-blur-sm transition-all duration-300">
+                  <Star className="w-3 h-3 text-[#C88A23] fill-[#C88A23]" />
+                  <span>{current.badgeText}</span>
+                </div>
               </div>
 
-              {/* Box Animasi Dinamis Sesuai Tab Layanan (Warna Bersih & Elegan) */}
+              {/* Box Dinamis Sesuai Tab Layanan (Warna Bersih & Elegan) */}
               <div className="p-3.5 space-y-3 bg-white dark:bg-[#0F172A] border-t border-slate-200 dark:border-white/10">
-                <AnimatePresence mode="wait">
-                  {/* 1. TUGAS CODING */}
-                  {activeTab === 0 && (
-                    <motion.div
-                      key="coding"
-                      initial={{ opacity: 0, y: 6 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      exit={{ opacity: 0, y: -6 }}
-                      transition={{ duration: 0.25 }}
-                      className="rounded-xl border border-slate-200 dark:border-white/10 bg-[#1E1E1E] text-white p-3 font-mono text-[10.5px] leading-relaxed shadow-xs"
-                    >
-                      <div className="flex items-center justify-between text-slate-400 text-[10px] pb-1.5 border-b border-white/10">
-                        <span className="flex items-center gap-1.5 text-sky-400 font-bold">
-                          <Terminal className="w-3.5 h-3.5 text-sky-400" />
-                          <span>tugas_coding.py</span>
-                        </span>
-                        <span className="text-emerald-400 font-bold">Python 3.11</span>
-                      </div>
-                      <div className="pt-2 space-y-1">
-                        <p className="text-slate-400"># PrajaLinks — Jasa Pembuatan Tugas Coding</p>
-                        <p>
-                          <span className="text-[#C586C0]">def</span>{" "}
-                          <span className="text-[#DCDCAA]">selesaikan_tugas</span>():
-                        </p>
-                        <p className="pl-3 text-[#9CDCFE]">
-                          return <span className="text-[#CE9178]">&quot;100% Berjalan Tanpa Error ✓&quot;</span>
-                        </p>
-                      </div>
-                      <div className="mt-2 pt-1.5 border-t border-white/10 flex items-center justify-between text-[10px] text-emerald-400 font-bold">
-                        <span>$ python run_test.py</span>
-                        <span>[10/10 PASS • GARANSI JALAN]</span>
-                      </div>
-                    </motion.div>
-                  )}
+                {/* 1. TUGAS CODING */}
+                {activeTab === 0 && (
+                  <div className="rounded-xl border border-slate-200 dark:border-white/10 bg-[#1E1E1E] text-white p-3 font-mono text-[10.5px] leading-relaxed shadow-xs">
+                    <div className="flex items-center justify-between text-slate-400 text-[10px] pb-1.5 border-b border-white/10">
+                      <span className="flex items-center gap-1.5 text-sky-400 font-bold">
+                        <Terminal className="w-3.5 h-3.5 text-sky-400" />
+                        <span>tugas_coding.py</span>
+                      </span>
+                      <span className="text-emerald-400 font-bold">Python 3.11</span>
+                    </div>
+                    <div className="pt-2 space-y-1">
+                      <p className="text-slate-400"># PrajaLinks — Jasa Pembuatan Tugas Coding</p>
+                      <p>
+                        <span className="text-[#C586C0]">def</span>{" "}
+                        <span className="text-[#DCDCAA]">selesaikan_tugas</span>():
+                      </p>
+                      <p className="pl-3 text-[#9CDCFE]">
+                        return <span className="text-[#CE9178]">&quot;100% Berjalan Tanpa Error ✓&quot;</span>
+                      </p>
+                    </div>
+                    <div className="mt-2 pt-1.5 border-t border-white/10 flex items-center justify-between text-[10px] text-emerald-400 font-bold">
+                      <span>$ python run_test.py</span>
+                      <span>[10/10 PASS • GARANSI JALAN]</span>
+                    </div>
+                  </div>
+                )}
 
-                  {/* 2. PEMBUATAN WEBSITE */}
-                  {activeTab === 1 && (
-                    <motion.div
-                      key="website"
-                      initial={{ opacity: 0, y: 6 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      exit={{ opacity: 0, y: -6 }}
-                      transition={{ duration: 0.25 }}
-                      className="rounded-xl border border-slate-200 dark:border-white/10 bg-[#EFF6FF] dark:bg-blue-950/40 p-3 space-y-2"
-                    >
-                      <div className="flex items-center justify-between">
-                        <div className="flex items-center gap-2">
-                          <span className="flex h-6 w-6 items-center justify-center rounded-lg bg-[#1D5BD8] text-white">
-                            <Globe className="w-3.5 h-3.5" />
-                          </span>
-                          <div>
-                            <p className="text-[11px] font-bold text-[#111827] dark:text-white">
-                              Website Bisnis &amp; Profil Desa
-                            </p>
-                            <p className="text-[9.5px] text-[#4B5563] dark:text-slate-300">
-                              https://usahaanda.com
-                            </p>
-                          </div>
-                        </div>
-                        <span className="text-[10px] font-bold px-2 py-0.5 rounded-md bg-[#DCFCE7] text-[#16A34A]">
-                          Online
+                {/* 2. PEMBUATAN WEBSITE */}
+                {activeTab === 1 && (
+                  <div className="rounded-xl border border-slate-200 dark:border-white/10 bg-[#EFF6FF] dark:bg-blue-950/40 p-3 space-y-2">
+                    <div className="flex items-center justify-between">
+                      <div className="flex items-center gap-2">
+                        <span className="flex h-6 w-6 items-center justify-center rounded-lg bg-[#1D5BD8] text-white">
+                          <Globe className="w-3.5 h-3.5" />
                         </span>
-                      </div>
-
-                      <div className="grid grid-cols-2 gap-2 pt-1">
-                        <div className="rounded-lg bg-white dark:bg-[#1E293B] p-2 border border-slate-200/70 dark:border-white/10">
-                          <p className="text-[9px] text-[#6B7280] dark:text-slate-400">Kecepatan Loading</p>
-                          <p className="text-[11px] font-bold text-[#1D5BD8] dark:text-[#60A5FA] flex items-center gap-1">
-                            <Zap className="w-3 h-3 text-[#C88A23]" /> 99/100 PageSpeed
+                        <div>
+                          <p className="text-[11px] font-bold text-[#111827] dark:text-white">
+                            Website Bisnis &amp; Profil Desa
                           </p>
-                        </div>
-                        <div className="rounded-lg bg-white dark:bg-[#1E293B] p-2 border border-slate-200/70 dark:border-white/10">
-                          <p className="text-[9px] text-[#6B7280] dark:text-slate-400">Pencarian Google</p>
-                          <p className="text-[11px] font-bold text-[#16A34A] flex items-center gap-1">
-                            <TrendingUp className="w-3 h-3" /> Terindeks &amp; Muncul
+                          <p className="text-[9.5px] text-[#4B5563] dark:text-slate-300">
+                            https://usahaanda.com
                           </p>
                         </div>
                       </div>
-                    </motion.div>
-                  )}
+                      <span className="text-[10px] font-bold px-2 py-0.5 rounded-md bg-[#DCFCE7] text-[#16A34A]">
+                        Online
+                      </span>
+                    </div>
 
-                  {/* 3. PEMBUATAN APLIKASI */}
-                  {activeTab === 2 && (
-                    <motion.div
-                      key="app"
-                      initial={{ opacity: 0, y: 6 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      exit={{ opacity: 0, y: -6 }}
-                      transition={{ duration: 0.25 }}
-                      className="rounded-xl border border-slate-200 dark:border-white/10 bg-[#FFFBEB] dark:bg-amber-950/30 p-3 space-y-2"
-                    >
-                      <div className="flex items-center justify-between">
-                        <div className="flex items-center gap-2">
-                          <span className="flex h-6 w-6 items-center justify-center rounded-lg bg-[#C88A23] text-white">
-                            <Smartphone className="w-3.5 h-3.5" />
-                          </span>
-                          <div>
-                            <p className="text-[11px] font-bold text-[#111827] dark:text-white">
-                              Aplikasi Mobile &amp; Kasir Web
-                            </p>
-                            <p className="text-[9.5px] text-[#4B5563] dark:text-slate-300">
-                              Android, iOS &amp; Dashboard Admin
-                            </p>
-                          </div>
+                    <div className="grid grid-cols-2 gap-2 pt-1">
+                      <div className="rounded-lg bg-white dark:bg-[#1E293B] p-2 border border-slate-200/70 dark:border-white/10">
+                        <p className="text-[9px] text-[#6B7280] dark:text-slate-400">Kecepatan Loading</p>
+                        <p className="text-[11px] font-bold text-[#1D5BD8] dark:text-[#60A5FA] flex items-center gap-1">
+                          <Zap className="w-3 h-3 text-[#C88A23]" /> 99/100 PageSpeed
+                        </p>
+                      </div>
+                      <div className="rounded-lg bg-white dark:bg-[#1E293B] p-2 border border-slate-200/70 dark:border-white/10">
+                        <p className="text-[9px] text-[#6B7280] dark:text-slate-400">Pencarian Google</p>
+                        <p className="text-[11px] font-bold text-[#16A34A] flex items-center gap-1">
+                          <TrendingUp className="w-3 h-3" /> Terindeks &amp; Muncul
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                )}
+
+                {/* 3. PEMBUATAN APLIKASI */}
+                {activeTab === 2 && (
+                  <div className="rounded-xl border border-slate-200 dark:border-white/10 bg-[#FFFBEB] dark:bg-amber-950/30 p-3 space-y-2">
+                    <div className="flex items-center justify-between">
+                      <div className="flex items-center gap-2">
+                        <span className="flex h-6 w-6 items-center justify-center rounded-lg bg-[#C88A23] text-white">
+                          <Smartphone className="w-3.5 h-3.5" />
+                        </span>
+                        <div>
+                          <p className="text-[11px] font-bold text-[#111827] dark:text-white">
+                            Aplikasi Mobile &amp; Kasir Web
+                          </p>
+                          <p className="text-[9.5px] text-[#4B5563] dark:text-slate-300">
+                            Android, iOS &amp; Dashboard Admin
+                          </p>
                         </div>
-                        <span className="text-[10px] font-bold px-2 py-0.5 rounded-md bg-[#DCFCE7] text-[#16A34A]">
-                          Sinkron
+                      </div>
+                      <span className="text-[10px] font-bold px-2 py-0.5 rounded-md bg-[#DCFCE7] text-[#16A34A]">
+                        Sinkron
+                      </span>
+                    </div>
+
+                    <div className="rounded-lg bg-white dark:bg-[#1E293B] p-2 border border-amber-200 dark:border-amber-900/50 flex items-center justify-between shadow-xs">
+                      <div className="flex items-center gap-1.5">
+                        <Bell className="w-3.5 h-3.5 text-[#C88A23]" />
+                        <span className="text-[10px] font-bold text-[#111827] dark:text-white">
+                          Pesanan Baru #1042 Masuk
                         </span>
                       </div>
+                      <span className="text-[9px] font-bold text-[#1D5BD8] bg-blue-50 dark:bg-blue-900/40 px-1.5 py-0.5 rounded">
+                        Rp 350.000
+                      </span>
+                    </div>
+                  </div>
+                )}
 
-                      {/* Toast Notifikasi Bergerak */}
-                      <motion.div
-                        animate={{ scale: [0.98, 1, 0.98] }}
-                        transition={{ duration: 2.5, repeat: Infinity, ease: "easeInOut" }}
-                        className="rounded-lg bg-white dark:bg-[#1E293B] p-2 border border-amber-200 dark:border-amber-900/50 flex items-center justify-between shadow-xs"
-                      >
-                        <div className="flex items-center gap-1.5">
-                          <Bell className="w-3.5 h-3.5 text-[#C88A23] animate-bounce" />
-                          <span className="text-[10px] font-bold text-[#111827] dark:text-white">
-                            Pesanan Baru #1042 Masuk
-                          </span>
-                        </div>
-                        <span className="text-[9px] font-bold text-[#1D5BD8] bg-blue-50 dark:bg-blue-900/40 px-1.5 py-0.5 rounded">
-                          Rp 350.000
-                        </span>
-                      </motion.div>
-                    </motion.div>
-                  )}
-                </AnimatePresence>
-
-                {/* Progress Bar Halus Berwarna Biru & Emas */}
+                {/* Accent Line Halus Berwarna Biru & Emas */}
                 <div className="h-1 w-full rounded-full bg-slate-100 dark:bg-white/10 overflow-hidden">
-                  <motion.div
-                    key={activeTab}
-                    initial={{ width: "0%" }}
-                    animate={{ width: "100%" }}
-                    transition={{ duration: 4.4, ease: "linear" }}
-                    className="h-full bg-gradient-to-r from-[#1D5BD8] via-[#38BDF8] to-[#C88A23]"
-                  />
+                  <div className="h-full w-full bg-gradient-to-r from-[#1D5BD8] via-[#38BDF8] to-[#C88A23]" />
                 </div>
 
                 {/* Footer Status Terintegrasi */}

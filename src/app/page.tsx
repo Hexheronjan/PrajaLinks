@@ -1,9 +1,14 @@
+import { Suspense } from "react";
 import dynamic from "next/dynamic";
 import { Hero } from "@/components/sections/Hero";
 import { Marquee } from "@/components/sections/Marquee";
-import { DualTrack } from "@/components/sections/DualTrack";
-import { Services } from "@/components/sections/Services";
 
+const DualTrack = dynamic(() =>
+  import("@/components/sections/DualTrack").then((m) => m.DualTrack)
+);
+const Services = dynamic(() =>
+  import("@/components/sections/Services").then((m) => m.Services)
+);
 const VillageDemo = dynamic(() =>
   import("@/components/sections/VillageDemo").then((m) => m.VillageDemo)
 );
@@ -51,46 +56,74 @@ export default function Home() {
       <Marquee />
 
       {/* 4. Dua Jalur (Pemerintahan Desa vs Bisnis/UMKM) */}
-      <DualTrack />
+      <Suspense>
+        <DualTrack />
+      </Suspense>
 
       {/* 5. Layanan Bento Grid */}
-      <Services />
+      <Suspense>
+        <Services />
+      </Suspense>
 
       {/* 6. Demo Website Desa Interaktif */}
-      <VillageDemo />
+      <Suspense>
+        <VillageDemo />
+      </Suspense>
 
       {/* 7. Video Section (Lihat Cara Kerjanya) */}
-      <VideoSection />
+      <Suspense>
+        <VideoSection />
+      </Suspense>
 
       {/* 8. Portofolio (Pinned Horizontal Desktop / Drag Mobile) */}
-      <Portfolio />
+      <Suspense>
+        <Portfolio />
+      </Suspense>
 
-      {/* 8. Paket Harga (4 Kartu & WA pre-filled) */}
-      <Pricing />
+      {/* 9. Paket Harga (4 Kartu & WA pre-filled) */}
+      <Suspense>
+        <Pricing />
+      </Suspense>
 
-      {/* 9. Proses Kerja 5 Langkah */}
-      <Process />
+      {/* 10. Proses Kerja 5 Langkah */}
+      <Suspense>
+        <Process />
+      </Suspense>
 
-      {/* 10. Kenapa PrajaLinks (Poin Jujur & Terbukti) */}
-      <WhyUs />
+      {/* 11. Kenapa PrajaLinks (Poin Jujur & Terbukti) */}
+      <Suspense>
+        <WhyUs />
+      </Suspense>
 
-      {/* 11. Di Balik PrajaLinks (Founder & Dedikasi) */}
-      <Founder />
+      {/* 12. Di Balik PrajaLinks (Founder & Dedikasi) */}
+      <Suspense>
+        <Founder />
+      </Suspense>
 
-      {/* 11. Statistik (Count-up Angka Nyata) */}
-      <Stats />
+      {/* 13. Statistik (Count-up Angka Nyata) */}
+      <Suspense>
+        <Stats />
+      </Suspense>
 
-      {/* 12. Testimoni (Explicit Placeholder Transparan) */}
-      <Testimonials />
+      {/* 14. Testimoni (Explicit Placeholder Transparan) */}
+      <Suspense>
+        <Testimonials />
+      </Suspense>
 
-      {/* 13. FAQ Accordion */}
-      <FAQ />
+      {/* 15. FAQ Accordion */}
+      <Suspense>
+        <FAQ />
+      </Suspense>
 
-      {/* 14. CTA Penutup (Teks Besar Bergerak & Magnetic WA Button) */}
-      <CTA />
+      {/* 16. CTA Penutup (Teks Besar Bergerak & Magnetic WA Button) */}
+      <Suspense>
+        <CTA />
+      </Suspense>
 
-      {/* 15. Formulir Kontak & Info Studio */}
-      <Contact />
+      {/* 17. Formulir Kontak & Info Studio */}
+      <Suspense>
+        <Contact />
+      </Suspense>
     </>
   );
 }

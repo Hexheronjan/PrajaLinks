@@ -1,27 +1,16 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { motion, useScroll, useSpring } from "framer-motion";
 import { ArrowUp, MessageCircle } from "lucide-react";
 import { getWhatsAppLink } from "@/data/site";
 
 export const GlobalElements = () => {
-  const { scrollYProgress } = useScroll();
-  const scaleX = useSpring(scrollYProgress, {
-    stiffness: 100,
-    damping: 30,
-    restDelta: 0.001,
-  });
-
   const [showScrollTop, setShowScrollTop] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY > 400) {
-        setShowScrollTop(true);
-      } else {
-        setShowScrollTop(false);
-      }
+      const shouldShow = window.scrollY > 400;
+      setShowScrollTop((prev) => (prev !== shouldShow ? shouldShow : prev));
     };
 
     window.addEventListener("scroll", handleScroll, { passive: true });
@@ -36,27 +25,17 @@ export const GlobalElements = () => {
 
   return (
     <>
-      {/* 1. Thin Scroll Progress Bar at the Top */}
-      <motion.div
-        className="fixed top-0 left-0 right-0 h-[3px] bg-[#1D5BD8] origin-left z-50 pointer-events-none"
-        style={{ scaleX }}
-      />
-
-
-      {/* 3. Floating WhatsApp CTA with Subtle Pulse */}
+      {/* Floating WhatsApp CTA with Subtle Pulse */}
       <div className="fixed bottom-[74px] sm:bottom-6 right-4 sm:right-6 z-40 flex flex-col items-end gap-2.5">
         {/* Back to top button */}
         {showScrollTop && (
-          <motion.button
-            initial={{ opacity: 0, scale: 0.8, y: 10 }}
-            animate={{ opacity: 1, scale: 1, y: 0 }}
-            exit={{ opacity: 0, scale: 0.8, y: 10 }}
+          <button
             onClick={scrollToTop}
             aria-label="Kembali ke atas"
             className="w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-slate-900/80 dark:bg-slate-800/80 hover:bg-slate-800 text-white border border-white/10 flex items-center justify-center shadow-lg transition-all hover:scale-110 active:scale-95"
           >
             <ArrowUp className="w-4 h-4 sm:w-5 sm:h-5" />
-          </motion.button>
+          </button>
         )}
 
         {/* WhatsApp Pill Button */}

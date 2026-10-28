@@ -3,7 +3,6 @@
 import { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
 import { Home, Users, Briefcase, Package, Info } from "lucide-react";
-import { LOADER_DONE_EVENT } from "@/components/common/InitialLoader";
 
 interface NavItem {
   id: string;
@@ -50,44 +49,28 @@ const navItems: NavItem[] = [
 export const MobileBottomNav = () => {
   const pathname = usePathname();
   const [activeSection, setActiveSection] = useState("beranda");
-  const [ready, setReady] = useState(false);
 
   useEffect(() => {
-    if ((window as unknown as { __plLoaded?: boolean }).__plLoaded) {
-      setReady(true);
-      return;
-    }
-    const onDone = () => setReady(true);
-    window.addEventListener(LOADER_DONE_EVENT, onDone);
-    return () => window.removeEventListener(LOADER_DONE_EVENT, onDone);
-  }, []);
-
-  useEffect(() => {
-    if (pathname?.startsWith("/layanan") || pathname === "/wilayah")
-      return;
+    if (pathname?.startsWith("/layanan") || pathname === "/wilayah") return;
 
     const sectionIds = ["beranda", "layanan", "portofolio", "harga", "tentang"];
-
-    const handleScroll = () => {
-      const scrollPosition = window.scrollY + 250;
-
-      for (const id of sectionIds) {
-        const element = document.getElementById(id);
-        if (element) {
-          const top = element.offsetTop;
-          const height = element.offsetHeight;
-          if (scrollPosition >= top && scrollPosition < top + height) {
-            setActiveSection(id);
-            break;
+    const observer = new IntersectionObserver(
+      (entries) => {
+        for (const entry of entries) {
+          if (entry.isIntersecting) {
+            setActiveSection(entry.target.id);
           }
         }
-      }
-    };
+      },
+      { rootMargin: "-30% 0px -60% 0px", threshold: 0 }
+    );
 
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    handleScroll();
+    sectionIds.forEach((id) => {
+      const el = document.getElementById(id);
+      if (el) observer.observe(el);
+    });
 
-    return () => window.removeEventListener("scroll", handleScroll);
+    return () => observer.disconnect();
   }, [pathname]);
 
   if (pathname?.startsWith("/layanan") || pathname === "/wilayah") {
@@ -97,10 +80,7 @@ export const MobileBottomNav = () => {
   return (
     <nav
       aria-label="Navigasi Bawah Mobile"
-      aria-hidden={!ready}
-      className={`fixed bottom-0 left-0 right-0 z-50 sm:hidden bg-white/95 dark:bg-[#111827]/95 backdrop-blur-md border-t border-[#E5E7EB] dark:border-white/10 px-3 py-2 shadow-sm transition-all duration-300 ease-out ${
-        ready ? "translate-y-0 opacity-100" : "translate-y-full opacity-0 pointer-events-none"
-      }`}
+      className="fixed bottom-0 left-0 right-0 z-50 sm:hidden bg-white/95 dark:bg-[#111827]/95 backdrop-blur-md border-t border-[#E5E7EB] dark:border-white/10 px-3 py-2 shadow-sm"
     >
       <div className="flex items-center justify-around max-w-md mx-auto relative">
         {navItems.map((item) => {
