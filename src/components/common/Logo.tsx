@@ -17,8 +17,9 @@ export const Logo = ({ variant = "nav", className = "", priority = false }: Logo
       <Image
         src="/logo-full.png"
         alt="PrajaLinks"
-        width={381}
-        height={265}
+        width={256}
+        height={178}
+        sizes="256px"
         priority={priority}
         className={className}
       />
@@ -34,16 +35,18 @@ export const Logo = ({ variant = "nav", className = "", priority = false }: Logo
       <Image
         src="/logo-mark.png"
         alt=""
-        width={381}
-        height={176}
+        width={69}
+        height={32}
+        sizes="69px"
         priority={priority}
         className="h-8 w-auto"
       />
       <Image
         src="/logo-wordmark.png"
         alt=""
-        width={381}
-        height={77}
+        width={89}
+        height={18}
+        sizes="89px"
         priority={priority}
         className="h-[18px] w-auto"
       />

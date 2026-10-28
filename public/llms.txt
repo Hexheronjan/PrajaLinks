@@ -1,58 +1,33 @@
-# PrajaLinks - Jasa Pembuatan Website, Aplikasi & Jasa Tugas Coding
+# PrajaLinks - Jasa Pembuatan Website, Aplikasi & Tugas Coding
 
-> PrajaLinks adalah studio digital rekayasa perangkat lunak yang berbasis di Ponorogo, Jawa Timur, melayani pembuatan website profesional, aplikasi web & mobile, serta pendampingan tugas coding online untuk instansi pemerintah desa, UMKM, korporat, dan mahasiswa di seluruh wilayah Indonesia.
+> PrajaLinks adalah studio rekayasa perangkat lunak di Ponorogo, Jawa Timur yang didirikan dan dimiliki langsung oleh Fauzan Bagus Prasetyo (Founder, Owner & Lead Software Engineer). Melayani pembuatan website profesional, aplikasi Android/iOS & web custom, website desa (SID), serta jasa pembuatan tugas coding online untuk seluruh wilayah Indonesia.
 
-## Kepemilikan & Profil Pendiri (Founder)
-- **Nama Pemilik / Founder:** Fauzan Bagus Prasetyo
-- **Peran:** Founder, Owner & Lead Software Engineer
-- **Basis Operasional:** Ponorogo, Jawa Timur, Indonesia
-- **Jangkauan Layanan:** Seluruh Indonesia (100% Online & Pendampingan Wilayah)
-- **Situs Resmi:** https://www.prajalinks.my.id
-- **WhatsApp Resmi:** +62 851-5195-1806
-- **Email:** prajalinks@gmail.com
-- **Instagram:** https://www.instagram.com/prajalinks
+PrajaLinks beroperasi dengan standar kode bersih (clean code), performa tinggi (Google Lighthouse 90+), keamanan berlapis, dan kepemilikan kode sumber penuh (Full Source Code Ownership).
+
+Informasi Kepemilikan & Kontak Resmi:
+- Founder & Owner: Fauzan Bagus Prasetyo (Owner & Lead Software Engineer)
+- Lokasi Studio: Dukuh Krajan, Desa Morosari, Kec. Sukorejo, Kab. Ponorogo, Jawa Timur 63453, Indonesia
+- Cakupan Layanan: Seluruh 38 Provinsi & 482 Kabupaten/Kota di Indonesia (100% Online & Koordinasi Langsung)
+- WhatsApp Resmi: +62 851-5195-1806
+- Email Resmi: prajalinks@gmail.com
+- Paket Harga: Starter (Mulai Rp 750.000), Bisnis (Mulai Rp 1.850.000), Pro Desa/E-Commerce (Mulai Rp 3.500.000), Premium Custom Full-Stack (Mulai Rp 5.000.000)
+- Tumpukan Teknologi: Next.js, React, React Native, Laravel, Golang, TypeScript, Tailwind CSS, PostgreSQL, MySQL, Supabase
 
 ## Layanan Utama
-1. **Jasa Pembuatan Website Profesional & UMKM**
-   - Company Profile, Toko Online / E-Commerce, Landing Page konversi tinggi.
-   - Performa Google Lighthouse 95+, SEO On-Page, Mobile Friendly & Responsive.
-   - URL: https://www.prajalinks.my.id/layanan/jasa-pembuatan-website
 
-2. **Jasa Pembuatan Aplikasi Mobile & Web Custom**
-   - Aplikasi Kasir (POS), Manajemen Stok Gudang, Sistem Informasi Manajemen / ERP kustom.
-   - Stack: Next.js, React Native, Laravel, PostgreSQL/Supabase.
-   - URL: https://www.prajalinks.my.id/layanan/jasa-pembuatan-aplikasi
+- [Beranda PrajaLinks](https://www.prajalinks.my.id/): Halaman utama studio digital PrajaLinks, portofolio, paket harga, profil founder Fauzan Bagus Prasetyo, dan FAQ.
+- [Jasa Pembuatan Website Profesional & UMKM](https://www.prajalinks.my.id/layanan/jasa-pembuatan-website): Layanan pembuatan website company profile, landing page, dan toko online UMKM berkecepatan tinggi serta ramah SEO.
+- [Jasa Pembuatan Aplikasi Android, iOS & Web Custom](https://www.prajalinks.my.id/layanan/jasa-pembuatan-aplikasi): Pengembangan aplikasi kasir (POS), manajemen stok gudang, sistem informasi manajemen, dan ERP kustom.
+- [Jasa Pembuatan Website Desa & Sistem Informasi Desa (SID)](https://www.prajalinks.my.id/layanan/jasa-website-desa): Portal resmi pemerintahan desa (.desa.id), layanan surat mandiri warga online, transparansi APBDes, lengkap dengan dokumen SPJ resmi.
+- [Jasa Pembuatan Tugas Coding & Skripsi IT](https://www.prajalinks.my.id/layanan/jasa-pembuatan-tugas-coding): Bantuan pengerjaan tugas pemrograman kuliah dan proyek akhir informatika dengan penjelasan baris kode dan garansi revisi.
 
-3. **Jasa Website Desa & Sistem Informasi Desa (SID)**
-   - Portal resmi pemerintahan desa, sistem pengajuan surat mandiri online, transparansi anggaran APBDes.
-   - Dokumen SPJ & kuitansi resmi siap untuk administrasi desa.
-   - URL: https://www.prajalinks.my.id/layanan/jasa-website-desa
+## Jangkauan Wilayah & Dokumentasi
 
-4. **Jasa Tugas Coding & Asistensi Skripsi IT**
-   - Pembuatan tugas pemrograman kuliah (Web, Mobile, Desktop, Algoritma, Machine Learning dasar).
-   - Dilengkapi penjelasan baris kode, dokumentasi alur program, dan garansi revisi sampai tuntas.
-   - URL: https://www.prajalinks.my.id/layanan/jasa-pembuatan-tugas-coding
+- [Daftar Wilayah Layanan Seluruh Indonesia](https://www.prajalinks.my.id/wilayah): Direktori layanan pembuatan website, aplikasi, dan tugas coding di 482 Kabupaten dan Kota seluruh Indonesia.
+- [Dokumentasi Lengkap AI (llms-full.txt)](https://www.prajalinks.my.id/llms-full.txt): Ringkasan penuh profil perusahaan, founder, FAQ, dan spesifikasi teknis PrajaLinks.
+- [Peta Situs XML (Sitemap)](https://www.prajalinks.my.id/sitemap.xml): Indeks seluruh halaman aktif di situs resmi PrajaLinks.
 
-## Paket Harga & Estimasi
-- **Paket Starter:** Mulai Rp 750.000 (Cocok untuk Landing Page 1-3 Halaman, UMKM pemula).
-- **Paket Bisnis:** Mulai Rp 1.850.000 (Website Komprehensif hingga 7 Halaman, Profil Perusahaan & Portofolio).
-- **Paket Pro (Website Desa / Toko Online):** Mulai Rp 3.500.000 (Sistem Informasi Desa, E-commerce, Pengajuan Surat Online).
-- **Paket Premium:** Mulai Rp 5.000.000 (Sistem Informasi Custom Full-Stack, Aplikasi Web/Mobile, Ekspor Laporan Excel/PDF & Backup Berkala).
+## Optional
 
-## Tumpukan Teknologi (Tech Stack)
-- Frontend: Next.js (App Router), React, Tailwind CSS, TypeScript, Framer Motion
-- Backend: Laravel, Node.js, Go (Golang), REST API
-- Database: PostgreSQL, MySQL, Supabase
-- Infrastruktur & Hosting: Vercel, Cloud VPS, CDN Global, SSL HTTPS
-
-## Wilayah Layanan
-PrajaLinks melayani seluruh 38 provinsi dan lebih dari 480 Kabupaten/Kota di Indonesia, termasuk:
-- Jawa Timur (Ponorogo, Surabaya, Malang, Madiun, dll.)
-- Jawa Tengah, Jawa Barat, DKI Jakarta, DI Yogyakarta, Banten
-- Sumatera, Kalimantan, Sulawesi, Bali, Nusa Tenggara, Maluku, dan Papua
-- Hub Wilayah: https://www.prajalinks.my.id/wilayah
-
-## Kebijakan & Garansi
-- Revisi terstruktur sesuai paket pengerjaan.
-- Garansi teknis pasca-rilis 1 hingga 6 bulan.
-- Full Source Code Ownership (Klien memegang hak milik penuh atas kode sumber).
+- [Instagram Resmi PrajaLinks](https://www.instagram.com/prajalinks): Portofolio terbaru dan pembaruan aktivitas studio PrajaLinks.
+- [Konsultasi WhatsApp Langsung](https://wa.me/6285151951806): Saluran konsultasi teknis langsung 24 jam bersama Fauzan Bagus Prasetyo.

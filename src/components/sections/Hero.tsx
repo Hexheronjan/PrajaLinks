@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect, useRef } from "react";
-import { motion, AnimatePresence, useInView } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 import {
   ArrowUpRight,
@@ -20,7 +20,6 @@ import {
   Star,
 } from "lucide-react";
 import { getWhatsAppLink } from "@/data/site";
-import { smoothEase } from "@/utils/animations";
 
 const trust = [
   "Pengerjaan terstruktur & bergaransi",
@@ -54,7 +53,6 @@ const simulations = [
 
 export const Hero = () => {
   const ref = useRef<HTMLElement>(null);
-  const inView = useInView(ref, { once: true });
   const [activeTab, setActiveTab] = useState(0);
 
   // Auto-switch mode setiap 4.5 detik
@@ -116,20 +114,11 @@ export const Hero = () => {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
           {/* -----------------------------------------------------------
               Kolom Kiri: Pill Badge, Judul Lengkung, CTA, Poin
+              (Render langsung opacity: 1 pada SSR agar FCP & LCP instan)
           ------------------------------------------------------------ */}
-          <motion.div
-            initial={{ opacity: 0, x: -50 }}
-            animate={inView ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 0.7, ease: smoothEase }}
-            className="lg:col-span-7"
-          >
+          <div className="lg:col-span-7">
             {/* Pill Badge Lengkung Premium */}
-            <motion.div
-              initial={{ opacity: 0, y: 10 }}
-              animate={inView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.4, ease: smoothEase }}
-              className="mb-5 inline-flex flex-wrap items-center gap-2 px-3.5 py-1.5 rounded-full bg-white dark:bg-[#111827] border border-[#1D5BD8]/30 shadow-sm"
-            >
+            <div className="mb-5 inline-flex flex-wrap items-center gap-2 px-3.5 py-1.5 rounded-full bg-white dark:bg-[#111827] border border-[#1D5BD8]/30 shadow-sm">
               <span className="relative flex h-2 w-2">
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#1D5BD8] opacity-75" />
                 <span className="relative inline-flex rounded-full h-2 w-2 bg-[#1D5BD8]" />
@@ -142,7 +131,7 @@ export const Hero = () => {
                 <Sparkles className="w-3 h-3 text-[#C88A23]" />
                 Melayani Seluruh Indonesia
               </span>
-            </motion.div>
+            </div>
 
             {/* Judul Utama dengan Lengkungan Aksen Emas */}
             <h1 className="text-3xl sm:text-5xl lg:text-[3.75rem] font-bold leading-[1.12] text-[#111827] dark:text-white tracking-tight">
@@ -171,22 +160,12 @@ export const Hero = () => {
               </span>
             </h1>
 
-            <motion.p
-              initial={{ opacity: 0, y: 12 }}
-              animate={inView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.45, delay: 0.1, ease: smoothEase }}
-              className="mt-6 max-w-xl text-base sm:text-lg lg:text-[1.125rem] leading-relaxed text-[#374151] dark:text-slate-200 font-medium"
-            >
+            <p className="mt-6 max-w-xl text-base sm:text-lg lg:text-[1.125rem] leading-relaxed text-[#374151] dark:text-slate-200 font-medium">
               Mitra rekayasa digital untuk pembuatan <strong className="font-bold text-[#111827] dark:text-white">Website Profesional</strong>, <strong className="font-bold text-[#111827] dark:text-white">Aplikasi Mobile &amp; Web Custom</strong>, serta <strong className="font-bold text-[#111827] dark:text-white">Jasa Pembuatan Tugas Coding</strong>. Melayani klien dari seluruh kota di Indonesia secara online dengan pengerjaan cepat, kode bersih, dan bergaransi.
-            </motion.p>
+            </p>
 
             {/* Tombol Aksi Lengkung */}
-            <motion.div
-              initial={{ opacity: 0, y: 14 }}
-              animate={inView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.45, delay: 0.18, ease: smoothEase }}
-              className="mt-8 flex flex-wrap items-center gap-3.5"
-            >
+            <div className="mt-8 flex flex-wrap items-center gap-3.5">
               <a
                 href={getWhatsAppLink("Halo PrajaLinks, saya ingin konsultasi awal mengenai layanan website, aplikasi, atau tugas coding.")}
                 target="_blank"
@@ -203,15 +182,10 @@ export const Hero = () => {
               >
                 Lihat Portofolio
               </a>
-            </motion.div>
+            </div>
 
             {/* Poin Kepercayaan Pill Lengkung */}
-            <motion.ul
-              initial={{ opacity: 0, y: 12 }}
-              animate={inView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.45, delay: 0.25, ease: smoothEase }}
-              className="mt-8 flex flex-wrap gap-2.5 sm:gap-3 border-t border-[#E5E7EB] dark:border-white/10 pt-5"
-            >
+            <ul className="mt-8 flex flex-wrap gap-2.5 sm:gap-3 border-t border-[#E5E7EB] dark:border-white/10 pt-5">
               {trust.map((t) => (
                 <li
                   key={t}
@@ -223,36 +197,21 @@ export const Hero = () => {
                   <span>{t}</span>
                 </li>
               ))}
-            </motion.ul>
-          </motion.div>
+            </ul>
+          </div>
 
           {/* -----------------------------------------------------------
               Kolom Kanan: Card Showcase Studio Modern (Clean White, Royal Blue & Gold)
           ------------------------------------------------------------ */}
-          <motion.div
-            initial={{ opacity: 0, x: 50 }}
-            animate={inView ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 0.7, delay: 0.1, ease: smoothEase }}
-            className="lg:col-span-5 flex justify-center relative"
-          >
+          <div className="lg:col-span-5 flex justify-center relative">
             {/* Halo Biru-Emas Halus di Belakang Kartu */}
-            <motion.div
-              animate={{
-                scale: [1, 1.04, 1],
-                opacity: [0.35, 0.55, 0.35],
-              }}
-              transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
+            <div
               aria-hidden="true"
-              className="absolute -inset-3 bg-gradient-to-tr from-[#1D5BD8]/20 via-[#38BDF8]/15 to-[#C88A23]/25 rounded-[32px] blur-2xl pointer-events-none"
+              className="absolute -inset-3 bg-gradient-to-tr from-[#1D5BD8]/20 via-[#38BDF8]/15 to-[#C88A23]/25 rounded-[32px] blur-2xl pointer-events-none opacity-45"
             />
 
             {/* Kontainer Kartu Studio: Clean White dengan Border Biru-Emas Halus */}
-            <motion.div
-              initial={{ opacity: 0, scale: 0.96, y: 18 }}
-              animate={inView ? { opacity: 1, scale: 1, y: 0 } : {}}
-              transition={{ duration: 0.5, delay: 0.15, ease: smoothEase }}
-              className="relative w-full max-w-[430px] rounded-[24px] border border-slate-200/90 dark:border-white/15 bg-white dark:bg-[#0F172A] shadow-xl overflow-hidden"
-            >
+            <div className="relative w-full max-w-[430px] rounded-[24px] border border-slate-200/90 dark:border-white/15 bg-white dark:bg-[#0F172A] shadow-xl overflow-hidden">
               {/* Header macOS Bersih & Modern */}
               <div className="flex items-center justify-between px-4 py-2.5 bg-[#F8FAFC] dark:bg-[#1E293B] border-b border-slate-200 dark:border-white/10">
                 <div className="flex items-center gap-2">
@@ -301,22 +260,19 @@ export const Hero = () => {
               {/* Visual Area: Robot Maskot 3D Berpadu Mulus dengan Latar Terang */}
               <div className="relative aspect-[16/10] w-full overflow-hidden bg-gradient-to-b from-[#EFF6FF] via-white to-[#FAF9F6] dark:from-[#0B1528] dark:to-[#0F172A] flex items-center justify-center p-3">
                 {/* Robot Maskot dengan Animasi Mengapung Halus */}
-                <motion.div
-                  animate={{ y: [0, -6, 0] }}
-                  transition={{ duration: 3.8, repeat: Infinity, ease: "easeInOut" }}
-                  className="relative w-full h-full rounded-xl overflow-hidden border border-slate-200/70 dark:border-white/10 shadow-xs"
-                >
+                <div className="relative w-full h-full rounded-xl overflow-hidden border border-slate-200/70 dark:border-white/10 shadow-xs">
                   <Image
                     src="/robot-mascot.jpg"
                     alt="PrajaLinks Studio Engineering Mascot"
                     fill
-                    sizes="430px"
+                    sizes="(max-width: 640px) 260px, 400px"
+                    quality={65}
                     className="object-cover"
                     priority
                   />
                   {/* Overlay gradien halus agar menyatu dengan badge */}
                   <div className="absolute inset-0 bg-gradient-to-t from-white/30 via-transparent to-transparent pointer-events-none" />
-                </motion.div>
+                </div>
 
                 {/* Badge Status Mengapung Elegan di Sudut Kanan */}
                 <AnimatePresence mode="wait">
@@ -489,8 +445,8 @@ export const Hero = () => {
                   </div>
                 </div>
               </div>
-            </motion.div>
-          </motion.div>
+            </div>
+          </div>
         </div>
       </div>
 

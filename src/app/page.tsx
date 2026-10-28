@@ -1,19 +1,45 @@
+import dynamic from "next/dynamic";
 import { Hero } from "@/components/sections/Hero";
 import { Marquee } from "@/components/sections/Marquee";
 import { DualTrack } from "@/components/sections/DualTrack";
 import { Services } from "@/components/sections/Services";
-import { VillageDemo } from "@/components/sections/VillageDemo";
-import { VideoSection } from "@/components/sections/VideoSection";
-import { Portfolio } from "@/components/sections/Portfolio";
-import { Pricing } from "@/components/sections/Pricing";
-import { Process } from "@/components/sections/Process";
-import { WhyUs } from "@/components/sections/WhyUs";
-import { Founder } from "@/components/sections/Founder";
-import { Stats } from "@/components/sections/Stats";
-import { Testimonials } from "@/components/sections/Testimonials";
-import { FAQ } from "@/components/sections/FAQ";
-import { CTA } from "@/components/sections/CTA";
-import { Contact } from "@/components/sections/Contact";
+
+const VillageDemo = dynamic(() =>
+  import("@/components/sections/VillageDemo").then((m) => m.VillageDemo)
+);
+const VideoSection = dynamic(() =>
+  import("@/components/sections/VideoSection").then((m) => m.VideoSection)
+);
+const Portfolio = dynamic(() =>
+  import("@/components/sections/Portfolio").then((m) => m.Portfolio)
+);
+const Pricing = dynamic(() =>
+  import("@/components/sections/Pricing").then((m) => m.Pricing)
+);
+const Process = dynamic(() =>
+  import("@/components/sections/Process").then((m) => m.Process)
+);
+const WhyUs = dynamic(() =>
+  import("@/components/sections/WhyUs").then((m) => m.WhyUs)
+);
+const Founder = dynamic(() =>
+  import("@/components/sections/Founder").then((m) => m.Founder)
+);
+const Stats = dynamic(() =>
+  import("@/components/sections/Stats").then((m) => m.Stats)
+);
+const Testimonials = dynamic(() =>
+  import("@/components/sections/Testimonials").then((m) => m.Testimonials)
+);
+const FAQ = dynamic(() =>
+  import("@/components/sections/FAQ").then((m) => m.FAQ)
+);
+const CTA = dynamic(() =>
+  import("@/components/sections/CTA").then((m) => m.CTA)
+);
+const Contact = dynamic(() =>
+  import("@/components/sections/Contact").then((m) => m.Contact)
+);
 
 export default function Home() {
   return (

@@ -10,12 +10,13 @@ export const SmoothScrollProvider = ({
   children: React.ReactNode;
 }) => {
   useEffect(() => {
-    // Respect prefers-reduced-motion
+    // Respect prefers-reduced-motion & skip continuous RAF loop on mobile/touch devices
     const prefersReducedMotion = window.matchMedia(
       "(prefers-reduced-motion: reduce)"
     ).matches;
+    const isFinePointer = window.matchMedia("(pointer: fine)").matches;
 
-    if (prefersReducedMotion) return;
+    if (prefersReducedMotion || !isFinePointer) return;
 
     const lenis = new Lenis({
       duration: 1.2,

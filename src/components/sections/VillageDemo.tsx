@@ -397,7 +397,7 @@ export const VillageDemo = () => {
                               fill
                               sizes="(max-width: 768px) 100vw, 900px"
                               className="object-cover object-center"
-                              priority
+                              loading="lazy"
                             />
 
                             {/* Lapisan Gradasi Gelap Kontras Tinggi agar Teks Terbaca 100% */}
