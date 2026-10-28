@@ -717,7 +717,7 @@ export default async function ServiceDetailPage({
                           <span className="text-[#111827] dark:text-white">
                             Google PageSpeed
                           </span>
-                          <span className="text-[#16A34A]">✓ Super Cepat</span>
+                          <span className="inline-flex items-center gap-1 text-[#16A34A]"><Check className="w-3.5 h-3.5 shrink-0" /><span>Super Cepat</span></span>
                         </div>
                       </div>
                     </div>
@@ -752,7 +752,7 @@ export default async function ServiceDetailPage({
                         </div>
                         <div className="mt-3 pt-2 border-t border-slate-100 dark:border-white/10 flex items-center justify-between text-[11px] font-bold">
                           <span>Status Laporan</span>
-                          <span className="text-[#16A34A]">✓ Sinkron Real-time</span>
+                          <span className="inline-flex items-center gap-1 text-[#16A34A]"><Check className="w-3.5 h-3.5 shrink-0" /><span>Sinkron Real-time</span></span>
                         </div>
                       </div>
                     </div>
@@ -782,7 +782,7 @@ export default async function ServiceDetailPage({
                         <p className="pl-3 text-[#9CDCFE]">
                           return{" "}
                           <span className="text-[#CE9178]">
-                            &quot;100% Berjalan Tanpa Error ✓&quot;
+                            &quot;100% Berjalan Tanpa Error&quot; <Check className="w-3 h-3 inline-block text-emerald-400" />
                           </span>
                         </p>
                       </div>
@@ -808,7 +808,7 @@ export default async function ServiceDetailPage({
                       </p>
                       <div className="pt-2 border-t border-slate-100 dark:border-white/10 flex items-center justify-between text-[11px] font-bold">
                         <span>Status Sistem</span>
-                        <span className="text-[#16A34A]">✓ Siap Audit APBDes</span>
+                        <span className="inline-flex items-center gap-1 text-[#16A34A]"><Check className="w-3.5 h-3.5 shrink-0" /><span>Siap Audit APBDes</span></span>
                       </div>
                     </div>
                   )}

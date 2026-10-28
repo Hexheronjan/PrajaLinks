@@ -115,7 +115,7 @@ export const CTA = () => {
                     Pilih Kategori Layanan
                   </span>
                   <span className="text-xs font-bold text-[#C88A23]">
-                    ● Aktif Konsultasi
+                    <span className="inline-flex items-center gap-1.5"><span className="w-2 h-2 rounded-full bg-[#C88A23] animate-pulse" /><span>Aktif Konsultasi</span></span>
                   </span>
                 </div>
 

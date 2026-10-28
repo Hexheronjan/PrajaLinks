@@ -4,7 +4,7 @@ import {
   Zap,
   ShieldAlert,
   FileCheck,
-  MapPin,
+  MapPin, CheckCircle2,
 } from "lucide-react";
 import { siteData } from "@/data/site";
 import { staggerContainer, slideUp, smoothEase } from "@/utils/animations";
@@ -15,7 +15,7 @@ const icons: Record<string, any> = {
   Zap,
   ShieldAlert,
   FileCheck,
-  MapPin,
+  MapPin, CheckCircle2,
 };
 
 export const WhyUs = () => {
@@ -78,7 +78,7 @@ export const WhyUs = () => {
 
                 <div className="pt-3.5 border-t border-[#E5E7EB] dark:border-white/10">
                   <span className="text-xs sm:text-sm font-bold text-[#1D5BD8] dark:text-[#60A5FA]">
-                    ✓ {item.proof}
+                    <span className="inline-flex items-center gap-1.5"><CheckCircle2 className="w-4 h-4 shrink-0" /><span>{item.proof}</span></span>
                   </span>
                 </div>
               </motion.div>

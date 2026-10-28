@@ -303,7 +303,7 @@ export const Hero = () => {
                         <span className="text-[#DCDCAA]">selesaikan_tugas</span>():
                       </p>
                       <p className="pl-3 text-[#9CDCFE]">
-                        return <span className="text-[#CE9178]">&quot;100% Berjalan Tanpa Error ✓&quot;</span>
+                        return <span className="text-[#CE9178]">&quot;100% Berjalan Tanpa Error&quot;</span> <Check className="w-3 h-3 inline-block text-emerald-400" />
                       </p>
                     </div>
                     <div className="mt-2 pt-1.5 border-t border-white/10 flex items-center justify-between text-[10px] text-emerald-400 font-bold">

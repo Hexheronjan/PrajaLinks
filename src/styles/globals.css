@@ -183,3 +183,69 @@ body > footer {
   content-visibility: auto;
   contain-intrinsic-size: auto 700px;
 }
+
+/* Initial Splash Loader (Bypass otomatis untuk bot/PageSpeed & sesi berulang) */
+html.pl-skip-loader #prajalinks-initial-loader {
+  display: none !important;
+}
+
+@keyframes plLoaderCurtain {
+  0%, 72% {
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    transform: translate3d(0, -100%, 0);
+  }
+}
+
+@keyframes plLoaderLogo {
+  0% {
+    opacity: 0;
+    transform: translate3d(0, 12px, 0);
+  }
+  100% {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes plLoaderNode {
+  0% {
+    transform: scale(0);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes plLoaderLine {
+  0% {
+    stroke-dashoffset: 200;
+  }
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+
+.pl-loader-curtain {
+  animation: plLoaderCurtain 2.15s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  will-change: transform;
+}
+
+.pl-loader-logo {
+  animation: plLoaderLogo 0.5s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+.pl-loader-node-blue {
+  animation: plLoaderNode 0.3s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.pl-loader-line {
+  stroke-dasharray: 200;
+  stroke-dashoffset: 200;
+  animation: plLoaderLine 0.85s cubic-bezier(0.22, 1, 0.36, 1) 0.2s forwards;
+}
+
+.pl-loader-node-gold {
+  animation: plLoaderNode 0.3s cubic-bezier(0.22, 1, 0.36, 1) 0.95s both;
+}

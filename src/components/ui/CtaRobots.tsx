@@ -1,7 +1,7 @@
 "use client";
 
 import { useId } from "react";
-import { Laptop, Code2 } from "lucide-react";
+import { Laptop, Code2, Check } from "lucide-react";
 
 type Variant = "web" | "code";
 
@@ -173,7 +173,7 @@ const CodeHolo = () => (
     <div className="pl-type text-slate-200 pl-2" style={{ ["--w" as string]: "100%", animationDelay: "0.6s" }}>
       return n * 2
     </div>
-    <div className="text-emerald-400 font-bold">✓ 12/12 test passed</div>
+    <div className="flex items-center gap-1 text-emerald-400 font-bold"><Check className="w-2.5 h-2.5 shrink-0" /><span>12/12 test passed</span></div>
   </div>
 );
 
