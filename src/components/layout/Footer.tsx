@@ -1,3 +1,5 @@
+"use client";
+
 import Link from "next/link";
 import { ArrowUp } from "lucide-react";
 import { siteData, getWhatsAppLink } from "@/data/site";

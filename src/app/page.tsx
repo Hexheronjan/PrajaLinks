@@ -1,3 +1,5 @@
+"use client";
+
 import { Hero } from "@/components/sections/Hero";
 import { Marquee } from "@/components/sections/Marquee";
 import { DualTrack } from "@/components/sections/DualTrack";
